@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>Research Skills – Testing hypotheses</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-449c5a010a1a97117e2f48e21b6868ed.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Testing hypotheses</h1>
+  <p class="subtitle">Research Skills — Week 6</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section>
+<section id="recap" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Recap</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-current" aria-hidden="true">
+Recap
+</div>
+<div class="recap-after">
+<ul>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="where-we-are" class="slide level2">
+<h2>Where we are</h2>
+<div class="columns-even" style="grid-template-columns: 1.3fr 1fr;">
+<div class="col">
+<ul>
+<li>Week 3: the <em>logic</em> of hypothesis testing (conceptual)</li>
+<li>Week 5: experimental design, controls, confounders</li>
+</ul>
+<div class="fragment">
+<p>This week: the <strong>formal machinery</strong>. How do you tell a real difference from a fluke?</p>
+</div>
+<div class="fragment">
+<p>And then you’ll learn why the answer can mislead you.</p>
+</div>
+</div>
+<div class="col">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="week06-content_files/figure-revealjs/w06-ppdac-1.png" class="quarto-figure quarto-figure-center" alt="The PPDAC cycle drawn as a ring: Problem, Plan, Data, Analysis, Conclusion, with arrows running clockwise back to Problem. Data and Analysis are highlighted; the centre reads Phase 2." width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fig-source">
+<p><a href="figures/w01-ppdac-ring.R">w01-ppdac-ring.R</a></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[11:05–11:10]</strong> Frame the session: first half is mechanics, second half is the most important lesson of the course.</li>
+<li>Point at the ring: where this week sits in PPDAC (Week 1, “The cycle”).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="questions" class="slide level2" data-visibility="uncounted">
+<h2>Questions?</h2>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Open the Poll Everywhere Q&amp;A activity before the session and leave it active throughout.</li>
+<li>Questions appear in your Poll Everywhere presenter view; upvoted questions rise to the top.</li>
+<li>Address during transitions or at the end of concept blocks, not mid-explanation.</li>
+<li>Reset (archive) the activity between sessions so questions don’t carry over from the previous week.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="the-t-test" class="title-slide slide level1 section-divider recap-heading center">
+<h1>The null world</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+The null world
+</div>
+<p><span class="activity-badge badge-livecode">🎓💻 Concept block 1</span></p>
+<div class="recap-after">
+<ul>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="what-does-a-t-test-do" class="slide level2">
+<h2>Is the difference real?</h2>
+<p>Boreholes in the Stainmore Formation run hotter, on average, than boreholes in the Whin Sill.</p>
+<div class="discussion-prompt">
+<p>“Is this difference larger than we’d expect by chance?”</p>
+</div>
+<div class="photo" style="text-align: center; margin-top: 0.4em;">
+<p><img data-src="images/whin-sill-holwick-scars.jpg" alt="Grey cliffs of columnar dolerite rising above scree and drystone walls in a green valley." height="250"></p>
+<div class="photo-credit">
+<p>The Whin Sill at Holwick Scars, Teesdale.<br> Gordon Hatton / <a href="https://www.geograph.org.uk/photo/5716411">Geograph</a>, CC BY-SA 2.0</p>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[11:10–11:42]</strong> The null world by simulation, then the <em>t</em>-test as its shortcut, each with a live demo.</li>
+<li>Don’t say “<em>t</em>-test” yet. The whole block builds one idea, the null world, and only names the formula once students own the idea. The reveal is “This is a <em>t</em>-test”, after the null-world demo.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="five-steps-every-test" class="slide level2">
+<h2>Five steps, every test</h2>
+<ol type="1">
+<li class="fragment"><strong>Measure</strong> δ — the one number you care about. Here: Stainmore’s mean temperature minus Whin Sill’s.</li>
+<li class="fragment"><strong>Build a null world</strong> — a world where δ really is zero. Simulate it: shuffle the formation labels, recompute δ, repeat.</li>
+<li class="fragment"><strong>Drop your δ into it.</strong> Does it look at home?</li>
+<li class="fragment"><strong>Count</strong> how often the null world makes a δ at least as extreme. That fraction is the <em>p</em>-value.</li>
+<li class="fragment"><strong>Decide</strong>, against a standard you set <em>before</em> you looked.</li>
+</ol>
+<aside class="notes">
+<ul>
+<li>Steps 2–4 are the heart of it. Today we do them by brute force, by shuffling; the named tests come later and only replace those steps with a formula.</li>
+<li>The idea that every test is this one test is Allen Downey’s (“There is only one test”); the five-step framing and the interactive version are Andrew Heiss’s <em>Null worlds</em>, <a href="https://nullworlds.andrewheiss.com/" class="uri">https://nullworlds.andrewheiss.com/</a>. Point students there — the sliders make the intuition stick.</li>
+<li>The whole method rests on one question: <strong>how surprising would this be if nothing were going on?</strong> Plant a flag here. In block 3 we will meet its partner — <em>how plausible was this before we tested?</em> — and the gap between the two is the base-rate fallacy. A null world only ever answers the first question.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-world-where-formation-doesnt-matter" class="slide level2">
+<h2>A world where formation doesn’t matter</h2>
+
+<img data-src="week06-content_files/figure-revealjs/w06-null-world-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Two panels. Left: borehole temperatures as dots for the Stainmore and Whin Sill formations, with each formation's mean as a bar and a red arrow marking the 8.4 degree difference between them. Right: a histogram of the difference in means from 1000 random shuffles of the formation labels, centred on zero and spanning about minus 11 to plus 11 degrees. Dashed red lines mark minus and plus 8.4; the few bars beyond them are red. 26 of the 1000 shuffles are that extreme, p = 0.026." width="1056"><div class="fig-source">
+<p><a href="figures/w06-null-world.R">w06-null-world.R</a> · After Heiss (2026), <em>Null worlds</em></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Left is step 1: the data as sampled. δ = 8.4&nbsp;°C.</li>
+<li>Right is step 2: keep every temperature exactly as measured, but deal the formation labels out again at random, 1000 times. In every one of those worlds formation cannot matter — the labels are noise — so the spread of δ is what chance alone produces with these boreholes.</li>
+<li>Step 3: the dashed lines are our real δ, both signs, because the question is “this extreme”, not “this large”.</li>
+<li>Step 4: count the red. 26 of 1000, so <em>p</em> = 0.026.</li>
+<li>Hold on to this picture: after the reveal, “What ‘how often’ means” shows a smooth curve with shaded tails. That curve is the formula’s version of this histogram.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="build-the-null-world" class="slide level2">
+<h2>Build the null world</h2>
+<div class="cell" data-persist="false" data-editor-max-height="260">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1tYXgtaGVpZ2h0IjoyNjAsImV2YWwiOnRydWUsImZpZy1oZWlnaHQiOjIuNiwiZmlnLXdpZHRoIjo4LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIDEuIHJlYWQgdGhlIGJvcmVob2xlIHRlbXBlcmF0dXJlcyBmcm9tIFwiZGF0YS9ib3JlaG9sZV90ZW1wLmNzdlwiXG5cbiMgMi4gZGVsdGE6IG1lYW4gU3RhaW5tb3JlIHRlbXBlcmF0dXJlIG1pbnVzIG1lYW4gV2hpbiBTaWxsXG5cbiMgMy4gc2h1ZmZsZSB0aGUgZm9ybWF0aW9uIGxhYmVscyBvbmNlIGFuZCByZWNvbXB1dGUgZGVsdGFcblxuIyA0LiBkbyB0aGF0IDEwMDAgdGltZXM6IHRoZSBudWxsIHdvcmxkIChzZXQgYSBzZWVkIGZpcnN0KVxuXG4jIDUuIGhpc3RvZ3JhbSB0aGUgbnVsbCB3b3JsZCwgd2l0aCBvdXIgZGVsdGEgbWFya2VkXG5cbiMgNi4gcC12YWx1ZTogdGhlIGZyYWN0aW9uIG9mIHNodWZmbGVzIGF0IGxlYXN0IGFzIGV4dHJlbWUgYXMgb3Vyc1xuXG4jIDcuIGhvdyB3aWRlIGlzIHRoZSBudWxsIHdvcmxkPyAoaXRzIHN0YW5kYXJkIGRldmlhdGlvbikifQ==
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p><strong>Type this, don’t paste it.</strong> Students have the same data; invite them to beat you to the <em>p</em>-value.</p></li>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>borehole <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/borehole_temp.csv"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>temp <span class="ot">&lt;-</span> borehole<span class="sc">$</span>temperature_c</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a>delta <span class="ot">&lt;-</span> <span class="fu">mean</span>(temp[borehole<span class="sc">$</span>formation <span class="sc">==</span> <span class="st">"Stainmore"</span>]) <span class="sc">-</span></span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">mean</span>(temp[borehole<span class="sc">$</span>formation <span class="sc">==</span> <span class="st">"Whin Sill"</span>])</span>
+<span id="cb1-6"><a aria-label="6"></a>delta</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a>shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(borehole<span class="sc">$</span>formation)</span>
+<span id="cb1-9"><a aria-label="9"></a><span class="fu">mean</span>(temp[shuffled <span class="sc">==</span> <span class="st">"Stainmore"</span>]) <span class="sc">-</span> <span class="fu">mean</span>(temp[shuffled <span class="sc">==</span> <span class="st">"Whin Sill"</span>])</span>
+<span id="cb1-10"><a aria-label="10"></a></span>
+<span id="cb1-11"><a aria-label="11"></a><span class="fu">set.seed</span>(<span class="dv">6</span>)</span>
+<span id="cb1-12"><a aria-label="12"></a>null_deltas <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb1-13"><a aria-label="13"></a>  shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(borehole<span class="sc">$</span>formation)</span>
+<span id="cb1-14"><a aria-label="14"></a>  <span class="fu">mean</span>(temp[shuffled <span class="sc">==</span> <span class="st">"Stainmore"</span>]) <span class="sc">-</span> <span class="fu">mean</span>(temp[shuffled <span class="sc">==</span> <span class="st">"Whin Sill"</span>])</span>
+<span id="cb1-15"><a aria-label="15"></a>})</span>
+<span id="cb1-16"><a aria-label="16"></a></span>
+<span id="cb1-17"><a aria-label="17"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(null_deltas), <span class="fu">aes</span>(<span class="at">x =</span> null_deltas)) <span class="sc">+</span></span>
+<span id="cb1-18"><a aria-label="18"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a aria-label="19"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>delta, delta), <span class="at">colour =</span> <span class="st">"red"</span>)</span>
+<span id="cb1-20"><a aria-label="20"></a></span>
+<span id="cb1-21"><a aria-label="21"></a><span class="fu">mean</span>(<span class="fu">abs</span>(null_deltas) <span class="sc">&gt;=</span> <span class="fu">abs</span>(delta))</span>
+<span id="cb1-22"><a aria-label="22"></a></span>
+<span id="cb1-23"><a aria-label="23"></a><span class="fu">sd</span>(null_deltas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Numbers from a real run: δ = 8.417; <em>p</em> = 0.026 (26 of 1000 shuffles). The null deltas run from about −11.4 to +11.1.</p></li>
+<li><p>Step 3 is unseeded on purpose: run it two or three times so the room sees each shuffle give a different δ, near zero. Then <code>set.seed(6)</code> <strong>immediately before</strong> <code>replicate()</code> — that is what the figure on the previous slide used, so the <em>p</em>-value matches it exactly. Put the seed anywhere else and the third decimal moves; that wobble is itself worth a sentence: a simulated <em>p</em>-value is an estimate, and 1000 shuffles is plenty to tell 0.03 from 0.3.</p></li>
+<li><p><code>abs()</code> twice makes it two-sided: “this extreme”, either way.</p></li>
+<li><p>Step 7 gives about 3.9&nbsp;°C (the exact value depends on the seed). Don’t explain it yet: it is the hook for the next slide.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sd-or-se" class="slide level2">
+<h2>SD or SE?</h2>
+
+<img data-src="week06-content_files/figure-revealjs/w06-sd-or-se-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Two rows, two columns. Top row: 8 boreholes per formation, drawn at random from the data; bottom row: all 35. Left column: the temperatures as dots, with the same scatter in both rows (SD 20 and 9 degrees C). Right column: histograms of 1000 shuffled differences in mean temperature. With 8 per formation they spread from about minus 20 to plus 20 degrees (SE about 7.5 degrees C); with 35 they bunch between about minus 11 and plus 11 (SE about 3.9 degrees C)." width="1056"><div class="fig-source">
+<p><a href="figures/w06-sd-or-se.R">w06-sd-or-se.R</a></p>
+</div>
+<p><strong>SD</strong>: spread of the boreholes. <strong>SE</strong>: spread of δ between samples.</p>
+<aside class="notes">
+<ul>
+<li><strong>[2&nbsp;min]</strong> Students met SD in Weeks 1 and 2; SE is new. Every later week leans on it (Week 7’s ± 1.96 SE, Week 8’s slope SE).</li>
+<li>Left column: “more points keep the same scatter”: SD 20 and 9&nbsp;°C in both rows. Right column: “but with more points, a shuffle is less likely to put the means far apart by chance”, so the null world narrows from about 7.5&nbsp;°C to 3.9&nbsp;°C.</li>
+<li>The SD describes the data; the SE describes a <em>statistic</em> (here δ) across the samples we might have drawn. The null-world histogram is exactly that picture: the bottom right is the null world the room just built, and its SE is the <code>sd(null_deltas)</code> they just saw.</li>
+<li>Formula, if asked: SE of δ = √(SD₁²/<em>n</em>₁ + SD₂²/<em>n</em>₂), which gives 3.75&nbsp;°C at <em>n</em> = 35 per formation, close to the shuffle’s 3.94&nbsp;°C. The <em>n</em> under the root is why more data narrows the SE while leaving the SD where it is.</li>
+<li>The 8-per-formation subset is real boreholes, drawn at random. Numbers: <code>sd()</code> gives 20.26&nbsp;°C (Stainmore) and 9.10&nbsp;°C (Whin Sill).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-would-the-null-world-be" class="slide level2">
+<h2>What would the null world be?</h2>
+<p>For each claim: what would you shuffle, simulate, or hold fixed?</p>
+<ol type="1">
+<li class="fragment">The same 15 boreholes, logged in 2005 and again in 2025, read warmer now.</li>
+<li class="fragment">HolmesCo struck water in 8 of its 10 boreholes, beating the regional rate of 50&nbsp;%.</li>
+<li class="fragment">Downstream wells have more sulphate than upstream ones. The wells were sampled in upstream–downstream pairs, one pair per site.</li>
+</ol>
+<aside class="notes">
+<ul>
+<li><strong>[3&nbsp;min, within 11:10–11:42]</strong> Desks, one minute per claim. Ask for the null world, not a test name. Each claim needs a different step 2.</li>
+<li>1: <strong>paired</strong>. Within each borehole, swap the two readings at random (equivalently, flip the sign of each 2025 − 2005 difference). Shuffling across boreholes would mix in the differences between sites, which is not what the claim is about. Aside: even a clear result answers “chance?”, not “why?” (newer probes? Week 5’s confounders).</li>
+<li>2: <strong>simulate from a model</strong>. There are no labels to shuffle. Flip a fair coin 10 times, count the heads, repeat 1000 times; how often do we get 8 or more?</li>
+<li>3: <strong>constrained shuffle</strong>. A free shuffle breaks the pairing: sites differ in geology, so sulphate varies more between sites than within them. Swap the labels only <em>within</em> each site. Good place to plant the word “assumption” for block 2: every null world assumes something about which values could have traded places.</li>
+<li>The point to drill: the same five steps every time, but step 2 is where the thinking is.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-logic" class="slide level2">
+<h2>This is a <em>t</em>-test</h2>
+<p>A <strong><em>t</em>-test</strong> asks the same question with a formula, instead of a shuffle:</p>
+<ol type="1">
+<li class="fragment"><strong>Assume</strong> no difference: the null world (the null hypothesis)</li>
+<li class="fragment"><strong>Calculate</strong> how far apart the means are, relative to the variability (→ <em>t</em>-statistic)</li>
+<li class="fragment"><strong>Ask:</strong> if there were really no difference, how often would we see a <em>t</em> this extreme? (→ <em>p</em>-value)</li>
+</ol>
+<aside class="notes">
+<ul>
+<li>The reveal. Map each line back to the five steps: line 1 is step 2, lines 2–3 are steps 3–4.</li>
+<li>The payoff line: “Everything <code>t.test()</code> does is a shortcut for what we just did by hand.” Shuffling needs no normality assumption — but it still compares <strong>means</strong>, and Stainmore’s long tail drags its mean. Block 2 comes back to that, and it is not the test’s fault.</li>
+<li>The formula buys speed and a smooth curve; it costs assumptions about the shape of the data. Next demo: does it agree with our 0.026?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="live-demo" class="slide level2">
+<h2>Live demo</h2>
+<div class="cell" data-persist="false" data-editor-max-height="180">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1tYXgtaGVpZ2h0IjoxODAsImV2YWwiOnRydWUsImZpZy1oZWlnaHQiOjIuOCwiZmlnLXdpZHRoIjo4LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIDEuIHJlYWQgdGhlIGJvcmVob2xlIHRlbXBlcmF0dXJlcyBmcm9tIFwiZGF0YS9ib3JlaG9sZV90ZW1wLmNzdlwiXG5cbiMgMi4gbG9vayBhdCB0aGUgdHdvIGZvcm1hdGlvbnMgYmVmb3JlIHRlc3RpbmcgYW55dGhpbmdcblxuIyAzLiBydW4gdGhlIHQtdGVzdCJ9
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p><strong>Type this, don’t paste it.</strong> Say out loud that the students have the same dataset open; invite them to get to the <em>p</em>-value first, and start typing a minute in.</p></li>
+<li><p><code>borehole</code> is already loaded from the null-world demo (the cells on this deck share one R session), so step 1 is a one-liner or a skip.</p></li>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>borehole <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/borehole_temp.csv"</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">ggplot</span>(borehole, <span class="fu">aes</span>(<span class="at">x =</span> formation, <span class="at">y =</span> temperature_c)) <span class="sc">+</span></span>
+<span id="cb2-4"><a aria-label="4"></a><span class="co"># geom_violin() +</span></span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="fu">t.test</span>(temperature_c <span class="sc">~</span> formation, <span class="at">data =</span> borehole)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>ggplot2 is already attached on this slide. Points (with violins, if you like) are what <code>exercises/week6-app.qmd</code> Exercise 1 asks for.</p></li>
+<li><p>Show the output: <em>t</em>-statistic, df, <em>p</em>-value, confidence interval.</p></li>
+<li><p>Set it beside the shuffle: 0.030 from the formula, 0.026 from 1000 shuffles. Same question, same answer, two routes.</p></li>
+<li><p>Interpret aloud: “The mean difference is 8.4&nbsp;°C, with a 95&nbsp;% CI of [0.9, 16.0]. The <em>p</em>-value is 0.03, meaning we’d see a difference this large about 3&nbsp;% of the time if there were truly no difference.”</p></li>
+<li><p>Exact values, so the next slide’s table matches: <em>t</em> = 2.2419, df = 47.179, <em>p</em> = 0.0297, CI [0.865, 15.969], means 35.30 (Stainmore) and 26.88 (Whin Sill).</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reading-the-output" class="slide level2">
+<h2>Reading the output</h2>
+<pre><code>t = 2.2419, df = 47.179, p-value = 0.02971
+95 percent confidence interval:
+  0.8648363 15.9694494</code></pre>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>t</em>-statistic</td>
+<td>How many SEs apart the means are: 8.4 / 3.75 ≈ 2.24</td>
+</tr>
+<tr class="even">
+<td><em>p</em>-value</td>
+<td>How surprising, in the null world (where <em>H</em>₀ is true)</td>
+</tr>
+<tr class="odd">
+<td>95&nbsp;% CI</td>
+<td>Plausible range for the true difference</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<ul>
+<li>Emphasize: the CI is often more useful than the <em>p</em>-value. It tells you the <em>size</em> of the effect, not just whether it exists.</li>
+<li>These are the real numbers from <code>borehole_temp.csv</code>, so they should match the live demo exactly. If they don’t, the data changed.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="what-how-often-means" class="slide level2">
+<h2>What “how often” means</h2>
+
+<img data-src="week06-content_files/figure-revealjs/w06-t-distribution-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A t-distribution curve with dashed lines at minus 2.24 and 2.24 and the two tails beyond them shaded. The shaded slivers are 3&nbsp;% of the total area under the curve." width="864"><div class="fig-source">
+<p><a href="figures/w06-t-distribution.R">w06-t-distribution.R</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Step 3 of “This is a <em>t</em>-test” was: if there were really no difference, how often would we see a <em>t</em> this extreme? That “how often” is an area, and this is it.</li>
+<li>Both tails, because the question was “this extreme”, not “this large”.</li>
+<li>t, df and the shaded fraction all come from the same <code>t.test()</code> the demo just ran.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="interpret-a-t-test" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Interpret a <em>t</em>-test</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Interpret a <em>t</em>-test
+</div>
+<p><span class="activity-badge badge-exercise">💬✏️ Exercise 1</span></p>
+<div class="recap-after">
+<ul>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="write-one-sentence" class="slide level2">
+<h2>Write one sentence</h2>
+<p>I’m showing you R output from a <em>t</em>-test.</p>
+<p>Write <strong>one sentence</strong> interpreting this result for a policy audience.</p>
+<div class="fragment">
+<p>Then we’ll compare.</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:42–11:50]</strong> Show pre-prepared output on screen. Students write, then share.</li>
+<li>Common mistake to watch for: “the <em>p</em>-value means there’s a 3&nbsp;% chance the null is true.” Flag this — it’s exactly the confusion block 3 will address.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="a-common-mistake" class="slide level2">
+<h2>A common mistake</h2>
+<div class="discussion-prompt">
+<p>“<em>p</em> = 0.03 means there’s a 3&nbsp;% chance the null is true.”</p>
+</div>
+<div class="fragment">
+<p><strong>Wrong.</strong> But extremely common. We’ll come back to this.</p>
+<aside class="notes">
+<ul>
+<li>Plant the seed now. The base rate fallacy in block 3 will explain why this interpretation is wrong.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="assumptions" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Assumptions</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Assumptions
+</div>
+<p><span class="activity-badge badge-concept">🎓 Concept block 2</span></p>
+<div class="recap-after">
+<ul>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="every-test-rests-on-assumptions" class="slide level2">
+<h2>Every test rests on assumptions</h2>
+<p>For the <em>t</em>-test:</p>
+<ol type="1">
+<li class="fragment"><strong>Independence</strong> — observations don’t influence each other</li>
+<li class="fragment"><strong>Normality</strong> — data within each group are roughly normal</li>
+<li class="fragment"><strong>Equal variance</strong> — groups have similar spread (Student’s <em>t</em>; Welch’s <em>t</em> relaxes this)</li>
+</ol>
+<aside class="notes">
+<ul>
+<li><strong>[11:50–12:05]</strong> Assumptions, how to check, what to do when violated. Keep “How to check” to a quick pass: name Levene’s test but don’t demo it. The skew figure is where the time should go.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-to-check" class="slide level2">
+<h2>How to check</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Normality</td>
+<td>Histogram, QQ plot, <code>shapiro.test()</code></td>
+</tr>
+<tr class="even">
+<td>Equal variance</td>
+<td>Side-by-side points or violins, Levene’s test</td>
+</tr>
+<tr class="odd">
+<td>Independence</td>
+<td>Think about the study design</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="when-assumptions-are-violated" class="slide level2">
+<h2>When assumptions are violated</h2>
+<p>A skewed variable can produce misleading <em>p</em>-values.</p>
+
+<img data-src="week06-content_files/figure-revealjs/w06-skew-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Four histograms of borehole temperature: two formations by rows, raw and log-transformed by columns. Raw, Stainmore trails a long right tail out to 100 degrees while Whin Sill is compact. On the log scale neither has a long right tail, and their centres are close, though Stainmore is still the wider of the two." width="864"><div class="fig-source">
+<p><a href="figures/w06-skew-and-logs.R">w06-skew-and-logs.R</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>This is the dataset from the live demo. The test they just ran is the one that breaks: <em>p</em> = 0.030 raw, <em>p</em> = 0.22 logged. Both <em>p</em>-values are computed by the script.</li>
+<li>Nothing was removed and no outlier was excluded. The only change is the scale the test was run on.</li>
+<li>Someone may ask: the shuffle test assumed nothing about normality and still gave 0.03 — so was the <em>t</em>-test really broken? Shuffle the <strong>log</strong> temperatures and you get <em>p</em> ≈ 0.23, close to the logged <em>t</em>-test’s 0.22. Both machines agree on whichever δ you hand them; the transform changes the <em>question</em> (typical ratio, not mean difference in °C), and with a tail like Stainmore’s the mean is the wrong question.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="holmesco-stopped-at-the-first-test" class="slide level2">
+<h2>HolmesCo stopped at the first test</h2>
+<div class="holmesco-doc">
+<div class="holmesco-letterhead">
+<p class="holmesco-name"><span aria-hidden="true">⚒️</span> HolmesCo</p>
+<p class="holmesco-tagline"><em>Geological Consultants Since 2019</em></p>
+<p class="holmesco-motto">“Our Results Are Never Skewed”™</p>
+</div>
+<p><strong>Borehole Temperature Survey — Statistical Analysis</strong></p>
+<p><em>t</em>-test on raw values: <em>p</em> = 0.03 → “Significant! Drill the Stainmore.”</p>
+<p><em>t</em>-test on log-transformed values: <em>p</em> = 0.22 → not in the report.</p>
+<p>The “significant” result was an artefact of skewness.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Same data as the live demo and the figure on the last slide. HolmesCo ran the raw test, got 0.03, and wrote it up; the report is at the top of the Week 6 exercise page, which the students are about to open. They never looked at the histograms, so never took logs.</li>
+<li>Temperature at depth, like permeability and grain size, is often roughly log-normal, so “check the shape first” is a habit, not a one-off.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="check-your-assumptions" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Check your assumptions</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Check your assumptions
+</div>
+<p><span class="activity-badge badge-exercise">✏️💻 Exercise 2</span></p>
+<div class="recap-after">
+<ul>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="in-webr" class="slide level2">
+<h2>In WebR</h2>
+<p>Given a dataset:</p>
+<ol type="1">
+<li>Make histograms of each group</li>
+<li>Decide whether to transform</li>
+<li>Run <code>t.test()</code> before and after transformation</li>
+<li>Compare: did the conclusion change?</li>
+</ol>
+<aside class="notes">
+<ul>
+<li><strong>[12:05–12:15]</strong> Quick hands-on exercise. The WebR page has the scaffolded version with hints.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="attendance" class="slide level2" data-visibility="uncounted">
+<h2>Attendance</h2>
+<aside class="notes">
+<p>Show the QR from <a href="https://attendance.durham.ac.uk/mytimetable" class="uri">https://attendance.durham.ac.uk/mytimetable</a>, then ← back to the task.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="the-base-rate-fallacy" class="title-slide slide level1 section-divider recap-heading center">
+<h1>The base rate fallacy</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+The base rate fallacy
+</div>
+<p><span class="activity-badge badge-concept">🎓💬 Concept block 3</span></p>
+<div class="recap-after">
+<ul>
+<li>Plan your test</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="warm-up-monty-hall" class="slide level2">
+<h2>Warm-up: Monty Hall</h2>
+<aside class="notes">
+<ul>
+<li><strong>[12:15–12:40]</strong> Take your time. This is the intellectual centrepiece of the module. Let the numbers sink in.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>Some of you simulated the Monty Hall problem in Python last year.</p>
+<div class="fragment">
+<p>Switching wins 2/3 of the time. But your gut says 50/50.</p>
+</div>
+<div class="fragment">
+<p>Why? Because your gut ignores the <strong>information the host gave you</strong> when they opened a door.</p>
+</div>
+<div class="fragment">
+<p>The distinction between P(win) and P(win | what you now know) is also the crux of the base rate fallacy.</p>
+<aside class="notes">
+<ul>
+<li>Brief connection. Don’t re-derive Monty Hall. The point: conditional probability is unintuitive, and this has serious consequences.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="the-medical-test" class="slide level2">
+<h2>The medical test</h2>
+<p>A disease affects <strong>1 in 1000</strong> people.</p>
+<p>A test is 99&nbsp;% accurate (99&nbsp;% sensitivity, 99&nbsp;% specificity).</p>
+<p>You test positive.</p>
+<div class="fragment">
+<div class="discussion-prompt">
+<p>What’s the probability you have the disease?</p>
+</div>
+</div>
+</section>
+<section id="cast-your-vote" class="slide level2" data-visibility="uncounted">
+<h2>Cast your vote</h2>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 480px;">
+<div style="flex: 3;">
+<!-- Create an open-ended / numeric poll in Poll Everywhere:
+     "You tested positive. What's the probability (%) you have
+     the disease?" Responses appear as a word cloud or histogram.
+     Replace POLL_ID below with the embed ID. -->
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/free_text_polls/ddBzKkvrudnjlwI1wtQPT?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Activate the poll before showing this slide. Use a numeric open-ended response so answers appear as a histogram.</li>
+<li>Most students will cluster around 95–99&nbsp;%. A few may guess lower. The spread makes the reveal (“it’s 9&nbsp;%”) land much harder — they can see on screen that almost everyone got it wrong.</li>
+<li>Wait until responses plateau, then advance to the arithmetic.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-arithmetic" class="slide level2">
+<h2>The arithmetic</h2>
+<p>Out of <strong>100 000</strong> people:</p>
+<table class="contingency caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Has disease</th>
+<th data-quarto-table-cell-role="th">No disease</th>
+<th class="margin" data-quarto-table-cell-role="th">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="fragment sweep-reveal odd" data-fragment-index="1">
+<th data-quarto-table-cell-role="th">Test positive</th>
+<td class="cell"><span class="fragment fade-in" data-fragment-index="2">99</span></td>
+<td class="cell"><span class="fragment fade-in" data-fragment-index="3">999</span></td>
+<td class="margin"><span class="fragment wipe-right" data-fragment-index="4">1098</span></td>
+</tr>
+<tr class="fragment sweep-reveal second even" data-fragment-index="1">
+<th data-quarto-table-cell-role="th">Test negative</th>
+<td class="cell"><span class="fragment fade-in" data-fragment-index="2">1</span></td>
+<td class="cell"><span class="fragment fade-in" data-fragment-index="3">98 901</span></td>
+<td class="margin"><span class="fragment wipe-right" data-fragment-index="4">98 902</span></td>
+</tr>
+<tr class="fragment sweep-down margin-row odd" data-fragment-index="1">
+<th data-quarto-table-cell-role="th">Total</th>
+<td>100</td>
+<td>99 900</td>
+<td class="margin">100 000</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment" data-fragment-index="5">
+<p>P(disease | positive) = 99 / 1098 ≈ <strong>9&nbsp;%</strong></p>
+</div>
+<div class="fragment" data-fragment-index="6">
+<p>Not 99&nbsp;%. <strong>Nine percent.</strong></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Six clicks. The table opens on the base rate alone: 100 with the disease, 99 900 without.</li>
+<li>Click 1 sweeps that row down to open the test rows. Click 2: the 99 / 1 split among the 100 who have it. Click 3: the 999 / 98 901 split among the 99 900 who don’t. Click 4: the positive and negative totals. Click 5: the 9&nbsp;%. Click 6: “Nine percent.”</li>
+<li>The margins carry the argument: 100 against 99 900, then 99 against
+<ol start="1098" type="1">
+<li></li>
+</ol></li>
+<li>Let this land. Pause. “Why is it so low?”</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-is-it-so-low" class="slide level2">
+<h2>Why is it so low?</h2>
+<p>Because the disease is <strong>rare</strong>.</p>
+<p>The <strong>base rate</strong> matters enormously.</p>
+
+<img data-src="week06-content_files/figure-revealjs/w06-base-rate-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A curve of the chance you have a condition given a positive test, against how common the condition is, for a test that is 99&nbsp;% accurate. It runs from about 1&nbsp;% at one in ten thousand, through a marked point at 9&nbsp;% for one in a thousand, to near 100&nbsp;% for common conditions." width="864"><div class="fig-source">
+<p><a href="figures/w06-base-rate.R">w06-base-rate.R</a></p>
+</div>
+<div class="fragment">
+<p>Even a very accurate test produces many false positives when the condition is uncommon.</p>
+<aside class="notes">
+<ul>
+<li>The 9&nbsp;% from the previous slide is the marked point. Same test, same 99&nbsp;% accuracy, everywhere on this curve — only the population changes.</li>
+<li>Ask where they would have to move along the axis to get the 99&nbsp;% they guessed in the poll. It is a condition affecting half the room.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="holmesco-strikes-gold" class="slide level2 holmesco-scenario">
+<h2>HolmesCo strikes gold</h2>
+<div class="holmesco-doc">
+<div class="holmesco-letterhead">
+<p class="holmesco-name"><span aria-hidden="true">⚒️</span> HolmesCo</p>
+<p class="holmesco-tagline"><em>Geological Consultants Since 2019</em></p>
+<p class="holmesco-motto">“Where There’s a Test, There’s Gold”™</p>
+</div>
+<p><strong>Press Release — Major Gold Discovery in County Durham!</strong></p>
+<p>“Our assay (95&nbsp;% accurate) detected gold in 54 of 1000 soil samples. 54 confirmed hits!”</p>
+</div>
+</section>
+<section id="how-many-hits-are-real" class="slide level2">
+<h2>How many hits are real?</h2>
+<p><span class="activity-badge badge-exercise">✏️ Your turn, as a desk</span></p>
+<p>Suppose <strong>1 in 1000</strong> samples really contains gold. Fill in the table. How many of HolmesCo’s 54 hits are real?</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Gold present</th>
+<th>No gold</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Assay positive</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>Assay negative</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<ul>
+<li>Desks, 3–4 minutes. They have just watched you fill in the medical table, so give no more help than “same layout as before”.</li>
+<li>Common first guess: 51 (95&nbsp;% of 54). Ask them to start from the bottom row: how many samples have gold at all?</li>
+<li>1 in 1000 is generous for the Northern Pennines.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-reality" class="slide level2">
+<h2>The reality</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Gold present</th>
+<th>No gold</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Assay positive</strong></td>
+<td>~1</td>
+<td>~50</td>
+<td><strong>~51</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Assay negative</strong></td>
+<td>~0</td>
+<td>~949</td>
+<td>~949</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>1</td>
+<td>999</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Expected: about 51 hits, <strong>1</strong> of them real. HolmesCo found 54.</p>
+</div>
+<div class="fragment">
+<p>Is 54 different from 51? Is it different from 50 hits and <strong>no gold</strong>?</p>
+<aside class="notes">
+<ul>
+<li>True positives: 1 × 0.95 ≈ 1. False positives: 999 × 0.05 ≈ 50. P(gold | positive) ≈ 1 / 51 ≈ 2&nbsp;%.</li>
+<li>Let desks argue about 54 vs 51. By chance alone the false-positive count varies by about ±7 (binomial SD, √(999 × 0.05 × 0.95) ≈ 6.9), so 54 is unremarkable: it is what the assay produces if there is almost no gold at all. The press release is nonsense.</li>
+<li>This is the Week 6 equivalent of the traitor reveal.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="connection-to-p-values" class="slide level2">
+<h2>Connection to <em>p</em>-values</h2>
+<p>A <em>p</em>-value tells you: <strong>P(data | <em>H</em>₀)</strong></p>
+<p><em>How surprising is this data if the null is true?</em></p>
+<div class="fragment">
+<p>What you actually want: <strong>P(<em>H</em>₀ | data)</strong></p>
+<p><em>How likely is the null to be true given this data?</em></p>
+</div>
+<div class="fragment">
+<div class="discussion-prompt">
+<p>These are <strong>not the same thing.</strong> The difference depends on the <strong>base rate</strong>.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Call back to the null world: every <em>p</em>-value today answered “how surprising would this be if nothing were going on?” The refrain on the next slide is the question the null world cannot answer.</li>
+<li>Key sentence: “If you’re testing an implausible hypothesis, a significant <em>p</em>-value is probably a false positive. If you’re testing something well-supported, a significant result is more convincing.”</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="how-plausible-was-this-before-we-tested" class="slide level2 refrain">
+<h2>“How plausible was this before we tested?”</h2>
+<aside class="notes">
+<ul>
+<li>This is the Bayesian insight without the formula. The habit of asking about prior plausibility is what matters.</li>
+<li>This also sets up Week 7: if you run 20 tests, the base rate for any individual hypothesis being true is low → false positives accumulate.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="plan-your-test" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Plan your test</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Plan your test
+</div>
+<p><span class="activity-badge badge-exercise">✏️ Integrative exercise</span></p>
+<div class="recap-after">
+<ul>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="for-your-project" class="slide level2">
+<h2>For your project</h2>
+<p>Discuss with your group:</p>
+<ol type="1">
+<li>What comparison will you test?</li>
+<li>What’s your null hypothesis?</li>
+<li>What’s your <strong>prior expectation</strong> — plausible or a long shot?</li>
+<li>What assumptions should you check?</li>
+</ol>
+<p>Write 3–4 sentences.</p>
+<aside class="notes">
+<ul>
+<li><strong>[12:40–12:50]</strong> This feeds directly into the application session.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Wrap-up</h1>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>The null world</li>
+<li>Interpret a <em>t</em>-test</li>
+<li>Assumptions</li>
+<li>Check your assumptions</li>
+<li>The base rate fallacy</li>
+<li>Plan your test</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Wrap-up
+</div>
+</div>
+</div>
+</section>
+<section id="key-points" class="slide level2">
+<h2>Key points</h2>
+<ol type="1">
+<li class="fragment">A <em>t</em>-test compares two groups — but check the assumptions first</li>
+<li class="fragment">A <em>p</em>-value is P(data | <em>H</em>₀), <strong>not</strong> P(<em>H</em>₀ | data)</li>
+<li class="fragment">The base rate determines whether a “significant” result is real</li>
+<li class="fragment">Always ask: <em>“How plausible was this before I tested?”</em></li>
+</ol>
+</section>
+<section id="exit-ticket" class="slide level2" data-visibility="uncounted">
+<h2>Exit ticket</h2>
+<p>A <em>t</em>-test comparing two groups returns <strong><em>p</em> = 0.04</strong>. Which statement is correct?</p>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 480px;">
+<div style="flex: 3;">
+<!-- Create a multiple-choice poll in Poll Everywhere:
+     Options:
+       A) "There is a 4 % chance the null hypothesis is true"
+       B) "There is a 4 % chance of seeing a difference this large if there were really no difference"
+       C) "The result is definitely real — *p* < 0.05 means significant"
+       D) "The alternative hypothesis has a 96 % probability of being correct"
+     Correct answer: B
+     Replace POLL_ID below. -->
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/multiple_choice_polls/220ufgsz0MgXTnGkTHQyY?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>Correct answer: B</strong> — P(data | <em>H</em>₀), not P(<em>H</em>₀ | data).</li>
+<li>A is the classic confusion of P(data | <em>H</em>₀) with P(<em>H</em>₀ | data). Very common, even among experienced researchers.</li>
+<li>C conflates statistical significance with practical or scientific significance — and ignores the base rate argument from this session.</li>
+<li>D inverts the conditional probability (like A, but from the other direction).</li>
+<li>If many students answer A or D, revisit the medical test example: “If the disease has a 1-in-1000 base rate, a positive test is probably still a false positive — even though the test is 99&nbsp;% accurate.”</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="any-questions-we-missed" class="slide level2" data-visibility="uncounted">
+<h2>Any questions we missed?</h2>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Continuation of the same Poll Everywhere Q&amp;A activity opened at the start of the session — this is not a new poll, so don’t reset/archive it yet.</li>
+<li>Surface any questions that have come in since the early Questions slide, especially ones raised during today’s content.</li>
+<li>Once you’ve finished with this slide, archive (reset) the activity at the end of the session so questions don’t carry over.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-time" class="slide level2">
+<h2>Next time</h2>
+<p><strong>Application session: “First tests”</strong></p>
+<p>You’ll run your first real tests on your project data.</p>
+<div class="fragment">
+<p>Remember: a significant <em>p</em>-value is the <strong>start</strong> of the conversation, not the end.</p>
+<aside class="notes">
+<ul>
+<li><strong>Check the Q&amp;A</strong> — surface any top-voted questions before finishing.</li>
+<li>Students should come ready to work on their project data. Groups may need to do data cleaning before testing.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjgvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiXSwicmVwb3MiOltdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHdlYnItMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG5cbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG5fd2Vicl92YWx1ZV8yID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8yLCB7fSk7XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKHsgaWQ6IGB3ZWJyLTEtY29udGVudHNgIH0sIGJsb2NrLmF0dHIpO1xuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuXG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxuX3dlYnJfdmFsdWVfMSA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMSwge30pO1xuIn0seyJjZWxsTmFtZSI6IndlYnItcHJlbHVkZSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IndlYlJPanMgPSB7XG4gIGNvbnN0IHsgV2ViUiwgQ2hhbm5lbFR5cGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWUuV2ViUjtcbiAgY29uc3Qge1xuICAgIFdlYlJFdmFsdWF0b3IsXG4gICAgV2ViUkVudmlyb25tZW50TWFuYWdlcixcbiAgICBzZXR1cFIsXG4gICAgYjY0RGVjb2RlLFxuICAgIGNvbGxhcHNlUGF0aFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIE1ha2UgYW55IHJldmVhbCBzbGlkZXMgd2l0aCBsaXZlIGNlbGxzIHNjcm9sbGFibGVcbiAgZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbChcIi5yZXZlYWwgLmV4ZXJjaXNlLWNlbGxcIikuZm9yRWFjaCgoZWwpID0+IHtcbiAgICBlbC5jbG9zZXN0KCdzZWN0aW9uLnNsaWRlJykuY2xhc3NMaXN0LmFkZChcInNjcm9sbGFibGVcIik7XG4gIH0pXG5cbiAgLy8gd2ViUiBzdXBwbGVtZW50YWwgZGF0YSBhbmQgb3B0aW9uc1xuICBjb25zdCBkYXRhQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLWRhdGFcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZGF0YUNvbnRlbnQpKTtcblxuICAvLyBHcmFiIGxpc3Qgb2YgcmVzb3VyY2VzIHRvIGJlIGRvd25sb2FkZWRcbiAgY29uc3QgZmlsZXNDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcInZmcy1maWxlXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZmlsZXMgPSBKU09OLnBhcnNlKGI2NERlY29kZShmaWxlc0NvbnRlbnQpKTtcblxuICAvLyBJbml0aWFsaXNlIHdlYlIgYW5kIHNldHVwIGZvciBSIGNvZGUgZXZhbHVhdGlvblxuICBsZXQgd2ViUlByb21pc2UgPSAoYXN5bmMgKHdlYlIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHdlYlJgO1xuICAgIGF3YWl0IHdlYlIuaW5pdCgpO1xuXG4gICAgLy8gSW5zdGFsbCBwcm92aWRlZCBsaXN0IG9mIHBhY2thZ2VzXG4gICAgLy8gRW5zdXJlIHdlYlIgZGVmYXVsdCByZXBvIGlzIGluY2x1ZGVkXG4gICAgZGF0YS5wYWNrYWdlcy5yZXBvcy5wdXNoKFwiaHR0cHM6Ly9yZXBvLnItd2FzbS5vcmdcIilcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiB3ZWJSLmV2YWxSVm9pZChgXG4gICAgICAgIHdlYnI6Omluc3RhbGwocGtnLCByZXBvcyA9IHJlcG9zKVxuICAgICAgICBsaWJyYXJ5KHBrZywgY2hhcmFjdGVyLm9ubHkgPSBUUlVFKVxuICAgICAgYCwgeyBlbnY6IHtcbiAgICAgICAgcGtnOiBwa2csXG4gICAgICAgIHJlcG9zOiBkYXRhLnBhY2thZ2VzLnJlcG9zLFxuICAgICAgfX0pO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIGNvbnN0IGFuYWx5c2lzID0gYXdhaXQgd2ViUi5GUy5hbmFseXplUGF0aChwYXRoKTtcbiAgICAgICAgaWYgKCFhbmFseXNpcy5leGlzdHMpIHtcbiAgICAgICAgICB0cnkge1xuICAgICAgICAgICAgYXdhaXQgd2ViUi5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgICB9IGNhdGNoIChlKSB7XG4gICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3I6IFwiJHtlLm1lc3NhZ2V9XCIuYCk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICByZXR1cm4gYXdhaXQgd2ViUi5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbnN0YWxsaW5nIHdlYlIgc2hpbXNgO1xuICAgIGF3YWl0IHdlYlIuZXZhbFJWb2lkKGB3ZWJyOjpzaGltX2luc3RhbGwoKWApO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBXZWJSIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFIod2ViUiwgZGF0YSk7XG5cbiAgICBzdGF0dXNUZXh0LnJlbW92ZSgpO1xuICAgIGlmIChzdGF0dXNDb250YWluZXIuY2hpbGRyZW4ubGVuZ3RoID09IDApIHtcbiAgICAgIHN0YXR1c0NvbnRhaW5lci5wYXJlbnROb2RlLnJlbW92ZSgpO1xuICAgIH1cbiAgICByZXR1cm4gd2ViUjtcbiAgfSkobmV3IFdlYlIoZGF0YS5vcHRpb25zKSk7XG5cbiAgLy8gS2VlcCB0cmFjayBvZiBpbml0aWFsIE9KUyBibG9jayByZW5kZXJcbiAgY29uc3QgcmVuZGVyZWRPanMgPSB7fTtcblxuICBjb25zdCBwcm9jZXNzID0gYXN5bmMgKGNvbnRleHQsIGlucHV0cykgPT4ge1xuICAgIGNvbnN0IHdlYlIgPSBhd2FpdCB3ZWJSUHJvbWlzZTtcbiAgICBjb25zdCBldmFsdWF0b3IgPSBuZXcgV2ViUkV2YWx1YXRvcih3ZWJSLCBjb250ZXh0KVxuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHByb2Nlc3MsXG4gICAgd2ViUlByb21pc2UsXG4gICAgcmVuZGVyZWRPanMsXG4gIH07XG59XG4ifV19
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+WyIuLi9kYXRhL2JvcmVob2xlX3RlbXAuY3N2Il0=
+</script>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    // Speaker view clock: 24-hour time (the notes plugin hard-codes en-US 12-hour).
+    (function () {
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          try {
+            var proto = w.Date.prototype, orig = proto.toLocaleTimeString;
+            proto.toLocaleTimeString = function (locale, opts) {
+              if (opts && opts.hour12) {
+                return orig.call(this, "en-GB", Object.assign({}, opts, { hour12: false }));
+              }
+              return orig.call(this, locale, opts);
+            };
+          } catch (e) {}
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script>
+    // Speaker view: typing in the current-slide preview updates the projected
+    // slide live, and vice versa. Covers `.live-notes` textareas, checkboxes and
+    // webR editors; running code in the preview also runs it on the projected slide.
+    (function () {
+      function CurrentSlide(r) {
+        return r && r.getCurrentSlide && r.getCurrentSlide();
+      }
+
+      function SameSlide(a, b) {
+        var x = a.getIndices(), y = b.getIndices();
+        return x.h === y.h && x.v === y.v;
+      }
+
+      function Boxes(r) {
+        var slide = CurrentSlide(r);
+        return slide ? slide.querySelectorAll(".live-notes textarea") : [];
+      }
+
+      function EditorView(cell) {
+        var content = cell && cell.querySelector(".cm-content");
+        return content && content.cmView && content.cmView.view;
+      }
+
+      function SetText(view, text) {
+        var old = view.state.doc.toString();
+        if (old === text) return;
+        view._mirrored = text; // so its own watcher doesn't echo this back
+        // Replace only the changed middle, so the other copy keeps its cursor.
+        var start = 0, endOld = old.length, endNew = text.length;
+        while (start < endOld && start < endNew && old[start] === text[start]) start++;
+        while (endOld > start && endNew > start && old[endOld - 1] === text[endNew - 1]) {
+          endOld--; endNew--;
+        }
+        view.dispatch({ changes: { from: start, to: endOld, insert: text.slice(start, endNew) } });
+      }
+
+      function Push(fromReveal, toReveal) {
+        if (!fromReveal || !toReveal || !SameSlide(fromReveal, toReveal)) return;
+        var from = Boxes(fromReveal), to = Boxes(toReveal);
+        for (var i = 0; i < from.length && i < to.length; i++) {
+          if (to[i].value !== from[i].value) to[i].value = from[i].value;
+        }
+        var fromTicks = CurrentSlide(fromReveal).querySelectorAll("input[type=checkbox]");
+        var toTicks = CurrentSlide(toReveal).querySelectorAll("input[type=checkbox]");
+        for (var j = 0; j < fromTicks.length && j < toTicks.length; j++) {
+          toTicks[j].checked = fromTicks[j].checked;
+        }
+        var cells = CurrentSlide(fromReveal).querySelectorAll(".exercise-cell[id]");
+        var toDoc = CurrentSlide(toReveal).ownerDocument;
+        Array.prototype.forEach.call(cells, function (cell) {
+          var src = EditorView(cell), dst = EditorView(toDoc.getElementById(cell.id));
+          if (!src || !dst) return;
+          var text = src.state.doc.toString();
+          if (text !== src._mirrored) SetText(dst, text);
+        });
+      }
+
+      // Push whenever this document's live textareas or editors change.
+      function Watch(Target) {
+        function Sync() {
+          try { var t = Target(); if (t) Push(Reveal, t); } catch (err) {}
+        }
+        document.addEventListener("input", function (e) {
+          if (e.target.closest && e.target.closest(".live-notes")) Sync();
+        });
+        document.addEventListener("change", function (e) {
+          if (e.target.type === "checkbox") Sync();
+        });
+        var queued = false;
+        new MutationObserver(function (records) {
+          if (queued) return;
+          for (var i = 0; i < records.length; i++) {
+            var node = records[i].target;
+            var el = node.nodeType === 1 ? node : node.parentElement;
+            if (el && el.closest(".cm-content")) {
+              queued = true;
+              requestAnimationFrame(function () { queued = false; Sync(); });
+              return;
+            }
+          }
+        }).observe(document.body, { childList: true, characterData: true, subtree: true });
+        return Sync;
+      }
+
+      // Inside the speaker view's current-slide preview.
+      if (/[?&]receiver\b/.test(location.search)) {
+        var frame = window.frameElement;
+        if (!frame || frame.parentNode.id !== "current-slide") return;
+        var Deck = function () { return window.parent.opener.Reveal; };
+        var sync = Watch(Deck);
+        // quarto-live signals Run (button or Ctrl+Enter) as a non-bubbling
+        // "input" event with detail.commit; catch it on the way down.
+        document.addEventListener("input", function (e) {
+          if (!e.detail || !e.detail.commit) return;
+          var cell = e.target.closest && e.target.closest(".exercise-cell[id]");
+          if (!cell) return;
+          try {
+            sync();
+            if (!SameSlide(Deck(), Reveal)) return;
+            var twin = window.parent.opener.document.getElementById(cell.id);
+            var run = twin && twin.querySelector(".exercise-editor-btn-run-code");
+            if (run) run.click();
+          } catch (err) {}
+        }, true);
+        return;
+      }
+
+      // In the presented deck.
+      var notesWindow = null;
+      function Preview() {
+        var frame = notesWindow && !notesWindow.closed &&
+          notesWindow.document.querySelector("#current-slide iframe");
+        return frame && frame.contentWindow.Reveal;
+      }
+      var syncPreview = Watch(Preview);
+
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          notesWindow = w;
+          // The preview follows the deck after a short debounce.
+          Reveal.on("slidechanged", function () {
+            setTimeout(syncPreview, 500);
+            setTimeout(syncPreview, 1500);
+          });
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W119
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../slides";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
