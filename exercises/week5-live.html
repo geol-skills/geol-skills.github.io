@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 5: Live code – Research Skills</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-92404dd89b1444827012a9e3a58cda88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Research Skills</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-getting-started" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Getting Started</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-getting-started">    
+        <li>
+    <a class="dropdown-item" href="../materials/preparation.html">
+ <span class="dropdown-text">Pre-term preparation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/python-to-r.html">
+ <span class="dropdown-text">Python to R reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/SrihariPramod/R_vs_Python_Cheatsheet/blob/master/R_vs_Python.pdf">
+ <span class="dropdown-text">R vs Python cheatsheet (PDF)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://warin.ca/ressentials/">
+ <span class="dropdown-text">R Essentials (Warin)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://swirlstats.com/">
+ <span class="dropdown-text">swirl: learn R in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/git-troubleshooting.html">
+ <span class="dropdown-text">Git troubleshooting</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Classroom 50</li>
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/biomass/accept">
+ <span class="dropdown-text">Individual repo (Weeks 1–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/drax/accept">
+ <span class="dropdown-text">Drax briefing repo (Weeks 3–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/group/accept">
+ <span class="dropdown-text">Group repo (Weeks 5–10)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/report/accept">
+ <span class="dropdown-text">Report repo (Weeks 7–10)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../materials/scientific-method-reference.html">
+ <span class="dropdown-text">The scientific method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/ai-reproducibility-reference.html">
+ <span class="dropdown-text">AI, reproducibility &amp; integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/chart-audit.html">
+ <span class="dropdown-text">Chart audit (Week 2 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/bias-bingo.html">
+ <span class="dropdown-text">Bias bingo (Week 7 homework)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Live code (Repeats)</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-live.html">
+ <span class="dropdown-text">Week 5: Wind farms and birds</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-live.html">
+ <span class="dropdown-text">Week 6: The null world and the <em>t</em>-test</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-live.html">
+ <span class="dropdown-text">Week 7: A model of gas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-live.html">
+ <span class="dropdown-text">Week 8: Many tests, many groups</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Guides</li>
+        <li>
+    <a class="dropdown-item" href="../materials/briefing-structure-guide.html">
+ <span class="dropdown-text">Briefing structure guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/markdown-guide.html">
+ <span class="dropdown-text">Writing in Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/local-r.html">
+ <span class="dropdown-text">R on your PC (Week 6 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/peer-review-template.html">
+ <span class="dropdown-text">Peer review template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/project-topics.html">
+ <span class="dropdown-text">Project topics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/assessment-brief.html">
+ <span class="dropdown-text">Assessment brief</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/access-articles.html">
+ <span class="dropdown-text">Accessing scientific articles</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">External links</li>
+        <li>
+    <a class="dropdown-item" href="https://webr.r-wasm.org/latest/">
+ <span class="dropdown-text">webR</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.bbc.co.uk/programmes/b006qshd">
+ <span class="dropdown-text">More or Less</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.economist.com">
+ <span class="dropdown-text">The Economist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ms609.github.io/Concentration/">
+ <span class="dropdown-text">Concentration</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week01-content.html">
+ <span class="dropdown-text">W1 Content: What makes a good question?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week01-app.html">
+ <span class="dropdown-text">W1 App: Meet the data (and Git)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-content.html">
+ <span class="dropdown-text">W2 Content: What do the numbers say?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-content.html">
+ <span class="dropdown-text">W3 Content: How confident should we be?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-content.html">
+ <span class="dropdown-text">W4 Content: Making the case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-app.html">
+ <span class="dropdown-text">W4 App: Review and reveal</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week05-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week05-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-content.html">
+ <span class="dropdown-text">W6 Content: Testing hypotheses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-content.html">
+ <span class="dropdown-text">W9 Content: AI, reproducibility, and integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-app.html">
+ <span class="dropdown-text">W9 App: AI as critic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-content.html">
+ <span class="dropdown-text">W10 Content: Bringing it together</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-app.html">
+ <span class="dropdown-text">W10 App: Review, revise, submit</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/scratchpad.html">
+ <span class="dropdown-text">Scratchpad: run your own code</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week1-app.html">
+ <span class="dropdown-text">W1 App: Meet the data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-dodgy-plots.html">
+ <span class="dropdown-text">W2 Content: Dodgy plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-content.html">
+ <span class="dropdown-text">W2 Content: Your first ggplot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/carbon-accounting-summary.html">
+ <span class="dropdown-text">W3 Content: Assumption audit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week3-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-content.html">
+ <span class="dropdown-text">W6 Content: Check your assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week9-app.html">
+ <span class="dropdown-text">W9 App: Checking your work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week10-content.html">
+ <span class="dropdown-text">W10 Content: Common pitfalls</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a"> 
+<span class="menu-text">Ask for help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../staff/index.html"> 
+<span class="menu-text">Staff</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#do-wind-farm-squares-have-fewer-species" id="toc-do-wind-farm-squares-have-fewer-species" class="nav-link active" data-scroll-target="#do-wind-farm-squares-have-fewer-species">1. Do wind farm squares have fewer species?</a></li>
+  <li><a href="#a-possible-confounder-the-outcome" id="toc-a-possible-confounder-the-outcome" class="nav-link" data-scroll-target="#a-possible-confounder-the-outcome">2. A possible confounder: the outcome</a></li>
+  <li><a href="#a-possible-confounder-the-exposure" id="toc-a-possible-confounder-the-exposure" class="nav-link" data-scroll-target="#a-possible-confounder-the-exposure">3. A possible confounder: the exposure</a></li>
+  <li><a href="#allowing-for-recording-effort-stratification" id="toc-allowing-for-recording-effort-stratification" class="nav-link" data-scroll-target="#allowing-for-recording-effort-stratification">4. Allowing for recording effort: stratification</a></li>
+  <li><a href="#allowing-for-recording-effort-the-result" id="toc-allowing-for-recording-effort-the-result" class="nav-link" data-scroll-target="#allowing-for-recording-effort-the-result">5. Allowing for recording effort: the result</a></li>
+  <li><a href="#identifying-causality" id="toc-identifying-causality" class="nav-link" data-scroll-target="#identifying-causality">6. Identifying causality</a></li>
+  <li><a href="#save-your-work" id="toc-save-your-work" class="nav-link" data-scroll-target="#save-your-work">Save your work</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 5: Live code</h1>
+<p class="subtitle lead">Wind farms and birds: finding a confounder</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The live coding from <a href="../slides/week05-content.html#/wind-farms-and-birds">Week 5: Designing your investigation</a>, to reproduce at home. Do wind farm squares have fewer bird species, or does something else explain the gap?</p>
+<p><code>squares</code> holds every 10&nbsp;km square of Great Britain: its bird <code>species</code> (2006–15), the number of <code>records</code> behind them, its <code>land_fraction</code>, and the largest wind farm (in turbines) built there by 2015 or later.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How this page works
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Each box is one live-coding slide from the lecture, in order. In the lecture you listened; here you type.</p>
+<ul>
+<li><strong>Each box runs on its own.</strong> Whatever the earlier slides built is rebuilt, out of sight, when you press Run.</li>
+<li><strong>The list above each box names the functions it uses.</strong> New ones come with a line on what they do.</li>
+<li><strong>Work down the numbered comments.</strong> Hints get more specific as you go; the solution is the lecture’s code, with the numbers it gave, so you can check yours.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Coming back to this page?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-transfer code-transfer-top">
+<p>Your code is kept in this browser. You can <span class="code-transfer-import btn btn-sm btn-outline-primary" role="button">Import code</span> you saved using <em>Export all code</em> (page footer).</p>
+<p><span class="code-transfer-report"></span></p>
+</div>
+</div>
+</div>
+<div class="cell" data-autorun="true">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShcImdncGxvdDJcIikifQ==
+</script>
+</div>
+</div>
+<section id="do-wind-farm-squares-have-fewer-species" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="do-wind-farm-squares-have-fewer-species">1. Do wind farm squares have fewer species?</h2>
+<p><a href="../slides/week05-content.html#/do-wind-farm-squares-have-fewer-species">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li><code>ifelse(test, yes, no)</code> (new): takes a vector of TRUE/FALSE and turns it into labels: <code>yes</code> where TRUE, <code>no</code> where FALSE.</li>
+<li><code>stat_summary()</code> (new): a ggplot layer that takes the points in each group and draws one summary instead. With <code>fun.data = mean_se, fun.args = list(mult = 1.96)</code> that is the mean, with a bar 1.96 standard errors either side: a 95&nbsp;% confidence interval.</li>
+<li>Already met: <code>read.csv()</code>, <code>[ , ]</code>, <code>&gt;=</code>, <code>ggplot()</code>, <code>aes()</code>.</li>
+</ul>
+</div>
+<div class="cell" data-exercise="w5l_1">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzEifSwiY29kZSI6InNxdWFyZXMgPC0gcmVhZC5jc3YoXCJkYXRhL2JpcmRfc3F1YXJlcy5jc3ZcIilcbiMgMS4gV2hlcmUgc2hvdWxkIEkgbG9vaz8gT25seSBrZWVwIGxhbmQgc3F1YXJlc1xuXG4jIDIuIFdoYXQgYW0gSSBjb21wYXJpbmc/IFdpbmQgZmFybSAoOCsgdHVyYmluZXMpIGJ5IDIwMTUsIG9yIG5vdFxuXG4jIDMuIFdoYXQgYW0gSSBtZWFzdXJpbmc/IEJpcmQgc3BlY2llczogbWVhbiBhbmQgOTXCoCUgQ0kgcGVyIGdyb3VwIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>A land square is one that is at least two-thirds land (<code>land_fraction</code>). Keep only those rows.</li>
+<li>A new column, <code>farm</code>: TRUE if <code>largest_farm_by_2015</code> is 8 or more.</li>
+<li>Put <code>farm</code> on the <em>x</em> axis and <code>species</code> on the <em>y</em> axis, and summarize each group with <code>stat_summary()</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">&lt;-</span> squares[<span class="sc">&lt;</span>which rows?<span class="sc">&gt;</span>, ]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>farm <span class="ot">&lt;-</span> <span class="er">&lt;</span>a <span class="cn">TRUE</span><span class="sc">/</span><span class="cn">FALSE</span> test<span class="sc">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>group<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>outcome<span class="sc">&gt;</span>)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="sc">&lt;</span>mean and <span class="dv">95</span>&nbsp;% CI<span class="sc">&gt;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">&lt;-</span> squares[squares<span class="sc">$</span>______ <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, ]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>farm <span class="ot">&lt;-</span> squares<span class="sc">$</span>______ <span class="sc">&gt;=</span> <span class="dv">8</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> ______, <span class="at">y =</span> ______)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> ______, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">&lt;-</span> squares[squares<span class="sc">$</span>land_fraction <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>, ]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>farm <span class="ot">&lt;-</span> squares<span class="sc">$</span>largest_farm_by_2015 <span class="sc">&gt;=</span> <span class="dv">8</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> farm, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then hone it: FALSE and TRUE make poor axis labels.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>farm <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(squares<span class="sc">$</span>largest_farm_by_2015 <span class="sc">&gt;=</span> <span class="dv">8</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Wind farm"</span>, <span class="st">"None"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No wind farm: 134.5 species (2100 squares). Wind farm: 126.3 (139 squares). About 8 fewer, and the intervals don’t overlap. Turbines harm birds? Before you agree: where do birdwatchers live?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-possible-confounder-the-outcome" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="a-possible-confounder-the-outcome">2. A possible confounder: the outcome</h2>
+<p><a href="../slides/week05-content.html#/a-possible-confounder-recording-effort">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li><code>cor(x, y)</code> (new): takes two columns of numbers and gives one number, from −1 to 1: how closely they rise and fall together. <code>method = "spearman"</code> uses their ranks, so it doesn’t need a straight line.</li>
+<li><code>sample(x)</code> (new): takes a vector and returns the same values in a random order: a shuffle.</li>
+<li><code>replicate(n, code)</code> (new): runs the same code <code>n</code> times and collects the <code>n</code> answers into one vector.</li>
+<li><code>quantile(x, probs)</code> (new): takes numbers and gives the values that the fractions <code>probs</code> of them lie below. <code>quantile(x, 0.95)</code> is the value 95&nbsp;% of <code>x</code> lies below.</li>
+<li>Already met: <code>ggplot()</code>, <code>aes()</code>, <code>geom_point()</code>.</li>
+</ul>
+</div>
+<div class="cell" data-setup="true" data-exercise="w5l_2">
+<script type="exercise-setup-w5l_2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzIiLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiJzcXVhcmVzIDwtIHJlYWQuY3N2KFwiZGF0YS9iaXJkX3NxdWFyZXMuY3N2XCIpXG5zcXVhcmVzIDwtIHNxdWFyZXNbc3F1YXJlcyRsYW5kX2ZyYWN0aW9uID49IDIgLyAzLCBdXG5zcXVhcmVzJGZhcm0gPC0gaWZlbHNlKHNxdWFyZXMkbGFyZ2VzdF9mYXJtX2J5XzIwMTUgPj0gOCxcbiAgICAgICAgICAgICAgICAgICAgICAgXCJXaW5kIGZhcm1cIiwgXCJOb25lXCIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="w5l_2">
+<div>
+<div id="webr-4" class="exercise-cell">
+
+</div>
+<script type="webr-4-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzIifSwiY29kZSI6IiMgQSBjb25mb3VuZGVyIGlzIHRpZWQgdG8gYm90aCBzaWRlcyBvZiB0aGUgY29tcGFyaXNvblxuXG4jIDEuIFRoZSBvdXRjb21lOiBkbyBzcXVhcmVzIHdpdGggbW9yZSByZWNvcmRzIGxpc3QgbW9yZSBzcGVjaWVzP1xuIyAgICBjb3IoeCwgeSk6IGNvcnJlbGF0aW9uLCBmcm9tIOKIkjEgdG8gMVxuXG4jIDIuIFdoYXQgaGF2ZSBJIGRvbmUgd3Jvbmc/IEFsd2F5cyBsb29rIGF0IHRoZSBkYXRhIGZpcnN0XG5cbiMgMy4gV2hhdCBhbSBJIGFzc3VtaW5nPyBUcnkgYSBjb3JyZWxhdGlvbiB0aGF0IG5lZWRzIG5vIHN0cmFpZ2h0IGxpbmVcblxuIyA0LiBJcyB0aGF0IGEgYmlnIG51bWJlcj8gQ29tcGFyZSBpdCB3aXRoIHJlY29yZHMgYWdhaW5zdCBzaHVmZmxlZFxuIyAgICBzcGVjaWVzLCAxMDAwIHRpbWVzIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Correlate the <code>records</code> column with the <code>species</code> column.</li>
+<li>A scatter plot of species against records.</li>
+<li>The same correlation, with <code>method = "spearman"</code>.</li>
+<li>Shuffle <code>species</code> with <code>sample()</code> and correlate again: that is a world where records and species are unrelated. <code>replicate()</code> does it 1000 times; <code>quantile()</code> says how far those chance correlations reach.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="sc">&lt;</span>x<span class="sc">&gt;</span>, <span class="sc">&lt;</span>y<span class="sc">&gt;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>x<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>y<span class="sc">&gt;</span>)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="sc">&lt;</span>x<span class="sc">&gt;</span>, <span class="sc">&lt;</span>y<span class="sc">&gt;</span>, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>nulls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">cor</span>(<span class="sc">&lt;</span>x<span class="sc">&gt;</span>, <span class="fu">sample</span>(<span class="sc">&lt;</span>y<span class="sc">&gt;</span>)))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(nulls, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(squares<span class="sc">$</span>______, squares<span class="sc">$</span>______)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> records, <span class="at">y =</span> species)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(squares<span class="sc">$</span>records, squares<span class="sc">$</span>species, <span class="at">method =</span> <span class="st">"______"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>nulls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">cor</span>(squares<span class="sc">$</span>records, <span class="fu">______</span>(squares<span class="sc">$</span>species)))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(nulls, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_2">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(squares<span class="sc">$</span>records, squares<span class="sc">$</span>species)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> records, <span class="at">y =</span> species)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(squares<span class="sc">$</span>records, squares<span class="sc">$</span>species, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>nulls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">cor</span>(squares<span class="sc">$</span>records, <span class="fu">sample</span>(squares<span class="sc">$</span>species)))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(nulls, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pearson’s correlation is 0.71. The scatter curves: species climb fast, then level off, so a straight-line measure undersells it. Spearman’s, which needs only “more goes with more”, is 0.82.</p>
+<p>Is that a big number? Shuffled, 90&nbsp;% of the correlations fall within about ±0.03. Squares with more records list more species.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-possible-confounder-the-exposure" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="a-possible-confounder-the-exposure">3. A possible confounder: the exposure</h2>
+<p><a href="../slides/week05-content.html#/a-possible-confounder-recording-effort-1">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li><code>geom_violin()</code> (new): draws each group’s values as a mirrored outline: fat where values are common, thin where they are rare.</li>
+<li><code>tapply(x, group, f)</code> (new): splits <code>x</code> by <code>group</code> and applies the function <code>f</code> to each piece, so <code>tapply(x, group, median)</code> gives one median per group. (In Python: <code>groupby().agg()</code>.)</li>
+<li><code>scale_y_log10()</code> (new, optional): puts the <em>y</em> axis on a log scale, so 1000, 10 000 and 100 000 sit equally far apart.</li>
+<li>Already met: <code>ggplot()</code>, <code>aes()</code>, <code>median()</code>, <code>[ ]</code>, <code>==</code>.</li>
+</ul>
+</div>
+<div class="cell" data-setup="true" data-exercise="w5l_3">
+<script type="exercise-setup-w5l_3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzMiLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiJzcXVhcmVzIDwtIHJlYWQuY3N2KFwiZGF0YS9iaXJkX3NxdWFyZXMuY3N2XCIpXG5zcXVhcmVzIDwtIHNxdWFyZXNbc3F1YXJlcyRsYW5kX2ZyYWN0aW9uID49IDIgLyAzLCBdXG5zcXVhcmVzJGZhcm0gPC0gaWZlbHNlKHNxdWFyZXMkbGFyZ2VzdF9mYXJtX2J5XzIwMTUgPj0gOCxcbiAgICAgICAgICAgICAgICAgICAgICAgXCJXaW5kIGZhcm1cIiwgXCJOb25lXCIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="w5l_3">
+<div>
+<div id="webr-6" class="exercise-cell">
+
+</div>
+<script type="webr-6-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzMifSwiY29kZSI6IiMgMi4gVGhlIGV4cG9zdXJlOiBhcmUgd2luZCBmYXJtIHNxdWFyZXMgcmVjb3JkZWQgbGVzcz9cbiMgICAgTG9vayBmaXJzdFxuXG4jICAgIFRoZSBsb25nIHdheTogdGhlIG1lZGlhbiwgb25lIGdyb3VwIGF0IGEgdGltZVxuXG4jICAgIEJ1dCB0aGVyZSdzIGEgc2hvcnRjdXQhIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Look: <code>records</code> for each value of <code>farm</code>, as violins.</li>
+<li>The long way: the median of <code>records</code>, keeping only the rows where <code>farm</code> is <code>"None"</code>; then again for <code>"Wind farm"</code>.</li>
+<li>The shortcut: <code>tapply()</code> does both at once.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>group<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>outcome<span class="sc">&gt;</span>)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="sc">&lt;</span>records<span class="sc">&gt;</span>[<span class="sc">&lt;</span>farm is <span class="st">"None"</span><span class="sc">&gt;</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="sc">&lt;</span>records<span class="sc">&gt;</span>[<span class="sc">&lt;</span>farm is <span class="st">"Wind farm"</span><span class="sc">&gt;</span>])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(<span class="sc">&lt;</span>what<span class="sc">&gt;</span>, <span class="sc">&lt;</span>split by<span class="sc">&gt;</span>, <span class="sc">&lt;</span><span class="cf">function</span><span class="sc">&gt;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> farm, <span class="at">y =</span> ______)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(squares<span class="sc">$</span>records[squares<span class="sc">$</span>farm <span class="sc">==</span> <span class="st">"______"</span>])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(squares<span class="sc">$</span>records[squares<span class="sc">$</span>farm <span class="sc">==</span> <span class="st">"______"</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(squares<span class="sc">$</span>records, squares<span class="sc">$</span>______, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_3">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> farm, <span class="at">y =</span> records)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(squares<span class="sc">$</span>records[squares<span class="sc">$</span>farm <span class="sc">==</span> <span class="st">"None"</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(squares<span class="sc">$</span>records[squares<span class="sc">$</span>farm <span class="sc">==</span> <span class="st">"Wind farm"</span>])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the shortcut</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(squares<span class="sc">$</span>records, squares<span class="sc">$</span>farm, median)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The violins are squashed flat by a few city squares with hundreds of thousands of records; add <code>+ scale_y_log10()</code> to see their shapes. That skew is also why we use the median, not the mean.</p>
+<p>Median records: 5130 in wind farm squares, 11 456 in the rest. Wind farm squares are looked at half as hard. Recording effort is tied to both the outcome (box 2) and the exposure: a confounder.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="allowing-for-recording-effort-stratification" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="allowing-for-recording-effort-stratification">4. Allowing for recording effort: stratification</h2>
+<p><a href="../slides/week05-content.html#/allowing-for-recording-effort-stratification">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li><code>cut(x, breaks)</code> (new): takes numbers and sorts each into a band, given the band edges. <code>include.lowest = TRUE</code> keeps the smallest value, which sits exactly on the bottom edge; <code>dig.lab = 6</code> prints the edges in full.</li>
+<li><code>table(x)</code> (new): counts how many times each value appears.</li>
+<li><code>ave(x, group)</code> (new): <code>tapply()</code>’s cousin. It gives each row the average of its group, so the answer lines up with <code>x</code>, row for row.</li>
+<li>Already met: <code>quantile()</code>, <code>summary()</code>, <code>0:10</code>.</li>
+</ul>
+</div>
+<div class="cell" data-setup="true" data-exercise="w5l_4">
+<script type="exercise-setup-w5l_4-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzQiLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiJzcXVhcmVzIDwtIHJlYWQuY3N2KFwiZGF0YS9iaXJkX3NxdWFyZXMuY3N2XCIpXG5zcXVhcmVzIDwtIHNxdWFyZXNbc3F1YXJlcyRsYW5kX2ZyYWN0aW9uID49IDIgLyAzLCBdXG5zcXVhcmVzJGZhcm0gPC0gaWZlbHNlKHNxdWFyZXMkbGFyZ2VzdF9mYXJtX2J5XzIwMTUgPj0gOCxcbiAgICAgICAgICAgICAgICAgICAgICAgXCJXaW5kIGZhcm1cIiwgXCJOb25lXCIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="w5l_4">
+<div>
+<div id="webr-8" class="exercise-cell">
+
+</div>
+<script type="webr-8-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzQifSwiY29kZSI6IiMgQ29tcGFyZSBlYWNoIHNxdWFyZSB3aXRoIHNxdWFyZXMgbG9va2VkIGF0IGFib3V0IGFzIGhhcmRcblxuIyAxLiBTb3J0IHNxdWFyZXMgaW50byB0ZW4gZXF1YWwgYmFuZHMgYnkgbnVtYmVyIG9mIHJlY29yZHNcblxuIyAyLiBFYWNoIHNxdWFyZSdzIHNwZWNpZXMsIG1pbnVzIHRoZSBhdmVyYWdlIGZvciBpdHMgYmFuZCAoYGF2ZWApIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_4">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Ten equal bands need eleven edges: the 0&nbsp;%, 10&nbsp;%, …, 100&nbsp;% points of <code>records</code>. <code>0:10 / 10</code> gives those fractions; <code>quantile()</code> turns them into numbers of records; <code>cut()</code> puts each square in its band. Store the band in a new column, then count the squares in each.</li>
+<li>A new column: <code>species</code> minus the band average.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_4">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Look at four edges first: <code>summary(squares$records)</code> gives the quartiles. Ten bands work the same way.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>band <span class="ot">&lt;-</span> <span class="fu">cut</span>(<span class="sc">&lt;</span>records<span class="sc">&gt;</span>, <span class="sc">&lt;</span>eleven edges<span class="sc">&gt;</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dig.lab =</span> <span class="dv">6</span>, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(squares<span class="sc">$</span>band)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>vs_band <span class="ot">&lt;-</span> <span class="er">&lt;</span>species<span class="sc">&gt;</span> <span class="sc">-</span> <span class="fu">ave</span>(<span class="sc">&lt;</span>species<span class="sc">&gt;</span>, <span class="sc">&lt;</span>band<span class="sc">&gt;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_4">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>band <span class="ot">&lt;-</span> <span class="fu">cut</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  squares<span class="sc">$</span>records,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(squares<span class="sc">$</span>records, ______),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dig.lab =</span> <span class="dv">6</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">include.lowest =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(squares<span class="sc">$</span>band)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>vs_band <span class="ot">&lt;-</span> squares<span class="sc">$</span>species <span class="sc">-</span> <span class="fu">ave</span>(squares<span class="sc">$</span>______, squares<span class="sc">$</span>______)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_4">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>band <span class="ot">&lt;-</span> <span class="fu">cut</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  squares<span class="sc">$</span>records,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(squares<span class="sc">$</span>records, <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">/</span> <span class="dv">10</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dig.lab =</span> <span class="dv">6</span>,           <span class="co"># legibility</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">include.lowest =</span> <span class="cn">TRUE</span>  <span class="co"># bottommost square</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(squares<span class="sc">$</span>band)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>squares<span class="sc">$</span>vs_band <span class="ot">&lt;-</span> squares<span class="sc">$</span>species <span class="sc">-</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ave</span>(squares<span class="sc">$</span>species, squares<span class="sc">$</span>band)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>About 224 squares in each band, from 158–1176 records up to 52 207–311 015. A square with ten thousand garden-feeder records will list more species than a moor that three people visited; now each is compared only with squares looked at about as hard.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="allowing-for-recording-effort-the-result" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="allowing-for-recording-effort-the-result">5. Allowing for recording effort: the result</h2>
+<p><a href="../slides/week05-content.html#/allowing-for-recording-effort-the-result">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li>Already met: <code>ggplot()</code>, <code>aes()</code>, <code>stat_summary()</code>.</li>
+</ul>
+</div>
+<div class="cell" data-setup="true" data-exercise="w5l_5">
+<script type="exercise-setup-w5l_5-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzUiLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiJzcXVhcmVzIDwtIHJlYWQuY3N2KFwiZGF0YS9iaXJkX3NxdWFyZXMuY3N2XCIpXG5zcXVhcmVzIDwtIHNxdWFyZXNbc3F1YXJlcyRsYW5kX2ZyYWN0aW9uID49IDIgLyAzLCBdXG5zcXVhcmVzJGZhcm0gPC0gaWZlbHNlKHNxdWFyZXMkbGFyZ2VzdF9mYXJtX2J5XzIwMTUgPj0gOCxcbiAgICAgICAgICAgICAgICAgICAgICAgXCJXaW5kIGZhcm1cIiwgXCJOb25lXCIpXG5zcXVhcmVzJGJhbmQgPC0gY3V0KHNxdWFyZXMkcmVjb3JkcyxcbiAgICAgICAgICAgICAgICAgICAgcXVhbnRpbGUoc3F1YXJlcyRyZWNvcmRzLCAwOjEwIC8gMTApLFxuICAgICAgICAgICAgICAgICAgICBpbmNsdWRlLmxvd2VzdCA9IFRSVUUsIGRpZy5sYWIgPSA2KVxuc3F1YXJlcyR2c19iYW5kIDwtIHNxdWFyZXMkc3BlY2llcyAtXG4gIGF2ZShzcXVhcmVzJHNwZWNpZXMsIHNxdWFyZXMkYmFuZCkifQ==
+</script>
+</div>
+<div class="cell" data-exercise="w5l_5">
+<div>
+<div id="webr-10" class="exercise-cell">
+
+</div>
+<script type="webr-10-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzUifSwiY29kZSI6IiMgU2FtZSBwbG90IGFzIGJlZm9yZSwgbmV3IG91dGNvbWU6IHNwZWNpZXMgcmVsYXRpdmUgdG8gdGhlIGJhbmQifQ==
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_5">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Copy your plot from box 1 and change one thing: the outcome on the <em>y</em> axis is now <code>vs_band</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_5">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> farm, <span class="at">y =</span> ______)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_5">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(squares, <span class="fu">aes</span>(<span class="at">x =</span> farm, <span class="at">y =</span> vs_band)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No wind farm: −0.3 species against the band (95&nbsp;% CI −1.3 to 0.7). Wind farm: <strong>+4.5</strong> (1.1 to 7.9). The answer has reversed: turbines <em>help</em> birds? A wind farm developer would print this one. Are we reading the correlation the right way round?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="identifying-causality" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="identifying-causality">6. Identifying causality</h2>
+<p><a href="../slides/week05-content.html#/identifying-causality">Slide</a></p>
+<div class="live-functions">
+<ul>
+<li><code>!</code> (new): turns TRUE into FALSE and FALSE into TRUE. <code>squares[!squares$any_wind_by_2015, ]</code> keeps the rows where <code>any_wind_by_2015</code> is FALSE.</li>
+<li>Already met: <code>ifelse()</code>, <code>ggplot()</code>, <code>aes()</code>, <code>stat_summary()</code>.</li>
+</ul>
+</div>
+<div class="cell" data-setup="true" data-exercise="w5l_6">
+<script type="exercise-setup-w5l_6-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzYiLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiJzcXVhcmVzIDwtIHJlYWQuY3N2KFwiZGF0YS9iaXJkX3NxdWFyZXMuY3N2XCIpXG5zcXVhcmVzIDwtIHNxdWFyZXNbc3F1YXJlcyRsYW5kX2ZyYWN0aW9uID49IDIgLyAzLCBdXG5zcXVhcmVzJGZhcm0gPC0gaWZlbHNlKHNxdWFyZXMkbGFyZ2VzdF9mYXJtX2J5XzIwMTUgPj0gOCxcbiAgICAgICAgICAgICAgICAgICAgICAgXCJXaW5kIGZhcm1cIiwgXCJOb25lXCIpXG5zcXVhcmVzJGJhbmQgPC0gY3V0KHNxdWFyZXMkcmVjb3JkcyxcbiAgICAgICAgICAgICAgICAgICAgcXVhbnRpbGUoc3F1YXJlcyRyZWNvcmRzLCAwOjEwIC8gMTApLFxuICAgICAgICAgICAgICAgICAgICBpbmNsdWRlLmxvd2VzdCA9IFRSVUUsIGRpZy5sYWIgPSA2KVxuc3F1YXJlcyR2c19iYW5kIDwtIHNxdWFyZXMkc3BlY2llcyAtXG4gIGF2ZShzcXVhcmVzJHNwZWNpZXMsIHNxdWFyZXMkYmFuZCkifQ==
+</script>
+</div>
+<div class="cell" data-exercise="w5l_6">
+<div>
+<div id="webr-12" class="exercise-cell">
+
+</div>
+<script type="webr-12-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzVsXzYifSwiY29kZSI6IiMgSWYgdHVyYmluZXMgY2F1c2VkIHRoZSBnYXAsIGl0IGNhbid0IGJlIHRoZXJlIGJlZm9yZSB0aGVtXG5cbiMgMS4gS2VlcCBzcXVhcmVzIHdpdGggbm8gdHVyYmluZXMgYXQgYWxsIGluIDIwMDbigJMxNVxuXG4jIDIuIFdoaWNoIG9mIHRoZXNlIGdvdCBhIHdpbmQgZmFybSBsYXRlcj8gKGJ1aWx0IG9yIGFwcGxpZWQgZm9yKVxuXG4jIDMuIFNhbWUgcGxvdCwgc2FtZSBlZmZvcnQtYWRqdXN0ZWQgbWVhc3VyZSJ9
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_6">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>any_wind_by_2015</code> is TRUE for squares with any turbine by 2015. Keep the others, in a new data frame, <code>untouched</code>.</li>
+<li>A new column, <code>later</code>, built like <code>farm</code> in box 1, from <code>largest_farm_later</code>.</li>
+<li>Box 5’s plot, with <code>untouched</code> and <code>later</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_6">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>untouched <span class="ot">&lt;-</span> squares[<span class="sc">&lt;</span>not any_wind_by_2015<span class="sc">&gt;</span>, ]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>untouched<span class="sc">$</span>later <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="sc">&lt;</span><span class="dv">8</span> or more turbines later<span class="sc">&gt;</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Wind farm later"</span>, <span class="st">"Never"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(untouched, <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>group<span class="sc">&gt;</span>, <span class="at">y =</span> vs_band)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w5l_6">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>untouched <span class="ot">&lt;-</span> squares[______squares<span class="sc">$</span>any_wind_by_2015, ]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>untouched<span class="sc">$</span>later <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(untouched<span class="sc">$</span>______ <span class="sc">&gt;=</span> <span class="dv">8</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Wind farm later"</span>, <span class="st">"Never"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(untouched, <span class="fu">aes</span>(<span class="at">x =</span> ______, <span class="at">y =</span> vs_band)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w5l_6">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>untouched <span class="ot">&lt;-</span> squares[<span class="sc">!</span>squares<span class="sc">$</span>any_wind_by_2015, ]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>untouched<span class="sc">$</span>later <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(untouched<span class="sc">$</span>largest_farm_later <span class="sc">&gt;=</span> <span class="dv">8</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"Wind farm later"</span>, <span class="st">"Never"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(untouched, <span class="fu">aes</span>(<span class="at">x =</span> later, <span class="at">y =</span> vs_band)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="fl">1.96</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Never: −1.4 (−2.5 to −0.3; 1711 squares). Wind farm later: <strong>+3.7</strong> (1.2 to 6.2; 238 squares). A gap of about +5, before any turbine was built. Turbines can’t have caused it: developers choose sites that were already better for birds. “Later” includes refused applications; they still show where developers chose to go.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-your-work" class="level2 save-reminder">
+<h2 class="anchored" data-anchor-id="save-your-work">Save your work</h2>
+<div class="code-transfer">
+<p><span class="code-transfer-export btn btn-primary" role="button">Export all code</span> <span class="code-transfer-import btn btn-outline-primary" role="button">Import code</span></p>
+<p><em>Export all code</em> downloads every box on this page as one R file. Each box sits under a line like <code># Exercise 1: … [w2_1] ----</code>; keep those lines if you edit the file, and <em>Import code</em> can put it back into the boxes on any computer. Your code is also kept in this browser as you type, so reloading the page doesn’t lose it.</p>
+<p><span class="code-transfer-report"></span></p>
+</div>
+<script src="code-transfer.js"></script>
+</section>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjgvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiXSwicmVwb3MiOltdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzEyID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMiwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTIgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzEyLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTA7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEwID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTAtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMC1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzEwID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMCwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTAgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzEwLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC04IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV84O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzggPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici04LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItOC1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzggPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzgsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzggPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzguZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTYiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici02IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNiA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici02LWNvbnRlbnRzXCIsXG4gICAgICBlbnZpcjogYGV4ZXJjaXNlLWVudi0ke2Jsb2NrLmF0dHIuZXhlcmNpc2V9YCxcbiAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgIGNhcHRpb246ICdFeGVyY2lzZScsXG4gICAgfSxcbiAgICBibG9jay5hdHRyXG4gICk7XG5cbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG52aWV3b2YgX3dlYnJfdmFsdWVfNiA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNiwge30pO1xuX3dlYnJfZmVlZGJhY2tfNiA9IHtcbiAgY29uc3QgeyBXZWJSR3JhZGVyIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBlbXB0eUZlZWRiYWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XG5cbiAgY29uc3QgZ3JhZGVyID0gbmV3IFdlYlJHcmFkZXIoX3dlYnJfdmFsdWVfNi5ldmFsdWF0b3IpO1xuICBjb25zdCBmZWVkYmFjayA9IGF3YWl0IGdyYWRlci5ncmFkZUV4ZXJjaXNlKCk7XG4gIGlmICghZmVlZGJhY2spIHJldHVybiBlbXB0eUZlZWRiYWNrO1xuICByZXR1cm4gZmVlZGJhY2s7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNDtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTQiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl80ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNC1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIC8vIERlZmF1bHQgZXhlcmNpc2UgY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbihcbiAgICB7XG4gICAgICBpZDogXCJ3ZWJyLTQtY29udGVudHNcIixcbiAgICAgIGVudmlyOiBgZXhlcmNpc2UtZW52LSR7YmxvY2suYXR0ci5leGVyY2lzZX1gLFxuICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgY2FwdGlvbjogJ0V4ZXJjaXNlJyxcbiAgICB9LFxuICAgIGJsb2NrLmF0dHJcbiAgKTtcblxuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbnZpZXdvZiBfd2Vicl92YWx1ZV80ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl80LCB7fSk7XG5fd2Vicl9mZWVkYmFja180ID0ge1xuICBjb25zdCB7IFdlYlJHcmFkZXIgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IGVtcHR5RmVlZGJhY2sgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcblxuICBjb25zdCBncmFkZXIgPSBuZXcgV2ViUkdyYWRlcihfd2Vicl92YWx1ZV80LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8yO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzIgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzIsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzIgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzIuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ3ZWJST2pzID0ge1xuICBjb25zdCB7IFdlYlIsIENoYW5uZWxUeXBlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHtcbiAgICBXZWJSRXZhbHVhdG9yLFxuICAgIFdlYlJFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBSLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGhcbiAgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyBNYWtlIGFueSByZXZlYWwgc2xpZGVzIHdpdGggbGl2ZSBjZWxscyBzY3JvbGxhYmxlXG4gIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoXCIucmV2ZWFsIC5leGVyY2lzZS1jZWxsXCIpLmZvckVhY2goKGVsKSA9PiB7XG4gICAgZWwuY2xvc2VzdCgnc2VjdGlvbi5zbGlkZScpLmNsYXNzTGlzdC5hZGQoXCJzY3JvbGxhYmxlXCIpO1xuICB9KVxuXG4gIC8vIHdlYlIgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgLy8gSW5pdGlhbGlzZSB3ZWJSIGFuZCBzZXR1cCBmb3IgUiBjb2RlIGV2YWx1YXRpb25cbiAgbGV0IHdlYlJQcm9taXNlID0gKGFzeW5jICh3ZWJSKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyB3ZWJSYDtcbiAgICBhd2FpdCB3ZWJSLmluaXQoKTtcblxuICAgIC8vIEluc3RhbGwgcHJvdmlkZWQgbGlzdCBvZiBwYWNrYWdlc1xuICAgIC8vIEVuc3VyZSB3ZWJSIGRlZmF1bHQgcmVwbyBpcyBpbmNsdWRlZFxuICAgIGRhdGEucGFja2FnZXMucmVwb3MucHVzaChcImh0dHBzOi8vcmVwby5yLXdhc20ub3JnXCIpXG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gd2ViUi5ldmFsUlZvaWQoYFxuICAgICAgICB3ZWJyOjppbnN0YWxsKHBrZywgcmVwb3MgPSByZXBvcylcbiAgICAgICAgbGlicmFyeShwa2csIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbiAgICAgIGAsIHsgZW52OiB7XG4gICAgICAgIHBrZzogcGtnLFxuICAgICAgICByZXBvczogZGF0YS5wYWNrYWdlcy5yZXBvcyxcbiAgICAgIH19KTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICBjb25zdCBhbmFseXNpcyA9IGF3YWl0IHdlYlIuRlMuYW5hbHl6ZVBhdGgocGF0aCk7XG4gICAgICAgIGlmICghYW5hbHlzaXMuZXhpc3RzKSB7XG4gICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIGF3YWl0IHdlYlIuRlMubWtkaXIocGF0aCk7XG4gICAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yOiBcIiR7ZS5tZXNzYWdlfVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIn1dfQ==
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+WyJjb2RlLXRyYW5zZmVyLmpzIiwiLi4vZGF0YS9iaXJkX3NxdWFyZXMuY3N2Il0=
+</script>
+
+</main> <!-- /main -->
+<script>
+// Fold every extension (`::: {.extension}`, or a heading with
+// {.extension}) shut until the student opens it, so the core exercise
+// comes first. Included on every page by _quarto.yml (include-after-body).
+//
+// Pandoc merges an extension div into its heading's <section>, so the
+// heading stays visible (and in the TOC) and its siblings are hidden by
+// `.extension.collapsed` in styles.css. The class is added here, so with
+// no JavaScript nothing is hidden.
+//
+// An extension opens itself when the URL points into it, and when
+// code-transfer.js restores or imports code into one of its boxes.
+(function () {
+  "use strict";
+
+  var SELECTOR = "section.extension, div.extension";
+  var n = 0;
+
+  function Toggle(ext, open) {
+    ext.classList.toggle("collapsed", !open);
+    if (ext.extensionToggle) {
+      ext.extensionToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  }
+
+  function Reveal(el) {
+    var ext = el && el.closest && el.closest(SELECTOR);
+    if (ext && ext.classList.contains("collapsed")) Toggle(ext, true);
+    return ext;
+  }
+
+  function Setup(ext) {
+    if (ext.extensionToggle) return;
+    n += 1;
+    var heading = ext.firstElementChild;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "extension-toggle";
+    if (heading && /^H[234]$/.test(heading.tagName)) {
+      // Quarto's anchor link stays outside the button.
+      Array.prototype.slice.call(heading.childNodes).forEach(function (node) {
+        if (!(node.classList && node.classList.contains("anchorjs-link"))) {
+          button.appendChild(node);
+        }
+      });
+      heading.insertBefore(button, heading.firstChild);
+    } else {
+      heading = null;
+      button.textContent = "Extension";
+      ext.insertBefore(button, ext.firstChild);
+    }
+    var ids = [];
+    Array.prototype.forEach.call(ext.children, function (child, i) {
+      if (child === heading || child === button) return;
+      if (!child.id) child.id = "extension-" + n + "-" + i;
+      ids.push(child.id);
+    });
+    button.setAttribute("aria-controls", ids.join(" "));
+    button.addEventListener("click", function () {
+      Toggle(ext, ext.classList.contains("collapsed"));
+    });
+    ext.extensionToggle = button;
+    Toggle(ext, false);
+  }
+
+  function FollowHash() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (target && Reveal(target)) target.scrollIntoView();
+  }
+
+  function Start() {
+    Array.prototype.forEach.call(document.querySelectorAll(SELECTOR), Setup);
+    FollowHash();
+  }
+
+  window.ExtensionCollapse = { reveal: Reveal };
+  window.addEventListener("hashchange", FollowHash);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", Start);
+  } else {
+    Start();
+  }
+})();
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../exercises";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="../accessibility.html">Accessibility statement</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

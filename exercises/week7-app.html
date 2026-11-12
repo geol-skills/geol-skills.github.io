@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 7: Fitting and Breaking Models – Research Skills</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-92404dd89b1444827012a9e3a58cda88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Research Skills</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-getting-started" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Getting Started</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-getting-started">    
+        <li>
+    <a class="dropdown-item" href="../materials/preparation.html">
+ <span class="dropdown-text">Pre-term preparation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/python-to-r.html">
+ <span class="dropdown-text">Python to R reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/SrihariPramod/R_vs_Python_Cheatsheet/blob/master/R_vs_Python.pdf">
+ <span class="dropdown-text">R vs Python cheatsheet (PDF)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://warin.ca/ressentials/">
+ <span class="dropdown-text">R Essentials (Warin)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://swirlstats.com/">
+ <span class="dropdown-text">swirl: learn R in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/git-troubleshooting.html">
+ <span class="dropdown-text">Git troubleshooting</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Classroom 50</li>
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/biomass/accept">
+ <span class="dropdown-text">Individual repo (Weeks 1–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/drax/accept">
+ <span class="dropdown-text">Drax briefing repo (Weeks 3–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/group/accept">
+ <span class="dropdown-text">Group repo (Weeks 5–10)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/report/accept">
+ <span class="dropdown-text">Report repo (Weeks 7–10)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../materials/scientific-method-reference.html">
+ <span class="dropdown-text">The scientific method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/ai-reproducibility-reference.html">
+ <span class="dropdown-text">AI, reproducibility &amp; integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/chart-audit.html">
+ <span class="dropdown-text">Chart audit (Week 2 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/bias-bingo.html">
+ <span class="dropdown-text">Bias bingo (Week 7 homework)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Live code (Repeats)</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-live.html">
+ <span class="dropdown-text">Week 5: Wind farms and birds</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-live.html">
+ <span class="dropdown-text">Week 6: The null world and the <em>t</em>-test</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-live.html">
+ <span class="dropdown-text">Week 7: A model of gas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-live.html">
+ <span class="dropdown-text">Week 8: Many tests, many groups</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Guides</li>
+        <li>
+    <a class="dropdown-item" href="../materials/briefing-structure-guide.html">
+ <span class="dropdown-text">Briefing structure guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/markdown-guide.html">
+ <span class="dropdown-text">Writing in Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/local-r.html">
+ <span class="dropdown-text">R on your PC (Week 6 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/peer-review-template.html">
+ <span class="dropdown-text">Peer review template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/project-topics.html">
+ <span class="dropdown-text">Project topics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/assessment-brief.html">
+ <span class="dropdown-text">Assessment brief</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/access-articles.html">
+ <span class="dropdown-text">Accessing scientific articles</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">External links</li>
+        <li>
+    <a class="dropdown-item" href="https://webr.r-wasm.org/latest/">
+ <span class="dropdown-text">webR</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.bbc.co.uk/programmes/b006qshd">
+ <span class="dropdown-text">More or Less</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.economist.com">
+ <span class="dropdown-text">The Economist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ms609.github.io/Concentration/">
+ <span class="dropdown-text">Concentration</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week01-content.html">
+ <span class="dropdown-text">W1 Content: What makes a good question?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week01-app.html">
+ <span class="dropdown-text">W1 App: Meet the data (and Git)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-content.html">
+ <span class="dropdown-text">W2 Content: What do the numbers say?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-content.html">
+ <span class="dropdown-text">W3 Content: How confident should we be?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-content.html">
+ <span class="dropdown-text">W4 Content: Making the case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-app.html">
+ <span class="dropdown-text">W4 App: Review and reveal</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week05-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week05-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-content.html">
+ <span class="dropdown-text">W6 Content: Testing hypotheses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-content.html">
+ <span class="dropdown-text">W9 Content: AI, reproducibility, and integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-app.html">
+ <span class="dropdown-text">W9 App: AI as critic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-content.html">
+ <span class="dropdown-text">W10 Content: Bringing it together</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-app.html">
+ <span class="dropdown-text">W10 App: Review, revise, submit</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/scratchpad.html">
+ <span class="dropdown-text">Scratchpad: run your own code</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week1-app.html">
+ <span class="dropdown-text">W1 App: Meet the data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-dodgy-plots.html">
+ <span class="dropdown-text">W2 Content: Dodgy plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-content.html">
+ <span class="dropdown-text">W2 Content: Your first ggplot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/carbon-accounting-summary.html">
+ <span class="dropdown-text">W3 Content: Assumption audit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week3-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-content.html">
+ <span class="dropdown-text">W6 Content: Check your assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week9-app.html">
+ <span class="dropdown-text">W9 App: Checking your work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week10-content.html">
+ <span class="dropdown-text">W10 Content: Common pitfalls</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a"> 
+<span class="menu-text">Ask for help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../staff/index.html"> 
+<span class="menu-text">Staff</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#exercise-1-fifteen-years-of-growth" id="toc-exercise-1-fifteen-years-of-growth" class="nav-link" data-scroll-target="#exercise-1-fifteen-years-of-growth">Exercise 1: Fifteen years of growth</a>
+  <ul class="collapse">
+  <li><a href="#extension-is-this-even-the-right-series" id="toc-extension-is-this-even-the-right-series" class="nav-link" data-scroll-target="#extension-is-this-even-the-right-series">Extension: is this even the right series?</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-the-straight-line-into-2040" id="toc-exercise-2-the-straight-line-into-2040" class="nav-link" data-scroll-target="#exercise-2-the-straight-line-into-2040">Exercise 2: The straight line into 2040</a>
+  <ul class="collapse">
+  <li><a href="#extension-how-uncertain-is-that-line" id="toc-extension-how-uncertain-is-that-line" class="nav-link" data-scroll-target="#extension-how-uncertain-is-that-line">Extension: how uncertain is that line?</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-an-exponential-model" id="toc-exercise-3-an-exponential-model" class="nav-link" data-scroll-target="#exercise-3-an-exponential-model">Exercise 3: An exponential model</a>
+  <ul class="collapse">
+  <li><a href="#extension-the-model-that-knows-about-limits" id="toc-extension-the-model-that-knows-about-limits" class="nav-link" data-scroll-target="#extension-the-model-that-knows-about-limits">Extension: the model that knows about limits</a></li>
+  </ul></li>
+  <li><a href="#exercise-4-which-model-fits" id="toc-exercise-4-which-model-fits" class="nav-link" data-scroll-target="#exercise-4-which-model-fits">Exercise 4: Which model fits?</a>
+  <ul class="collapse">
+  <li><a href="#quick-check" id="toc-quick-check" class="nav-link" data-scroll-target="#quick-check">Quick check</a></li>
+  <li><a href="#extension-what-the-diagnostics-see" id="toc-extension-what-the-diagnostics-see" class="nav-link" data-scroll-target="#extension-what-the-diagnostics-see">Extension: what the diagnostics see</a></li>
+  </ul></li>
+  <li><a href="#exercise-5-what-is-your-model-not-capturing" id="toc-exercise-5-what-is-your-model-not-capturing" class="nav-link" data-scroll-target="#exercise-5-what-is-your-model-not-capturing">Exercise 5: What is your model not capturing?</a>
+  <ul class="collapse">
+  <li><a href="#extension-audit-someone-elses-blind-spot" id="toc-extension-audit-someone-elses-blind-spot" class="nav-link" data-scroll-target="#extension-audit-someone-elses-blind-spot">Extension: audit someone else’s blind spot</a></li>
+  </ul></li>
+  <li><a href="#save-your-work" id="toc-save-your-work" class="nav-link" data-scroll-target="#save-your-work">Save your work</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 7: Fitting and Breaking Models</h1>
+<p class="subtitle lead">Fit, check, predict: and know what the model leaves out</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Today you will fit two models to sixteen years of UK wind and solar generation, ask each how much the UK will generate in 2040, and then check which one actually describes the data.</p>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>Fit, summarize and predict with <code>lm()</code></li>
+<li>Fit an exponential model by logging the response, and back-transform its predictions</li>
+<li>Compare models with residual plots and <code>AIC()</code></li>
+<li>Say what each model cannot represent, and take that to your project</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Coming back to this page?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-transfer code-transfer-top">
+<p>Your code is kept in this browser. You can <span class="code-transfer-import btn btn-sm btn-outline-primary" role="button">Import code</span> you saved using <em>Export all code</em> (page footer).</p>
+<p><span class="code-transfer-report"></span></p>
+</div>
+</div>
+</div>
+<div class="cell" data-autorun="true">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShcImdncGxvdDJcIilcbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKSJ9
+</script>
+</div>
+</div>
+<div class="cell" data-autorun="true">
+<div>
+<div id="webr-2" class="exercise-cell">
+
+</div>
+<script type="webr-2-contents">
+eyJhdHRyIjp7ImF1dG9ydW4iOnRydWUsImVjaG8iOmZhbHNlLCJlZGl0IjpmYWxzZSwiZWRpdG9yLWZvbnQtc2NhbGUiOiIwLjg1IiwiZXZhbCI6dHJ1ZSwiaW5jbHVkZSI6ZmFsc2UsIm91dHB1dCI6ZmFsc2V9LCJjb2RlIjoiIyBHcmFkaW5nIGhlbHBlcnMsIHNoYXJlZCBieSBldmVyeSBleGVyY2lzZSBwYWdlLlxuI1xuIyBUaGVzZSBydW4gaW4gdGhlIHBhZ2UncyBnbG9iYWwgZW52aXJvbm1lbnQgYnV0IGFyZSBkb3QtcHJlZml4ZWQsIHNvXG4jIGBscygpYCBkb2VzIG5vdCBzaG93IHRoZW0gdG8gc3R1ZGVudHMuIENoZWNrIGJsb2NrcyBjYW4gY2FsbCB0aGVtXG4jIGJlY2F1c2UgYSBjaGVjayBibG9jaydzIGVudmlyb25tZW50IGNoYWluIHJlYWNoZXMgZ2xvYmFsZW52KCkuXG4jXG4jIEVkaXQgdGhpcyBmaWxlIHJhdGhlciB0aGFuIGFueSBzaW5nbGUgd2VlazogaXQgaXMgaW5jbHVkZWQgYnkgZXZlcnlcbiMgZXhlcmNpc2UgcGFnZSB2aWEge3s8IGluY2x1ZGUgX2dyYWRpbmctaGVscGVycy5xbWQgPn19LlxuXG4jIEEgc2luZ2xlLCBmaW5pdGUgbnVtYmVyIOKAlCB0aGUgc2hhcGUgbW9zdCBhbnN3ZXJzIHNob3VsZCB0YWtlLlxuLm51bTEgPC0gZnVuY3Rpb24odmFsdWUpIHtcbiAgaXMubnVtZXJpYyh2YWx1ZSkgJiYgbGVuZ3RoKHZhbHVlKSA9PSAxICYmIGlzLmZpbml0ZSh2YWx1ZSlcbn1cblxuIyBBIDEgeCAxIG51bWVyaWMgZGF0YSBmcmFtZSBvciBtYXRyaXggaXMgb25lIG51bWJlciBpbiBkaXNndWlzZTpcbiMgZWxlY1tlbGVjJHllYXIgPT0gMjAyNCwgXCJiaW9lbmVyZ3lfdHdoXCIsIGRyb3AgPSBGQUxTRV0gLyB4LCBzYXkuXG4jIFVud3JhcCBpdCBzbyB0aGUgc3R1ZGVudCBpcyBncmFkZWQgb24gdGhlIHZhbHVlLiBBbnl0aGluZyBlbHNlLFxuIyBpbmNsdWRpbmcgYSB3aG9sZSByb3csIGNvbWVzIGJhY2sgdW5jaGFuZ2VkLlxuLnNjYWxhciA8LSBmdW5jdGlvbih2YWx1ZSkge1xuICBpZiAoKGlzLmRhdGEuZnJhbWUodmFsdWUpIHx8IGlzLm1hdHJpeCh2YWx1ZSkpICYmXG4gICAgICBpZGVudGljYWwoZGltKHZhbHVlKSwgYygxTCwgMUwpKSAmJiBpcy5udW1lcmljKHZhbHVlW1sxXV0pKSB7XG4gICAgYXMubnVtZXJpYyh2YWx1ZVtbMV1dKVxuICB9IGVsc2Uge1xuICAgIHZhbHVlXG4gIH1cbn1cblxuIyBSZWxhdGl2ZSB0b2xlcmFuY2UuIFVzZSBmb3IgcXVhbnRpdGllcyB3aG9zZSBzaXplIGlzIGZhciBmcm9tIHplcm8uXG4ubmVhciA8LSBmdW5jdGlvbih2YWx1ZSwgdGFyZ2V0LCB0b2wgPSAwLjAxKSB7XG4gIC5udW0xKHZhbHVlKSAmJiBhYnModmFsdWUgLSB0YXJnZXQpIDw9IHRvbCAqIGFicyh0YXJnZXQpXG59XG5cbiMgQWJzb2x1dGUgdG9sZXJhbmNlLiBVc2UgZm9yIHAtdmFsdWVzLCBjb3JyZWxhdGlvbnMsIHByb3BvcnRpb25zIOKAlFxuIyBhbnl0aGluZyB0aGF0IGNhbiBsZWdpdGltYXRlbHkgc2l0IGF0IG9yIG5lYXIgemVyby5cbi5jbG9zZSA8LSBmdW5jdGlvbih2YWx1ZSwgdGFyZ2V0LCB0b2wgPSAwLjAxKSB7XG4gIC5udW0xKHZhbHVlKSAmJiBhYnModmFsdWUgLSB0YXJnZXQpIDw9IHRvbFxufVxuXG4jIFRSVUUgd2hlbiB0aGUgYW5zd2VyIGlzIHJpZ2h0IGJ1dCB0aGUgdW5pdHMgYXJlIG91dCBieSBhIHdob2xlIHBvd2VyXG4jIG9mIHRlbi4gU3R1ZGVudHMgbWFrZSB0aGlzIGVycm9yIG9mdGVuLCBzbyBpdCBnZXRzIGl0cyBvd24gbWVzc2FnZVxuIyB3aGVyZXZlciBpdCBjYW4gaGFwcGVuLlxuLnRlbmZvbGQgPC0gZnVuY3Rpb24odmFsdWUsIHRhcmdldCkge1xuICBpZiAoIS5udW0xKHZhbHVlKSB8fCB2YWx1ZSA9PSAwIHx8IHRhcmdldCA9PSAwKSB7XG4gICAgcmV0dXJuKEZBTFNFKVxuICB9XG4gIHAgPC0gbG9nMTAoYWJzKHZhbHVlIC8gdGFyZ2V0KSlcbiAgYWJzKHAgLSByb3VuZChwKSkgPCAwLjAyICYmIGFicyhyb3VuZChwKSkgPj0gMVxufVxuXG4jIFRoZSBzdHVkZW50IHByZXNzZWQgUnVuIG9uIGFuIGVtcHR5IG9yIGNvbW1lbnQtb25seSBibG9jay5cbi51bnN0YXJ0ZWQgPC0gZnVuY3Rpb24odmFsdWUpIHtcbiAgaXMubnVsbCh2YWx1ZSkgfHwgbGVuZ3RoKHZhbHVlKSA9PSAwXG59XG5cbi5pc19wbG90IDwtIGZ1bmN0aW9uKHZhbHVlKSB7XG4gIGluaGVyaXRzKHZhbHVlLCBcImdncGxvdFwiKSB8fCBpbmhlcml0cyh2YWx1ZSwgXCJnZ1wiKVxufVxuXG4jIFB1bGwgdGhlIHAtdmFsdWUgb3V0IG9mIHdoYXRldmVyIGEgc3R1ZGVudCdzIGxhc3QgbGluZSBwcm9kdWNlZDpcbiMgYW4gaHRlc3QgKHQudGVzdCwgY29yLnRlc3QsIHNoYXBpcm8udGVzdCwgY2hpc3EudGVzdCksIGEgc3VtbWFyeShhb3YpLFxuIyBhbiBhbm92YSB0YWJsZSwgb3IgYSBmaXR0ZWQgbW9kZWwuIE5BIGlmIHRoZXJlIGlzbid0IG9uZS5cbi5wX29mIDwtIGZ1bmN0aW9uKHZhbHVlKSB7XG4gIHRhYiA8LSBOVUxMXG4gIGlmIChpbmhlcml0cyh2YWx1ZSwgXCJodGVzdFwiKSkge1xuICAgIHJldHVybihhcy5udW1lcmljKHZhbHVlJHAudmFsdWUpWzFdKVxuICB9IGVsc2UgaWYgKGlzLmRhdGEuZnJhbWUodmFsdWUpKSB7XG4gICAgdGFiIDwtIHZhbHVlXG4gIH0gZWxzZSBpZiAoaW5oZXJpdHModmFsdWUsIFwiYW92XCIpIHx8IGluaGVyaXRzKHZhbHVlLCBcImxtXCIpKSB7XG4gICAgdGFiIDwtIHRyeUNhdGNoKGFzLmRhdGEuZnJhbWUoc3RhdHM6OmFub3ZhKHZhbHVlKSksXG4gICAgICAgICAgICAgICAgICAgIGVycm9yID0gZnVuY3Rpb24oZSkgTlVMTClcbiAgfSBlbHNlIGlmIChpcy5saXN0KHZhbHVlKSAmJiBsZW5ndGgodmFsdWUpID49IDEgJiZcbiAgICAgICAgICAgICBpcy5kYXRhLmZyYW1lKHZhbHVlW1sxXV0pKSB7XG4gICAgdGFiIDwtIHZhbHVlW1sxXV1cbiAgfVxuICBpZiAoaXMubnVsbCh0YWIpKSB7XG4gICAgcmV0dXJuKE5BX3JlYWxfKVxuICB9XG4gIGNvbCA8LSBuYW1lcyh0YWIpW3N0YXJ0c1dpdGgobmFtZXModGFiKSwgXCJQcihcIildXG4gIGlmICghbGVuZ3RoKGNvbCkpIHtcbiAgICByZXR1cm4oTkFfcmVhbF8pXG4gIH1cbiAgcCA8LSB0YWJbW2NvbFsxXV1dXG4gIHAgPC0gcFtpcy5maW5pdGUocCldXG4gIGlmIChsZW5ndGgocCkpIHBbMV0gZWxzZSBOQV9yZWFsX1xufVxuXG4jIFRoZSBlc3RpbWF0ZSBvciB0ZXN0IHN0YXRpc3RpYyBmcm9tIGFuIGh0ZXN0LCBzbyBhIHN0dWRlbnQgd2hvIHByaW50c1xuIyB0aGUgd2hvbGUgdGVzdCBvYmplY3QgY2FuIHN0aWxsIGJlIGdyYWRlZCBvbiB0aGUgbnVtYmVyIGluc2lkZSBpdC5cbi5lc3Rfb2YgPC0gZnVuY3Rpb24odmFsdWUpIHtcbiAgaWYgKGluaGVyaXRzKHZhbHVlLCBcImh0ZXN0XCIpKSB7XG4gICAgZXN0IDwtIHZhbHVlJGVzdGltYXRlXG4gICAgaWYgKGxlbmd0aChlc3QpID09IDEpIHtcbiAgICAgIHJldHVybihhcy5udW1lcmljKGVzdCkpXG4gICAgfVxuICAgIGlmIChsZW5ndGgoZXN0KSA9PSAyKSB7XG4gICAgICByZXR1cm4oYXMubnVtZXJpYyhlc3RbMV0gLSBlc3RbMl0pKVxuICAgIH1cbiAgfVxuICBOQV9yZWFsX1xufVxuXG4jIEEgbmFtZWQgY29lZmZpY2llbnQgZnJvbSBhIGZpdHRlZCBtb2RlbDsgYHdoaWNoID0gMmAgaXMgdGhlIHNsb3BlIG9mXG4jIGEgc2ltcGxlIHJlZ3Jlc3Npb24uXG4uY29lZl9vZiA8LSBmdW5jdGlvbih2YWx1ZSwgd2hpY2ggPSAyKSB7XG4gIGlmICghaW5oZXJpdHModmFsdWUsIFwibG1cIikpIHtcbiAgICByZXR1cm4oTkFfcmVhbF8pXG4gIH1cbiAgY2YgPC0gc3RhdHM6OmNvZWYodmFsdWUpXG4gIGlmIChsZW5ndGgoY2YpIDwgd2hpY2gpIE5BX3JlYWxfIGVsc2UgYXMubnVtZXJpYyhjZlt3aGljaF0pXG59In0=
+</script>
+</div>
+</div>
+</section>
+<section id="exercise-1-fifteen-years-of-growth" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="exercise-1-fifteen-years-of-growth">Exercise 1: Fifteen years of growth</h2>
+<p>UK wind and solar generation has grown sharply since 2010. Build the series and look at it before modelling anything.</p>
+<p>Finish by printing <strong>2025’s combined wind and solar generation</strong>.</p>
+<div class="cell" data-exercise="w7a_1" data-envir="w7_extrap">
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfMSJ9LCJjb2RlIjoiIyBTdGVwIDEuIEFkZCBhIGByZW5ld2FibGVfdHdoYCBjb2x1bW4gdG8gYGVsZWNgOiB3aW5kIHBsdXMgc29sYXIuXG5cblxuIyBTdGVwIDIuIEtlZXAgMjAxMCBvbndhcmQgaW4gYSBkYXRhIGZyYW1lIGNhbGxlZCBgcmVjZW50YCDigJQgdGhlXG4jICAgICAgICAgbGF0ZXIgZXhlcmNpc2VzIHVzZSBpdC5cblxuXG4jIFN0ZXAgMy4gUGxvdCB0aGUgdHJlbmQsIGxhYmVsbGVkIGFuZCB0aXRsZWQuXG5cblxuIyBTdGVwIDQuIFByaW50IDIwMjUncyBjb21iaW5lZCBmaWd1cmUuIn0=
+</script>
+</div>
+</div>
+<div class="cell" data-check="true" data-exercise="w7a_1">
+<script type="exercise-check-w7a_1-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJlZGl0b3ItZm9udC1zY2FsZSI6IjAuODUiLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6Inc3YV8xIn0sImNvZGUiOiIucmVzdWx0IDwtIC5zY2FsYXIoLnJlc3VsdClcbmlmICgudW5zdGFydGVkKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJOb3RoaW5nIGNhbWUgYmFjay4gRW5kIHRoZSBibG9jayB3aXRoIDIwMjUncyBjb21iaW5lZCB3aW5kIGFuZCBzb2xhciBmaWd1cmUuXCIpXG59IGVsc2UgaWYgKC5pc19wbG90KC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIHRoZSBwbG90LiBTdGVwIDQgYXNrcyBmb3IgdGhlIDIwMjUgbnVtYmVyIGFzIHRoZSBsYXN0IGxpbmUuXCIpXG59IGVsc2UgaWYgKGlzLmRhdGEuZnJhbWUoLnJlc3VsdCkpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgYSB0YWJsZS4gU3RlcCA0IHdhbnRzIG9uZSBudW1iZXIuXCIpXG59IGVsc2UgaWYgKCEubnVtMSgucmVzdWx0KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiT25lIG51bWJlciwgcGxlYXNlIOKAlCBUV2ggaW4gMjAyNS5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgODYuNCwgdG9sID0gMC4wMDUpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCI4Ni40IGlzIHdpbmQgYWxvbmUuIFNvbGFyIGFkZHMgYW5vdGhlciAyMC4xLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCAxMC4zLCB0b2wgPSAwLjAxKSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiMTAuMyBpcyAyMDEwJ3MgZmlndXJlLCB0aGUgZmlyc3Qgcm93IG9mIGByZWNlbnRgIHJhdGhlciB0aGFuIHRoZSBsYXN0LiB0YWlsKCkgb3IgYW4gZXhwbGljaXQgeWVhciBmaWx0ZXIgd2lsbCBnZXQgeW91IHRoZSBvdGhlciBlbmQuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDQxLjAsIHRvbCA9IDAuMDEpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCI0MS4wIGlzIGJpb2VuZXJneS4gV2luZCBhbmQgc29sYXIgYXJlIHRoZSB0d28gY29sdW1ucyB3YW50ZWQgaGVyZSDigJQgYmlvZW5lcmd5IGlzIGEgcmVuZXdhYmxlIGJ5IHNvbWUgZGVmaW5pdGlvbnMsIHdoaWNoIGlzIGV4YWN0bHkgd2h5IHRoZSBkZWZpbml0aW9uIGhhcyB0byBiZSBzdGF0ZWQuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDk4LjYsIHRvbCA9IDAuMDA1KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiOTguNiBpcyAyMDI0J3MgZmlndXJlLiBUaGUgc2VyaWVzIG5vdyBydW5zIHRvIDIwMjUsIHNvIHRoZSBsYXN0IHJvdyBvZiBgcmVjZW50YCBpcyB0aGUgb25lIHdhbnRlZC5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMTA2LjUsIHRvbCA9IDAuMDA1KSkge1xuICBsaXN0KGNvcnJlY3QgPSBUUlVFLCBtZXNzYWdlID0gXCIxMDYuNcKgVFdoLCB1cCBmcm9tIDEwLjMgaW4gMjAxMCDigJQgYWJvdXQgdGVuZm9sZCBpbiBmaWZ0ZWVuIHllYXJzLCBhbmQgb3ZlciBhIHRoaXJkIG9mIGFsbCBVSyBlbGVjdHJpY2l0eS4gTG9vayBhdCB0aGUgc2hhcGUgYmVmb3JlIHlvdSBtb2RlbCBpdDogdGhlIHJpc2UgaXMgc3RlZXAgYW5kIHJlYXNvbmFibHkgc3RyYWlnaHQgYWZ0ZXIgYWJvdXQgMjAxNSwgYnV0IHRoZSBlYXJseSB5ZWFycyBncmV3IG11Y2ggZmFzdGVyIGluIHByb3BvcnRpb25hbCB0ZXJtcy4gVGhvc2UgdHdvIHJlYWRpbmdzIG9mIHRoZSBzYW1lIHBpY3R1cmUgYXJlIHRoZSBuZXh0IHR3byBleGVyY2lzZXMuXCIpXG59IGVsc2Uge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiTm90IHF1aXRlLiBQcmludCB5b3VyIGByZWNlbnRgIGRhdGEgZnJhbWUgYW5kIGNoZWNrIGl0IGhhcyAxNiByb3dzLCAyMDEwIHRvIDIwMjUsIHdpdGggYSByZW5ld2FibGVfdHdoIGNvbHVtbi5cIilcbn0ifQ==
+</script>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Adding two columns together gives a vector; assigning it into the data frame with <code>$</code> makes it a column.</p>
+<p>Filtering to 2010 onward is the <code>df[condition, ]</code> pattern, with <code>&gt;=</code> rather than <code>==</code>.</p>
+<p>Name the filtered data frame <code>recent</code> — the next three exercises refer to it, and the boxes share one session.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The shape of it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>new <span class="ot">&lt;-</span> df<span class="sc">$</span>a <span class="sc">+</span> df<span class="sc">$</span>b</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>recent <span class="ot">&lt;-</span> df[df<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">2010</span>, ]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> new)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(...)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>new[recent<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2025</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_1">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>elec<span class="sc">$</span>renewable_twh <span class="ot">&lt;-</span> elec<span class="sc">$</span>______ <span class="sc">+</span> elec<span class="sc">$</span>______</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>recent <span class="ot">&lt;-</span> elec[elec<span class="sc">$</span>year <span class="sc">&gt;=</span> ______, ]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> ______, <span class="at">y =</span> ______)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Renewable generation (TWh)"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"UK wind and solar generation, 2010-2025"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>renewable_twh[recent<span class="sc">$</span>year <span class="sc">==</span> ______]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w7a_1">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>elec<span class="sc">$</span>renewable_twh <span class="ot">&lt;-</span> elec<span class="sc">$</span>wind_twh <span class="sc">+</span> elec<span class="sc">$</span>solar_twh</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>recent <span class="ot">&lt;-</span> elec[elec<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">2010</span>, ]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> renewable_twh)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Renewable generation (TWh)"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"UK wind and solar generation, 2010-2025"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>renewable_twh[recent<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2025</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>From 10.3&nbsp;TWh in 2010 to <strong>106.5&nbsp;TWh</strong> in 2025 — about tenfold, and over a third of all UK electricity.</p>
+<p>Look hard at the shape, because the next two exercises both start here. From 2015 the rise is close to a straight line: roughly the same number of TWh added each year. Before that it is steeper in <em>proportional</em> terms — the jump from 10 to 20&nbsp;TWh is a doubling; the jump from 80 to 90 is not.</p>
+<p>Straight line or compound growth? Exercises 2 and 3 fit one each; Exercise 4 asks which describes the data better.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="extension-is-this-even-the-right-series" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-is-this-even-the-right-series">Extension: is this even the right series?</h3>
+<p><em>Optional.</em></p>
+<ol type="1">
+<li>Plot the <em>year-on-year change</em> rather than the level. A straight line in the level means a flat line here. Is it flat?</li>
+<li>Add bioenergy and redraw. “Renewables” is a definition, not a measurement, and that one choice moves the 2025 figure by 38&nbsp;%. Note also that hydro has no column at all, though it is unquestionably renewable — it is inside the gap between the fuel columns and <code>total_twh</code>. Which definition would you have to state in a caption?</li>
+<li>Start the series in 2000 instead of 2010. The early years are nearly flat at almost zero, which drags a straight line down — refit and see how much the slope changes. Choosing where a series starts is choosing part of the answer.</li>
+<li>Plot the same data on a log y axis. Compound growth is a straight line there. Does yours look straight — and over which stretch?</li>
+</ol>
+<div class="cell" data-exercise="w7a_x1" data-envir="w7_extrap">
+<div>
+<div id="webr-5" class="exercise-cell">
+
+</div>
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfeDEifSwiY29kZSI6IiMgT3RoZXIgdmlld3Mgb2YgdGhlIHNhbWUgZ3Jvd3RoLiJ9
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-2-the-straight-line-into-2040" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="exercise-2-the-straight-line-into-2040">Exercise 2: The straight line into 2040</h2>
+<p>Fit a linear model to the 2010–2025 series and ask it about 2040 — fifteen years past the last observation.</p>
+<p>Print the 2040 prediction.</p>
+<div class="cell" data-exercise="w7a_2" data-envir="w7_extrap">
+<div>
+<div id="webr-6" class="exercise-cell">
+
+</div>
+<script type="webr-6-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfMiJ9LCJjb2RlIjoiIyBTdGVwIDEuIEEgbGluZWFyIG1vZGVsIG9mIHJlbmV3YWJsZSBnZW5lcmF0aW9uIG9uIHllYXIsIGZpdHRlZCB0b1xuIyAgICAgICAgIGByZWNlbnRgIHdpdGggbG0oKS5cblxuXG4jIFN0ZXAgMi4gUHJpbnQgaXRzIHN1bW1hcnkuIE5vdGUgdGhlIFItc3F1YXJlZCBhbmQgdGhlIHNsb3BlLCBhbmRcbiMgICAgICAgICBzYXkgd2hhdCB0aGUgc2xvcGUgbWVhbnMgaW4gVFdoIHBlciB5ZWFyLlxuXG5cbiMgU3RlcCAzLiBQcmludCB0aGUgcHJlZGljdGVkIGdlbmVyYXRpb24gaW4gMjA0MC4gcHJlZGljdCgpIHdhbnRzXG4jICAgICAgICAgdGhlIG5ldyB5ZWFyIGFzIGEgZGF0YSBmcmFtZTogYD9wcmVkaWN0LmxtYCwgYG5ld2RhdGFgLiJ9
+</script>
+</div>
+</div>
+<div class="cell" data-check="true" data-exercise="w7a_2">
+<script type="exercise-check-w7a_2-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJlZGl0b3ItZm9udC1zY2FsZSI6IjAuODUiLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6Inc3YV8yIn0sImNvZGUiOiIucmVzdWx0IDwtIC5zY2FsYXIoLnJlc3VsdClcbmlmICgudW5zdGFydGVkKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJOb3RoaW5nIGNhbWUgYmFjay4gRW5kIHRoZSBibG9jayB3aXRoIHRoZSAyMDQwIHByZWRpY3Rpb24uXCIpXG59IGVsc2UgaWYgKGluaGVyaXRzKC5yZXN1bHQsIFwibG1cIikgfHwgaW5oZXJpdHMoLnJlc3VsdCwgXCJzdW1tYXJ5LmxtXCIpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIHRoZSBtb2RlbC4gU3RlcCAzIGFza3MgZm9yIHRoZSBwcmVkaWN0aW9uIOKAlCBwcmVkaWN0KGZpdCwgbmV3ZGF0YSA9IGRhdGEuZnJhbWUoeWVhciA9IDIwNDApKS5cIilcbn0gZWxzZSBpZiAoIS5udW0xKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJPbmUgbnVtYmVyLCBwbGVhc2Ug4oCUIFRXaCBpbiAyMDQwLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCA2LjYzNTI5NCwgdG9sID0gMC4wMikpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgdGhlIHNsb3BlOiA2LjbCoFRXaCBhZGRlZCBwZXIgeWVhci4gTXVsdGlwbHkgdGhyb3VnaCB0byAyMDQwIOKAlCBvciBiZXR0ZXIsIGxldCBwcmVkaWN0KCkgZG8gaXQsIHNpbmNlIHRoZSBpbnRlcmNlcHQgbWF0dGVycyB0b28uXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDAuOTc4Mzg4NSwgdG9sID0gMC4wMikpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgUi1zcXVhcmVkLCAwLjk3OCDigJQgYSB2ZXJ5IGdvb2QgZml0IHRvIHRoZSBoaXN0b3JpY2FsIGRhdGEsIGFuZCBubyBldmlkZW5jZSB3aGF0ZXZlciBhYm91dCAyMDQwLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCAxNDQuMTAzNywgdG9sID0gMC4wMSkpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgMjAzMC4gU3RlcCAzIGFza3MgZm9yIDIwNDAg4oCUIHdvcnRoIGRvaW5nIGJvdGgsIHNpbmNlIHRoZSBnYXAgYmV0d2VlbiB0aGVtIGlzIHRoZSBtb2RlbCdzIHdob2xlIGNsYWltIGFib3V0IHRoZSBmdXR1cmUuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDE2OS41MTQ0LCB0b2wgPSAwLjAxKSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiMTcwwqBUV2ggY29tZXMgZnJvbSBmaXR0aW5nIHRvIHRoZSB3aG9sZSByZWNvcmQgZnJvbSAyMDAwLCBub3QgdG8gYHJlY2VudGAuIFRoZSBuZWFyLXplcm8gZWFybHkgeWVhcnMgZHJhZyB0aGUgc2xvcGUgZG93bi4gUmVmaXQgb24gMjAxMCBvbndhcmQg4oCUIGFuZCBub3RpY2UgdGhhdCBjaG9vc2luZyB0aGUgc3RhcnQgeWVhciBtb3ZlZCB0aGUgMjA0MCBhbnN3ZXIgYnkgMTnCoCUuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDIxMC40NTY2LCB0b2wgPSAwLjAxKSkge1xuICBsaXN0KGNvcnJlY3QgPSBUUlVFLCBtZXNzYWdlID0gXCJBYm91dCAyMTDCoFRXaDogYWJvdXQgdGhyZWUgcXVhcnRlcnMgb2YgMjAyNSdzIHRvdGFsIFVLIGVsZWN0cmljaXR5LCBmcm9tIHdpbmQgYW5kIHNvbGFyIGFsb25lLiBBbWJpdGlvdXMsIGFuZCBub3Qgb3V0IG9mIHdoYWNrIHdpdGggVUsgZ292ZXJubWVudCB0YXJnZXRzLiBCdXQgd2lsbCBvdXIgc2ltcGxlIHN0cmFpZ2h0LWxpbmUgbW9kZWwgc3F1YXJlIHdpdGggdGhlIHJlYWxpdGllcyBvZiBwaHlzaWNzLCB0aGUgcGxhbm5pbmcgc3lzdGVtLCBncmlkIGNhcGFjaXR5LCBhbmQgYWxsIHRoZSBvdGhlciBudWlzYW5jZXMgb2YgdGhlIHJlYWwgd29ybGQ/ICBUaGUgbW9kZWwgaGFzIGZvdW5kIGEgc3RyYWlnaHQgbGluZSBhbmQgd2lsbCBrZWVwIG9uIGdvaW5nIGluIHRoZSBzYW1lIGRpcmVjdGlvbiBmb3IgYXMgZmFyIGFzIHlvdSBhc2sgaXQgdG8uXCIpXG59IGVsc2Uge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiTm90IHF1aXRlLiBDaGVjayB0aGUgZm9ybXVsYSBpcyByZW5ld2FibGVfdHdoIH4geWVhciBvbiBgcmVjZW50YCwgYW5kIHRoYXQgbmV3ZGF0YSBpcyBkYXRhLmZyYW1lKHllYXIgPSAyMDQwKS5cIilcbn0ifQ==
+</script>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>This is the content session’s workflow with different columns: fit and summarize as in its Exercise 2, then predict as in its Exercise 5.</p>
+<p><code>predict()</code> needs a data frame whose column is named exactly as the predictor in the model. <code>data.frame(year = 2040)</code> — a data frame of one row, not a bare number.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The shape of it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(outcome <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read the slope as a rate: TWh of new generation per year. Ask whether you believe that rate can be sustained for another fifteen years — the model has no opinion on the question.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_2">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lin_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(______ <span class="sc">~</span> ______, <span class="at">data =</span> recent)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin_model)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> ______))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w7a_2">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lin_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(renewable_twh <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin_model)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>R</em>² = 0.978, slope 6.64&nbsp;TWh per year, and a 2040 prediction of <strong>210 TWh</strong> — about 72&nbsp;% of all the electricity the UK generated in 2025.</p>
+<p>Is that plausible? Government targets sit in this region, so it passes a sniff test. That is a reason to check the model’s assumptions, not a reason to trust it.</p>
+<p>What the model contains is one straight line. What it does not contain is every reason the line might bend: the best sites get used first, grid connection queues, planning permission, supply chains, subsidy regimes, and the plain fact that electricity demand itself is not fixed. None of those appear in <code>recent</code>, so none can appear in the forecast.</p>
+<p>An <em>R</em>² of 0.978 measures how well a line describes sixteen points you already have. It is silent about the fifteenth year after them: extrapolation is how a competent analysis becomes a bad prediction.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="extension-how-uncertain-is-that-line" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-how-uncertain-is-that-line">Extension: how uncertain is that line?</h3>
+<p><em>Optional. <code>?predict.lm</code> and its <code>interval</code> argument, <code>?confint</code>.</em></p>
+<ol type="1">
+<li>Get a 95&nbsp;% prediction interval for 2040. It will be reassuringly narrow — roughly ±17&nbsp;TWh. Write one sentence explaining why that narrowness is misleading, given everything the model does not know.</li>
+<li>Fit to 2010–2017 only, and predict 2025. You can check that one against reality. How far out is it, and is the true value inside the prediction interval?</li>
+<li>Do the same from 2010–2020. Does a longer training run help?</li>
+<li>Tasks 2 and 3 are a <em>hindcast</em>: hide data you have, predict it, and look. It tests an extrapolation directly.</li>
+</ol>
+<div class="cell" data-exercise="w7a_x2" data-envir="w7_extrap">
+<div>
+<div id="webr-8" class="exercise-cell">
+
+</div>
+<script type="webr-8-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfeDIifSwiY29kZSI6IiMgVGVzdCB0aGUgZXh0cmFwb2xhdGlvbiBhZ2FpbnN0IGRhdGEgeW91IGFscmVhZHkgaGF2ZS4ifQ==
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-3-an-exponential-model" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="exercise-3-an-exponential-model">Exercise 3: An exponential model</h2>
+<p>The early years grew <em>proportionally</em> faster, which is what compound growth looks like. An exponential model captures that: fit a straight line to the <strong>logarithm</strong> of generation, then undo the log.</p>
+<p>Fit the logged model; predict 2040; then back-transform by “undoing” the log-transformation.</p>
+<div class="cell" data-exercise="w7a_3" data-envir="w7_extrap">
+<div>
+<div id="webr-9" class="exercise-cell">
+
+</div>
+<script type="webr-9-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfMyJ9LCJjb2RlIjoiIyBTdGVwIDEuIEEgbGluZWFyIG1vZGVsIG9mIGxvZyhyZW5ld2FibGUgZ2VuZXJhdGlvbikgb24geWVhci5cblxuXG4jIFN0ZXAgMi4gSXRzIHN1bW1hcnkuIFRoZSBzbG9wZSBpcyBub3cgYSBncm93dGggKnJhdGUqIOKAlCBhIHNsb3BlIG9mXG4jICAgICAgICAgMC4xIG1lYW5zIGFib3V0IDEwJSBncm93dGggYSB5ZWFyLlxuXG5cbiMgU3RlcCAzLiBQcmVkaWN0IDIwNDAgYW5kIHByaW50IHRoZSBhbnN3ZXIgYmFjayBvbiB0aGUgVFdoIHNjYWxlLlxuIyAgICAgICAgIEEgcHJlZGljdGlvbiBvbiB0aGUgbG9nIHNjYWxlIGlzIGEgbG9nOyBleHAoKSB1bmRvZXMgaXQuIn0=
+</script>
+</div>
+</div>
+<div class="cell" data-check="true" data-exercise="w7a_3">
+<script type="exercise-check-w7a_3-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJlZGl0b3ItZm9udC1zY2FsZSI6IjAuODUiLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6Inc3YV8zIn0sImNvZGUiOiIucmVzdWx0IDwtIC5zY2FsYXIoLnJlc3VsdClcbmlmICgudW5zdGFydGVkKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJOb3RoaW5nIGNhbWUgYmFjay4gRW5kIHRoZSBibG9jayB3aXRoIHRoZSBiYWNrLXRyYW5zZm9ybWVkIDIwNDAgcHJlZGljdGlvbi5cIilcbn0gZWxzZSBpZiAoaW5oZXJpdHMoLnJlc3VsdCwgXCJsbVwiKSB8fCBpbmhlcml0cygucmVzdWx0LCBcInN1bW1hcnkubG1cIikpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgdGhlIG1vZGVsLiBTdGVwIDMgYXNrcyBmb3IgdGhlIHByZWRpY3Rpb24uXCIpXG59IGVsc2UgaWYgKCEubnVtMSgucmVzdWx0KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiT25lIG51bWJlciwgcGxlYXNlIOKAlCBUV2ggaW4gMjA0MC5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgNy4wODE3NzIsIHRvbCA9IDAuMDEpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCI3LjA4IGlzIHRoZSBwcmVkaWN0aW9uIHN0aWxsIG9uIHRoZSBsb2cgc2NhbGUg4oCUIGEgbG9nYXJpdGhtLCBub3QgYSBxdWFudGl0eSBvZiBlbGVjdHJpY2l0eS4gQXBwbHkgZXhwKCkgdG8gaXQuIEZvcmdldHRpbmcgdGhpcyBnaXZlcyBhbiBhbnN3ZXIgdGhhdCBsb29rcyBzbWFsbCBhbmQgc2Vuc2libGUsIHdoaWNoIGlzIHdoeSBpdCBzbyBvZnRlbiBnb2VzIHVubm90aWNlZC5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMC4xNDAzMDMyLCB0b2wgPSAwLjAyKSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiVGhhdCBpcyB0aGUgc2xvcGU6IDAuMTQwIG9uIHRoZSBsb2cgc2NhbGUsIGFib3V0IDE0wqAlIGdyb3d0aCBhIHllYXIuIFN0ZXAgMyBhc2tzIGZvciB0aGUgMjA0MCBsZXZlbC5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMjEwLjQ1NjYsIHRvbCA9IDAuMDEpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIHRoZSBsaW5lYXIgbW9kZWwncyBhbnN3ZXIgZnJvbSBFeGVyY2lzZSAyLiBDaGVjayB0aGUgbG9nIGlzIGluIHlvdXIgZm9ybXVsYSBhbmQgdGhhdCB5b3UgZXhwb25lbnRpYXRlZCB0aGUgcHJlZGljdGlvbi5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMjkyLjU4MDUsIHRvbCA9IDAuMDEpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIDIwMzA6IGFib3V0IGFzIG11Y2ggYXMgYWxsIFVLIGdlbmVyYXRpb24gaW4gMjAyNS4gU3RlcCAzIGFza3MgZm9yIDIwNDAuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDExOTAuMDc1LCB0b2wgPSAwLjAyKSkge1xuICBsaXN0KGNvcnJlY3QgPSBUUlVFLCBtZXNzYWdlID0gXCJBYm91dCAxMTkwwqBUV2g6IGZvdXIgdGltZXMgdGhlIFVLJ3MgZW50aXJlIDIwMjUgZ2VuZXJhdGlvbiwgZnJvbSB3aW5kIGFuZCBzb2xhciBhbG9uZS4gSXMgdGhhdCBwbGF1c2libGU/IEJlZm9yZSBhcmd1aW5nIGFib3V0IDIwNDAsIEV4ZXJjaXNlIDQgY2hlY2tzIHdoZXRoZXIgdGhpcyBtb2RlbCBldmVuIGRlc2NyaWJlcyAyMDEwLTIwMjUgd2VsbC5cIilcbn0gZWxzZSBpZiAoLnJlc3VsdCA+IDUwMCkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiTGFyZ2UsIHdoaWNoIGlzIHRoZSByaWdodCBkaXJlY3Rpb24sIGJ1dCBub3QgdGhlIGV4cGVjdGVkIHZhbHVlLiBDaGVjayB0aGUgbW9kZWwgaXMgZml0dGVkIHRvIGByZWNlbnRgICgyMDEwIG9ud2FyZCksIG5vdCB0aGUgd2hvbGUgcmVjb3JkLlwiKVxufSBlbHNlIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIk5vdCBxdWl0ZS4gRml0IGxtKGxvZyhyZW5ld2FibGVfdHdoKSB+IHllYXIsIGRhdGEgPSByZWNlbnQpLCBwcmVkaWN0IGZvciAyMDQwLCB0aGVuIGV4cCgpIHRoZSByZXN1bHQuXCIpXG59In0=
+</script>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>You can put <code>log()</code> directly in the formula; no new column is needed.</p>
+<p>Everything the model then produces — coefficients, predictions, intervals — is on the log scale. <code>exp()</code> brings a prediction back, the same back-transformation you used for the confidence interval in Week 6.</p>
+<p>The slope on the log scale is a proportional growth rate: 0.140 means roughly 14&nbsp;% more each year, which compounds.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The shape of it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(outcome) <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">predict</span>(fit, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sanity-check the intermediate value. A log-scale prediction of about 7 is right; if that number looks like a plausible quantity of electricity, you have forgotten the <code>exp()</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_3">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>exp_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">______</span>(renewable_twh) <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp_model)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">______</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> ______)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w7a_3">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>exp_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(renewable_twh) <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exp_model)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>About 1190&nbsp;TWh</strong> — four times the UK’s entire 2025 electricity generation, from wind and solar alone, and nearly six times the linear model’s 210&nbsp;TWh.</p>
+<p>Total generation is not a ceiling: the UK generated 398&nbsp;TWh in 2005, and demand may rise again as heating and transport electrify. But fourfold in fifteen years would need a building programme, and a demand, that nothing in <code>recent</code> hints at.</p>
+<p>The <em>R</em>² is 0.88. You can’t set that beside the linear model’s 0.978: this one measures how well the line fits log(TWh), not TWh. To compare the two models fairly, look at how each misses the data. That is Exercise 4.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="extension-the-model-that-knows-about-limits" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-the-model-that-knows-about-limits">Extension: the model that knows about limits</h3>
+<p><em>Optional.</em></p>
+<ol type="1">
+<li>Find the year each model passes 293.6&nbsp;TWh, the UK’s total 2025 generation. Exponential: 2031. Linear: 2053.</li>
+<li>Growth into a finite resource is often <strong>logistic</strong> — an S curve that flattens as it saturates. Sketch one by hand over your scatter plot and mark where you think it levels off. What evidence would tell you where that is?</li>
+<li>Early on, an S curve looks like an exponential. Once you have done Exercise 4, say which part of an S curve the UK’s data look like.</li>
+<li>Fit the exponential to 2010–2015 alone and predict 2025. Compare with the truth.</li>
+</ol>
+<div class="cell" data-exercise="w7a_x3" data-envir="w7_extrap">
+<div>
+<div id="webr-11" class="exercise-cell">
+
+</div>
+<script type="webr-11-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfeDMifSwiY29kZSI6IiMgV2hlcmUgdGhlIG1vZGVscyBjb2xsaWRlIHdpdGggcmVhbGl0eS4ifQ==
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-4-which-model-fits" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="exercise-4-which-model-fits">Exercise 4: Which model fits?</h2>
+<p>Two models, and 2040 forecasts nearly six times apart. Before arguing about 2040, check how well each describes the years you have.</p>
+<div class="cell" data-exercise="w7a_4" data-envir="w7_extrap">
+<div>
+<div id="webr-12" class="exercise-cell">
+
+</div>
+<script type="webr-12-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfNCJ9LCJjb2RlIjoiIyBTdGVwIDEuIEEgZ3JpZCBvZiB5ZWFycyBmcm9tIDIwMTAgdG8gMjA0MCwgd2l0aCBhIGNvbHVtbiBvZlxuIyAgICAgICAgIHByZWRpY3Rpb25zIGZyb20gZWFjaCBtb2RlbC4gQmFjay10cmFuc2Zvcm0gdGhlIGV4cG9uZW50aWFsXG4jICAgICAgICAgb25lLiBkYXRhLmZyYW1lKHllYXIgPSAyMDEwOjIwNDApIGlzIHRoZSBncmlkLlxuXG5cbiMgU3RlcCAyLiBQbG90IHRoZSBvYnNlcnZlZCBwb2ludHMgYW5kIGJvdGggY3VydmVzLiBGb3IgY29tcGFyaXNvbiwgYWRkXG4jICAgICAgICAgYSBkYXNoZWQgbGluZSBhdCAyOTMuNsKgVFdoLCBsYWJlbGxlZCBhcyB0aGUgVUsncyB0b3RhbFxuIyAgICAgICAgIGdlbmVyYXRpb24gaW4gMjAyNS4gYD9nZW9tX2hsaW5lYCwgYD9hbm5vdGF0ZWAuXG4jICAgICAgICAgT3ZlciAyMDEwLTIwMjUsIGRvZXMgZWFjaCBjdXJ2ZSBydW4gdGhyb3VnaCB0aGUgcG9pbnRzP1xuXG5cbiMgU3RlcCAzLiBQbG90IGVhY2ggbW9kZWwncyByZXNpZHVhbHMgYWdhaW5zdCB5ZWFyLiBgP3Jlc2lkdWFsc2BcblxuXG4jIFN0ZXAgNC4gUHJpbnQgdGhlIGV4cG9uZW50aWFsIG1vZGVsJ3MgZml0dGVkIHZhbHVlIGZvciAyMDI1LCBpbiBUV2guIn0=
+</script>
+</div>
+</div>
+<div class="cell" data-check="true" data-exercise="w7a_4">
+<script type="exercise-check-w7a_4-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJlZGl0b3ItZm9udC1zY2FsZSI6IjAuODUiLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6Inc3YV80In0sImNvZGUiOiIucmVzdWx0IDwtIC5zY2FsYXIoLnJlc3VsdClcbmlmICgudW5zdGFydGVkKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJOb3RoaW5nIGNhbWUgYmFjay4gRW5kIHRoZSBibG9jayB3aXRoIHRoZSBleHBvbmVudGlhbCBtb2RlbCdzIGZpdHRlZCB2YWx1ZSBmb3IgMjAyNS5cIilcbn0gZWxzZSBpZiAoLmlzX3Bsb3QoLnJlc3VsdCkpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgYSBwbG90LiBTdGVwIDQgYXNrcyBmb3Igb25lIG51bWJlciBhcyB0aGUgbGFzdCBsaW5lLlwiKVxufSBlbHNlIGlmIChpcy5kYXRhLmZyYW1lKC5yZXN1bHQpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIGEgZGF0YSBmcmFtZS4gU3RlcCA0IHdhbnRzIG9uZSBudW1iZXIuXCIpXG59IGVsc2UgaWYgKCEubnVtMSgucmVzdWx0KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiT25lIG51bWJlciwgcGxlYXNlOiBUV2ggaW4gMjAyNS5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgNC45NzcyMjQsIHRvbCA9IDAuMDEpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIG9uIHRoZSBsb2cgc2NhbGUuIGV4cCgpIGJyaW5ncyBpdCBiYWNrIHRvIFRXaC5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMTA2LjUsIHRvbCA9IDAuMDAyKSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiMTA2LjUgaXMgd2hhdCB3YXMgb2JzZXJ2ZWQgaW4gMjAyNS4gU3RlcCA0IGFza3Mgd2hhdCB0aGUgZXhwb25lbnRpYWwgbW9kZWwgc2F5cyBhYm91dCAyMDI1OiBwcmVkaWN0KCkgaXQuXCIpXG59IGVsc2UgaWYgKC5uZWFyKC5yZXN1bHQsIDExMC45MjcyLCB0b2wgPSAwLjAwNSkpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgdGhlIGxpbmVhciBtb2RlbCdzIDIwMjUgdmFsdWUuIFN0ZXAgNCBhc2tzIGZvciB0aGUgZXhwb25lbnRpYWwgb25lLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCAtMC4zMDkwNzkxLCB0b2wgPSAwLjAyKSB8fCAubmVhcigucmVzdWx0LCAtNC40MjcyMDYsIHRvbCA9IDAuMDIpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJUaGF0IGlzIGEgcmVzaWR1YWwuIFN0ZXAgNCBhc2tzIGZvciB0aGUgZXhwb25lbnRpYWwgbW9kZWwncyBmaXR0ZWQgdmFsdWUgaW4gVFdoLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCAxMTkwLjA3NSwgdG9sID0gMC4wMikpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgMjA0MC4gU3RlcCA0IGFza3MgZm9yIDIwMjUsIHRoZSBsYXN0IHllYXIgb2YgZGF0YS5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMTQ1LjA3MTEsIHRvbCA9IDAuMDA1KSkge1xuICBsaXN0KGNvcnJlY3QgPSBUUlVFLCBtZXNzYWdlID0gXCIxNDXCoFRXaCwgYWdhaW5zdCAxMDYuNSBvYnNlcnZlZDogdGhlIGV4cG9uZW50aWFsIGlzIDM2wqAlIHRvbyBoaWdoIGluIHRoZSBsYXN0IHllYXIgb2YgZGF0YSwgYmVmb3JlIGl0IGV4dHJhcG9sYXRlcyBhdCBhbGwuIE5vdyBsb29rIGF0IGl0cyByZXNpZHVhbCBwbG90LiBEbyB0aGUgcmVzaWR1YWxzIGxvb2sgbGlrZSBub2lzZT9cIilcbn0gZWxzZSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJOb3QgcXVpdGUuIGV4cChwcmVkaWN0KGV4cF9tb2RlbCwgbmV3ZGF0YSA9IGRhdGEuZnJhbWUoeWVhciA9IDIwMjUpKSkuXCIpXG59In0=
+</script>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_4">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Build one data frame of years and add a prediction column per model, as you did for the solar polynomial in the content session. Each curve is then a <code>geom_line()</code> drawing from that grid, while the points come from <code>recent</code>, so each layer needs its own <code>data =</code>.</p>
+<p><code>residuals(model)</code> gives one value per row of <code>recent</code>, in order, so you can add it to <code>recent</code> as a column, as you did for HolmesCo’s groundwater. The exponential model’s residuals are in log(TWh); that doesn’t matter for spotting a pattern.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_4">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The shape of it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2040</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>linear <span class="ot">&lt;-</span> <span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> grid)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>exponential <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> grid))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> recent, <span class="fu">aes</span>(year, renewable_twh)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(year, linear, <span class="at">colour =</span> <span class="st">"Linear"</span>)) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(year, exponential, <span class="at">colour =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">293.6</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2010</span>, <span class="at">y =</span> <span class="dv">310</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Total UK generation, 2025"</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Generation (TWh)"</span>, <span class="at">colour =</span> <span class="st">"Model"</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>exp_resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(exp_model)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(year, exp_resid)) <span class="sc">+</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The exponential curve leaves the top of the plot. <code>coord_cartesian()</code> with a <code>ylim</code> keeps the rest readable.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w7a_4">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2040</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>linear <span class="ot">&lt;-</span> <span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> grid)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>exponential <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> grid))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> recent, <span class="fu">aes</span>(year, renewable_twh)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(year, linear, <span class="at">colour =</span> <span class="st">"Linear"</span>)) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(year, exponential, <span class="at">colour =</span> <span class="st">"Exponential"</span>)) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">293.6</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2010</span>, <span class="at">y =</span> <span class="dv">310</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Total UK generation, 2025"</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">600</span>)) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Generation (TWh)"</span>, <span class="at">colour =</span> <span class="st">"Model"</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>lin_resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(lin_model)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>exp_resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(exp_model)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(year, lin_resid)) <span class="sc">+</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Residual (TWh)"</span>, <span class="at">title =</span> <span class="st">"Linear model"</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(year, exp_resid)) <span class="sc">+</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Residual (log TWh)"</span>, <span class="at">title =</span> <span class="st">"Exponential model"</span>)</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2025</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>145&nbsp;TWh</strong>, against 106.5 observed.</p>
+<p>The exponential’s residuals are negative in 2010–2012, positive every year from 2013 to 2020, and negative again from 2021. That is an arch, not noise. The curve runs above the data at both ends and below it in the middle: growth was fast at first and has since slowed, which is the opposite of compound growth. The model is the wrong shape, and it starts its extrapolation from a 2025 value that is already 36&nbsp;% too high.</p>
+<p>The linear residuals stay within about 10&nbsp;TWh and look much more like noise. Look again, though: mostly negative before 2015, mostly positive from 2017 to 2020, negative in 2024 and 2025. A fainter arch, pointing the same way. The quick check below tests it.</p>
+<p>On the chart, the gap between the two curves in 2040 appears in neither model’s prediction interval. It comes from the choice of shape, not from noise in the data. That is <em>structural uncertainty</em>: when you report a projection, say which shape you assumed and why.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="quick-check" class="level3 quiz-check">
+<h3 class="quiz-check anchored" data-anchor-id="quick-check">Quick check</h3>
+<p>A curve that bends could capture that fainter arch. Fit a quadratic, <code>lm(renewable_twh ~ poly(year, 2), data = recent)</code>, and compare it with the linear model using <code>AIC()</code>, as in the content session. <strong>Print the linear model’s AIC minus the quadratic’s.</strong></p>
+<div class="cell" data-exercise="w7a_q1" data-envir="w7_extrap">
+<div>
+<div id="webr-14" class="exercise-cell">
+
+</div>
+<script type="webr-14-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfcTEifSwiY29kZSI6IiMgRml0IHRoZSBxdWFkcmF0aWMsIHRoZW4gcHJpbnQgQUlDKGxpbmVhcikgLSBBSUMocXVhZHJhdGljKS4ifQ==
+</script>
+</div>
+</div>
+<div class="cell" data-check="true" data-exercise="w7a_q1">
+<script type="exercise-check-w7a_q1-contents">
+eyJhdHRyIjp7ImNoZWNrIjp0cnVlLCJlZGl0Ijp0cnVlLCJlZGl0b3ItZm9udC1zY2FsZSI6IjAuODUiLCJldmFsIjp0cnVlLCJleGVyY2lzZSI6Inc3YV9xMSJ9LCJjb2RlIjoiLnJlc3VsdCA8LSAuc2NhbGFyKC5yZXN1bHQpXG5pZiAoLnVuc3RhcnRlZCgucmVzdWx0KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiUHJpbnQgb25lIG51bWJlcjogdGhlIGxpbmVhciBtb2RlbCdzIEFJQyBtaW51cyB0aGUgcXVhZHJhdGljJ3MuXCIpXG59IGVsc2UgaWYgKGlzLmRhdGEuZnJhbWUoLnJlc3VsdCkpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgaXMgdGhlIEFJQyB0YWJsZS4gU3VidHJhY3Qgb25lIEFJQyBmcm9tIHRoZSBvdGhlcjogQUlDKGxpbl9tb2RlbCkgLSBBSUMocXVhZF9tb2RlbCkuXCIpXG59IGVsc2UgaWYgKCEubnVtMSgucmVzdWx0KSkge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiT25lIG51bWJlciwgcGxlYXNlLlwiKVxufSBlbHNlIGlmICgubmVhcigucmVzdWx0LCAtMi45NTEyNjQsIHRvbCA9IDAuMDIpKSB7XG4gIGxpc3QoY29ycmVjdCA9IEZBTFNFLCBtZXNzYWdlID0gXCJSaWdodCBzaXplLCB3cm9uZyBzaWduOiB0aGF0IGlzIHRoZSBxdWFkcmF0aWMgbWludXMgdGhlIGxpbmVhci5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgOTQuODI0MjIsIHRvbCA9IDAuMDIpIHx8IC5uZWFyKC5yZXN1bHQsIDkxLjg3MywgdG9sID0gMC4wMikpIHtcbiAgbGlzdChjb3JyZWN0ID0gRkFMU0UsIG1lc3NhZ2UgPSBcIlRoYXQgY29tcGFyZXMgd2l0aCB0aGUgZXhwb25lbnRpYWwgbW9kZWwsIHdob3NlIHJlc3BvbnNlIGlzIGxvZyhUV2gpLiBJdHMgQUlDIGlzIG9uIGEgZGlmZmVyZW50IHNjYWxlOyBzZWUgdGhlIGJveCBiZWxvdy4gQ29tcGFyZSB0aGUgbGluZWFyIG1vZGVsIHdpdGggdGhlIHF1YWRyYXRpYy5cIilcbn0gZWxzZSBpZiAoLm5lYXIoLnJlc3VsdCwgMi45NTEyNjQsIHRvbCA9IDAuMDIpKSB7XG4gIGxpc3QoY29ycmVjdCA9IFRSVUUsIG1lc3NhZ2UgPSBcIkFib3V0IDMuIExvd2VyIEFJQyBpcyBiZXR0ZXIsIHNvIHRoZSBxdWFkcmF0aWMgaXMgcHJlZmVycmVkLCB0aG91Z2ggYnkgbGVzcyB0aGFuIHRoZSBkaWZmZXJlbmNlIG9mIGFib3V0IDEwIHRoYXQgdGhlIGNvbnRlbnQgc2Vzc2lvbiBjYWxsZWQgZGVjaXNpdmUuIEl0cyBjdXJ2ZSBiZW5kcyBkb3dud2FyZDogZ3Jvd3RoIHNsb3dpbmcuIEl0IHByZWRpY3RzIDE1MMKgVFdoIGZvciAyMDQwLiBUaHJlZSBzaGFwZXMsIHRocmVlIGFuc3dlcnM6IDE1MCwgMjEwIGFuZCAxMTkwwqBUV2guXCIpXG59IGVsc2Uge1xuICBsaXN0KGNvcnJlY3QgPSBGQUxTRSwgbWVzc2FnZSA9IFwiTm90IHF1aXRlLiBGaXQgcXVhZF9tb2RlbCA8LSBsbShyZW5ld2FibGVfdHdoIH4gcG9seSh5ZWFyLCAyKSwgZGF0YSA9IHJlY2VudCksIHRoZW4gQUlDKGxpbl9tb2RlbCkgLSBBSUMocXVhZF9tb2RlbCkuXCIpXG59In0=
+</script>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Why not <code>AIC(lin_model, exp_model)</code>?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try it: 99.9 against 5.0, which looks like a landslide for the exponential. It isn’t. AIC measures how well a model accounts for <em>its own</em> response, and the exponential model’s response is log(TWh), not TWh. Compared to what? AIC can only rank models of the same <em>y</em>. What separates these two is the residual plot.</p>
+</div>
+</div>
+</section>
+<section id="extension-what-the-diagnostics-see" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-what-the-diagnostics-see">Extension: what the diagnostics see</h3>
+<p><em>Optional.</em></p>
+<ol type="1">
+<li>Draw a QQ plot of the exponential model’s residuals: <code>qqnorm(residuals(exp_model))</code>, then <code>qqline(residuals(exp_model))</code>. Does it show the problem the residual plot showed? What does a QQ plot throw away that the residual plot keeps?</li>
+<li>Add the quadratic’s curve to your chart, so it shows three futures. Write the one-sentence caption that says which shape you would assume, and why.</li>
+<li>Shade the region after 2025, where the curves stop describing data and start extrapolating. <code>?annotate</code> with <code>geom = "rect"</code>.</li>
+</ol>
+<div class="cell" data-exercise="w7a_x4" data-envir="w7_extrap">
+<div>
+<div id="webr-16" class="exercise-cell">
+
+</div>
+<script type="webr-16-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfeDQifSwiY29kZSI6IiMgV2hhdCB0aGUgZGlhZ25vc3RpY3Mgc2VlLiJ9
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-5-what-is-your-model-not-capturing" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="exercise-5-what-is-your-model-not-capturing">Exercise 5: What is your model not capturing?</h2>
+<p>Every analysis has a blind spot: something it structurally cannot represent, no matter how much data you feed it. The linear model cannot represent a ceiling. The exponential cannot represent saturation. HolmesCo’s groundwater model could not represent a season.</p>
+<p>Turn that on your own project. There is no code and no mark.</p>
+<div class="cell" data-exercise="w7a_5" data-envir="w7_extrap">
+<div>
+<div id="webr-17" class="exercise-cell">
+
+</div>
+<script type="webr-17-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfNSJ9LCJjb2RlIjoiIyAxLiBJbiBteSBwcm9qZWN0LCB0aGUgYmlnZ2VzdCB0aGluZyBteSBhbmFseXNpcyBjYW5ub3QgcmVwcmVzZW50IGlzOlxuI1xuI1xuIyAyLiBJZiBJIGFtIHdyb25nIGFib3V0IGl0LCBteSBjb25jbHVzaW9uIGNoYW5nZXMgbGlrZSB0aGlzOlxuI1xuI1xuIyAzLiBUaGUgY2hlYXBlc3QgY2hlY2sgSSBjb3VsZCBydW4gb24gaXQgaXM6XG4jXG4jIn0=
+</script>
+</div>
+</div>
+<div class="hint webr-ojs-exercise exercise-hint d-none" data-exercise="w7a_5">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Blind spots are usually of one of these kinds. Which is yours?</p>
+<ul>
+<li><strong>A shape you assumed.</strong> Straight line, constant rate, no interaction, normal errors.</li>
+<li><strong>Something absent from the data.</strong> A confounder nobody recorded; a variable that exists but has no column.</li>
+<li><strong>A boundary the model does not know about.</strong> A physical ceiling, a number that cannot go below zero, a percentage that cannot exceed
+<ol start="100" type="1">
+<li></li>
+</ol></li>
+<li><strong>A sample that decided itself.</strong> The sites that were accessible, the people who replied, the years the instrument worked.</li>
+<li><strong>Time.</strong> A relationship that held over your window and need not hold outside it.</li>
+</ul>
+<p>Don’t skip the third question. A named blind spot with a cheap check is a good limitations paragraph. A named blind spot with no check is an apology.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="webr-ojs-exercise exercise-solution d-none" data-exercise="w7a_5">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>A worked answer, from this page rather than a project:</p>
+<blockquote class="blockquote">
+<ol type="1">
+<li>My extrapolation cannot represent a ceiling on deployment. It assumes 6.6&nbsp;TWh a year can be added indefinitely, because nothing in sixteen years of rising data told it otherwise.</li>
+<li>If deployment is saturating — best sites used, grid queue binding — 2040 is nearer 150&nbsp;TWh than 210 (the quadratic’s answer), and a plan for 72&nbsp;% renewable supply is unsafe.</li>
+<li>Compare the <em>rate</em> of additions year by year rather than the level. If the annual increment has begun to fall, saturation has already started, and that is visible in data I already have. The arch in the linear residuals hints that it has.</li>
+</ol>
+</blockquote>
+<p>Notice the shape. The blind spot is specific rather than “there may be other factors”. The consequence is quantified. The check is something you could run this afternoon. Generic hedging reads as a disclaimer; this reads as evidence you understood your own analysis.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="extension-audit-someone-elses-blind-spot" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-audit-someone-elses-blind-spot">Extension: audit someone else’s blind spot</h3>
+<p><em>Optional, and best done in pairs.</em></p>
+<ol type="1">
+<li>Swap projects with another group. Read their question and method, and write down the blind spot <em>you</em> would name. Compare with theirs. The gap between the two lists is the useful part.</li>
+<li>Find a forecast in the news this week — energy, population, climate, anything with a number and a year. Name its model shape and its blind spot.</li>
+<li>Return to the Week 3 biomass work with this week’s eyes. The cumulative emissions chart projects fifty years of constant generation and constant emission factors. Name three things it cannot represent, and say which would change the conclusion most.</li>
+</ol>
+<div class="cell" data-exercise="w7a_x5" data-envir="w7_extrap">
+<div>
+<div id="webr-18" class="exercise-cell">
+
+</div>
+<script type="webr-18-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjoiMC44NSIsImVudmlyIjoidzdfZXh0cmFwIiwiZXZhbCI6dHJ1ZSwiZXhlcmNpc2UiOiJ3N2FfeDUifSwiY29kZSI6IiMgQXVkaXQgbm90ZXMuIn0=
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="save-your-work" class="level2 save-reminder">
+<h2 class="anchored" data-anchor-id="save-your-work">Save your work</h2>
+<div class="code-transfer">
+<p><span class="code-transfer-export btn btn-primary" role="button">Export all code</span> <span class="code-transfer-import btn btn-outline-primary" role="button">Import code</span></p>
+<p><em>Export all code</em> downloads every box on this page as one R file. Each box sits under a line like <code># Exercise 1: … [w2_1] ----</code>; keep those lines if you edit the file, and <em>Import code</em> can put it back into the boxes on any computer. Your code is also kept in this browser as you type, so reloading the page doesn’t lose it.</p>
+<p><span class="code-transfer-report"></span></p>
+</div>
+<script src="code-transfer.js"></script>
+<p>Put the exported <code>week7.R</code> in your repo, then commit and push via GitHub Desktop. Write a commit message that describes what you learned.</p>
+<p>Keep your answer to Exercise 5. It is the first draft of your report’s limitations section, and it is much easier to write now than the night before the deadline.</p>
+<p>Your individual report goes in its own repo: accept the <a href="https://classroom50.org/geol-skills/geol-skills/assignments/report/accept">report assignment</a> and start writing there. At the end of Week 9 your group’s history is copied into it.</p>
+</section>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjgvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiXSwicmVwb3MiOltdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTg7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xOCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE4ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xOC1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE4ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xOCwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTggPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE4LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xNy1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE3ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xNywge30pO1xuX3dlYnJfZmVlZGJhY2tfMTcgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE3LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTY7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE2ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTYtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xNi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE2ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xNiwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTYgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE2LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTQ7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNCIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE0ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTQtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xNC1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE0ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xNCwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTQgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE0LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTI7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEyID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTItY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMi1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzEyID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMiwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTIgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzEyLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzExID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzExID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTEgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzExLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici05LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItOS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzkgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzksIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzkuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTgiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzg7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici04IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfOCA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTgtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici04LWNvbnRlbnRzXCIsXG4gICAgICBlbnZpcjogYGV4ZXJjaXNlLWVudi0ke2Jsb2NrLmF0dHIuZXhlcmNpc2V9YCxcbiAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgIGNhcHRpb246ICdFeGVyY2lzZScsXG4gICAgfSxcbiAgICBibG9jay5hdHRyXG4gICk7XG5cbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG52aWV3b2YgX3dlYnJfdmFsdWVfOCA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfOCwge30pO1xuX3dlYnJfZmVlZGJhY2tfOCA9IHtcbiAgY29uc3QgeyBXZWJSR3JhZGVyIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBlbXB0eUZlZWRiYWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XG5cbiAgY29uc3QgZ3JhZGVyID0gbmV3IFdlYlJHcmFkZXIoX3dlYnJfdmFsdWVfOC5ldmFsdWF0b3IpO1xuICBjb25zdCBmZWVkYmFjayA9IGF3YWl0IGdyYWRlci5ncmFkZUV4ZXJjaXNlKCk7XG4gIGlmICghZmVlZGJhY2spIHJldHVybiBlbXB0eUZlZWRiYWNrO1xuICByZXR1cm4gZmVlZGJhY2s7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTYiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl82ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNi1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIC8vIERlZmF1bHQgZXhlcmNpc2UgY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbihcbiAgICB7XG4gICAgICBpZDogXCJ3ZWJyLTYtY29udGVudHNcIixcbiAgICAgIGVudmlyOiBgZXhlcmNpc2UtZW52LSR7YmxvY2suYXR0ci5leGVyY2lzZX1gLFxuICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgY2FwdGlvbjogJ0V4ZXJjaXNlJyxcbiAgICB9LFxuICAgIGJsb2NrLmF0dHJcbiAgKTtcblxuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbnZpZXdvZiBfd2Vicl92YWx1ZV82ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl82LCB7fSk7XG5fd2Vicl9mZWVkYmFja182ID0ge1xuICBjb25zdCB7IFdlYlJHcmFkZXIgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IGVtcHR5RmVlZGJhY2sgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcblxuICBjb25zdCBncmFkZXIgPSBuZXcgV2ViUkdyYWRlcihfd2Vicl92YWx1ZV82LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC01IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV81O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzUgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici01LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItNS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzUgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzUsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzUgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzUuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0zLWNvbnRlbnRzXCIsXG4gICAgICBlbnZpcjogYGV4ZXJjaXNlLWVudi0ke2Jsb2NrLmF0dHIuZXhlcmNpc2V9YCxcbiAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgIGNhcHRpb246ICdFeGVyY2lzZScsXG4gICAgfSxcbiAgICBibG9jay5hdHRyXG4gICk7XG5cbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG52aWV3b2YgX3dlYnJfdmFsdWVfMyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfMywge30pO1xuX3dlYnJfZmVlZGJhY2tfMyA9IHtcbiAgY29uc3QgeyBXZWJSR3JhZGVyIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBlbXB0eUZlZWRiYWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XG5cbiAgY29uc3QgZ3JhZGVyID0gbmV3IFdlYlJHcmFkZXIoX3dlYnJfdmFsdWVfMy5ldmFsdWF0b3IpO1xuICBjb25zdCBmZWVkYmFjayA9IGF3YWl0IGdyYWRlci5ncmFkZUV4ZXJjaXNlKCk7XG4gIGlmICghZmVlZGJhY2spIHJldHVybiBlbXB0eUZlZWRiYWNrO1xuICByZXR1cm4gZmVlZGJhY2s7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtMiIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoiX3dlYnJfdmFsdWVfMiA9IHtcbiAgY29uc3QgeyBoaWdobGlnaHRSLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBldmFsdWF0aW9uIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oe1xuICAgIGlkOiBcIndlYnItMi1jb250ZW50c1wiLFxuICAgIGVjaG86IHRydWUsXG4gICAgb3V0cHV0OiB0cnVlXG4gIH0sIGJsb2NrLmF0dHIpO1xuXG4gIC8vIEV2YWx1YXRlIHRoZSBwcm92aWRlZCBSIGNvZGVcbiAgY29uc3QgcmVzdWx0ID0gd2ViUk9qcy5wcm9jZXNzKHtjb2RlOiBibG9jay5jb2RlLCBvcHRpb25zfSwge30pO1xuXG4gIC8vIEVhcmx5IHlpZWxkIHdoaWxlIHdlIHdhaXQgZm9yIHRoZSBmaXJzdCBldmFsdWF0aW9uIGFuZCByZW5kZXJcbiAgaWYgKG9wdGlvbnMub3V0cHV0ICYmICEoXCIyXCIgaW4gd2ViUk9qcy5yZW5kZXJlZE9qcykpIHtcbiAgICBjb25zdCBjb250YWluZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICAgIGNvbnN0IHNwaW5uZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuXG4gICAgaWYgKG9wdGlvbnMuZWNobykge1xuICAgICAgLy8gU2hvdyBvdXRwdXQgYXMgaGlnaGxpZ2h0ZWQgc291cmNlXG4gICAgICBjb25zdCBwcmVFbGVtID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInByZVwiKTtcbiAgICAgIGNvbnRhaW5lci5jbGFzc05hbWUgPSBcInNvdXJjZUNvZGVcIjtcbiAgICAgIHByZUVsZW0uY2xhc3NOYW1lID0gXCJzb3VyY2VDb2RlIHJcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoaGlnaGxpZ2h0UihibG9jay5jb2RlKSk7XG4gICAgICBzcGlubmVyLmNsYXNzTmFtZSA9IFwic3Bpbm5lci1ncm93IHNwaW5uZXItZ3Jvdy1zbSBtLTIgcG9zaXRpb24tYWJzb2x1dGUgdG9wLTAgZW5kLTBcIjtcbiAgICAgIHByZUVsZW0uYXBwZW5kQ2hpbGQoc3Bpbm5lcik7XG4gICAgICBjb250YWluZXIuYXBwZW5kQ2hpbGQocHJlRWxlbSk7XG4gICAgfSBlbHNlIHtcbiAgICAgIHNwaW5uZXIuY2xhc3NOYW1lID0gXCJzcGlubmVyLWJvcmRlciBzcGlubmVyLWJvcmRlci1zbVwiO1xuICAgICAgY29udGFpbmVyLmFwcGVuZENoaWxkKHNwaW5uZXIpO1xuICAgIH1cblxuICAgIHlpZWxkIGNvbnRhaW5lcjtcbiAgfVxuXG4gIHdlYlJPanMucmVuZGVyZWRPanNbXCIyXCJdID0gdHJ1ZTtcbiAgeWllbGQgYXdhaXQgcmVzdWx0O1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ3ZWJST2pzID0ge1xuICBjb25zdCB7IFdlYlIsIENoYW5uZWxUeXBlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHtcbiAgICBXZWJSRXZhbHVhdG9yLFxuICAgIFdlYlJFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBSLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGhcbiAgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyBNYWtlIGFueSByZXZlYWwgc2xpZGVzIHdpdGggbGl2ZSBjZWxscyBzY3JvbGxhYmxlXG4gIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoXCIucmV2ZWFsIC5leGVyY2lzZS1jZWxsXCIpLmZvckVhY2goKGVsKSA9PiB7XG4gICAgZWwuY2xvc2VzdCgnc2VjdGlvbi5zbGlkZScpLmNsYXNzTGlzdC5hZGQoXCJzY3JvbGxhYmxlXCIpO1xuICB9KVxuXG4gIC8vIHdlYlIgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgLy8gSW5pdGlhbGlzZSB3ZWJSIGFuZCBzZXR1cCBmb3IgUiBjb2RlIGV2YWx1YXRpb25cbiAgbGV0IHdlYlJQcm9taXNlID0gKGFzeW5jICh3ZWJSKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyB3ZWJSYDtcbiAgICBhd2FpdCB3ZWJSLmluaXQoKTtcblxuICAgIC8vIEluc3RhbGwgcHJvdmlkZWQgbGlzdCBvZiBwYWNrYWdlc1xuICAgIC8vIEVuc3VyZSB3ZWJSIGRlZmF1bHQgcmVwbyBpcyBpbmNsdWRlZFxuICAgIGRhdGEucGFja2FnZXMucmVwb3MucHVzaChcImh0dHBzOi8vcmVwby5yLXdhc20ub3JnXCIpXG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gd2ViUi5ldmFsUlZvaWQoYFxuICAgICAgICB3ZWJyOjppbnN0YWxsKHBrZywgcmVwb3MgPSByZXBvcylcbiAgICAgICAgbGlicmFyeShwa2csIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbiAgICAgIGAsIHsgZW52OiB7XG4gICAgICAgIHBrZzogcGtnLFxuICAgICAgICByZXBvczogZGF0YS5wYWNrYWdlcy5yZXBvcyxcbiAgICAgIH19KTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICBjb25zdCBhbmFseXNpcyA9IGF3YWl0IHdlYlIuRlMuYW5hbHl6ZVBhdGgocGF0aCk7XG4gICAgICAgIGlmICghYW5hbHlzaXMuZXhpc3RzKSB7XG4gICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIGF3YWl0IHdlYlIuRlMubWtkaXIocGF0aCk7XG4gICAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yOiBcIiR7ZS5tZXNzYWdlfVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIn1dfQ==
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+WyJjb2RlLXRyYW5zZmVyLmpzIiwiLi4vZGF0YS91a19lbGVjdHJpY2l0eS5jc3YiLCIuLi9kYXRhL3BlbGxldF9pbXBvcnRzLmNzdiIsIi4uL2RhdGEvZW1pc3Npb25fZmFjdG9ycy5jc3YiXQ==
+</script>
+
+</main> <!-- /main -->
+<script>
+// Fold every extension (`::: {.extension}`, or a heading with
+// {.extension}) shut until the student opens it, so the core exercise
+// comes first. Included on every page by _quarto.yml (include-after-body).
+//
+// Pandoc merges an extension div into its heading's <section>, so the
+// heading stays visible (and in the TOC) and its siblings are hidden by
+// `.extension.collapsed` in styles.css. The class is added here, so with
+// no JavaScript nothing is hidden.
+//
+// An extension opens itself when the URL points into it, and when
+// code-transfer.js restores or imports code into one of its boxes.
+(function () {
+  "use strict";
+
+  var SELECTOR = "section.extension, div.extension";
+  var n = 0;
+
+  function Toggle(ext, open) {
+    ext.classList.toggle("collapsed", !open);
+    if (ext.extensionToggle) {
+      ext.extensionToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  }
+
+  function Reveal(el) {
+    var ext = el && el.closest && el.closest(SELECTOR);
+    if (ext && ext.classList.contains("collapsed")) Toggle(ext, true);
+    return ext;
+  }
+
+  function Setup(ext) {
+    if (ext.extensionToggle) return;
+    n += 1;
+    var heading = ext.firstElementChild;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "extension-toggle";
+    if (heading && /^H[234]$/.test(heading.tagName)) {
+      // Quarto's anchor link stays outside the button.
+      Array.prototype.slice.call(heading.childNodes).forEach(function (node) {
+        if (!(node.classList && node.classList.contains("anchorjs-link"))) {
+          button.appendChild(node);
+        }
+      });
+      heading.insertBefore(button, heading.firstChild);
+    } else {
+      heading = null;
+      button.textContent = "Extension";
+      ext.insertBefore(button, ext.firstChild);
+    }
+    var ids = [];
+    Array.prototype.forEach.call(ext.children, function (child, i) {
+      if (child === heading || child === button) return;
+      if (!child.id) child.id = "extension-" + n + "-" + i;
+      ids.push(child.id);
+    });
+    button.setAttribute("aria-controls", ids.join(" "));
+    button.addEventListener("click", function () {
+      Toggle(ext, ext.classList.contains("collapsed"));
+    });
+    ext.extensionToggle = button;
+    Toggle(ext, false);
+  }
+
+  function FollowHash() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (target && Reveal(target)) target.scrollIntoView();
+  }
+
+  function Start() {
+    Array.prototype.forEach.call(document.querySelectorAll(SELECTOR), Setup);
+    FollowHash();
+  }
+
+  window.ExtensionCollapse = { reveal: Reveal };
+  window.addEventListener("hashchange", FollowHash);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", Start);
+  } else {
+    Start();
+  }
+})();
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../exercises";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="../accessibility.html">Accessibility statement</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

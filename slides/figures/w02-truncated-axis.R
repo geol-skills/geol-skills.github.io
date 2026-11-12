@@ -1,0 +1,26 @@
+# Week 2 — "Spot the lie", chart 1: the truncated axis.
+#
+# Deliberately misleading: bar heights encode ratios, so a baseline of
+# 270 TWh turns a 13% fall into an apparent collapse.
+#
+# Pinned to DUKES 2025 (data/uk_electricity_dukes2025.csv, 2000-2024). DUKES
+# 2026 adds 2025, when generation turned back up, so "down 13% since 2019"
+# becomes about 10% and the spot-the-lie story changes.
+#
+# Run with the working directory set to slides/ (see figures/README.md).
+
+library("ggplot2")
+source("figures/theme.R")
+
+elec <- read.csv("../data/uk_electricity_dukes2025.csv")
+recent <- elec[elec$year >= 2019, ]
+
+ggplot(recent, aes(x = factor(year), y = total_twh)) +
+  geom_col(fill = course_colours[["cyan"]], width = 0.7) +
+  coord_cartesian(ylim = c(270, 330)) +
+  labs(
+    x = "Year",
+    y = "Total generation (TWh)",
+    title = "UK electricity generation is collapsing!",
+    caption = "Source: DUKES 2025"
+  )

@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R on your own computer – Research Skills</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-92404dd89b1444827012a9e3a58cda88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../exercises/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Research Skills</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-getting-started" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Getting Started</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-getting-started">    
+        <li>
+    <a class="dropdown-item" href="../materials/preparation.html">
+ <span class="dropdown-text">Pre-term preparation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/python-to-r.html">
+ <span class="dropdown-text">Python to R reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/SrihariPramod/R_vs_Python_Cheatsheet/blob/master/R_vs_Python.pdf">
+ <span class="dropdown-text">R vs Python cheatsheet (PDF)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://warin.ca/ressentials/">
+ <span class="dropdown-text">R Essentials (Warin)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://swirlstats.com/">
+ <span class="dropdown-text">swirl: learn R in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/git-troubleshooting.html">
+ <span class="dropdown-text">Git troubleshooting</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Classroom 50</li>
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/biomass/accept">
+ <span class="dropdown-text">Individual repo (Weeks 1–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/drax/accept">
+ <span class="dropdown-text">Drax briefing repo (Weeks 3–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/group/accept">
+ <span class="dropdown-text">Group repo (Weeks 5–10)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/report/accept">
+ <span class="dropdown-text">Report repo (Weeks 7–10)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../materials/scientific-method-reference.html">
+ <span class="dropdown-text">The scientific method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/ai-reproducibility-reference.html">
+ <span class="dropdown-text">AI, reproducibility &amp; integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/chart-audit.html">
+ <span class="dropdown-text">Chart audit (Week 2 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/bias-bingo.html">
+ <span class="dropdown-text">Bias bingo (Week 7 homework)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Live code (Repeats)</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-live.html">
+ <span class="dropdown-text">Week 5: Wind farms and birds</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-live.html">
+ <span class="dropdown-text">Week 6: The null world and the <em>t</em>-test</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-live.html">
+ <span class="dropdown-text">Week 7: A model of gas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-live.html">
+ <span class="dropdown-text">Week 8: Many tests, many groups</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Guides</li>
+        <li>
+    <a class="dropdown-item" href="../materials/briefing-structure-guide.html">
+ <span class="dropdown-text">Briefing structure guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/markdown-guide.html">
+ <span class="dropdown-text">Writing in Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/local-r.html">
+ <span class="dropdown-text">R on your PC (Week 6 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/peer-review-template.html">
+ <span class="dropdown-text">Peer review template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/project-topics.html">
+ <span class="dropdown-text">Project topics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/assessment-brief.html">
+ <span class="dropdown-text">Assessment brief</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/access-articles.html">
+ <span class="dropdown-text">Accessing scientific articles</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">External links</li>
+        <li>
+    <a class="dropdown-item" href="https://webr.r-wasm.org/latest/">
+ <span class="dropdown-text">webR</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.bbc.co.uk/programmes/b006qshd">
+ <span class="dropdown-text">More or Less</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.economist.com">
+ <span class="dropdown-text">The Economist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ms609.github.io/Concentration/">
+ <span class="dropdown-text">Concentration</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week01-content.html">
+ <span class="dropdown-text">W1 Content: What makes a good question?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week01-app.html">
+ <span class="dropdown-text">W1 App: Meet the data (and Git)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-content.html">
+ <span class="dropdown-text">W2 Content: What do the numbers say?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-content.html">
+ <span class="dropdown-text">W3 Content: How confident should we be?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-content.html">
+ <span class="dropdown-text">W4 Content: Making the case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-app.html">
+ <span class="dropdown-text">W4 App: Review and reveal</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week05-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week05-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-content.html">
+ <span class="dropdown-text">W6 Content: Testing hypotheses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-content.html">
+ <span class="dropdown-text">W9 Content: AI, reproducibility, and integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-app.html">
+ <span class="dropdown-text">W9 App: AI as critic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-content.html">
+ <span class="dropdown-text">W10 Content: Bringing it together</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-app.html">
+ <span class="dropdown-text">W10 App: Review, revise, submit</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/scratchpad.html">
+ <span class="dropdown-text">Scratchpad: run your own code</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week1-app.html">
+ <span class="dropdown-text">W1 App: Meet the data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-dodgy-plots.html">
+ <span class="dropdown-text">W2 Content: Dodgy plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-content.html">
+ <span class="dropdown-text">W2 Content: Your first ggplot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/carbon-accounting-summary.html">
+ <span class="dropdown-text">W3 Content: Assumption audit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week3-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-content.html">
+ <span class="dropdown-text">W6 Content: Check your assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week9-app.html">
+ <span class="dropdown-text">W9 App: Checking your work</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week10-content.html">
+ <span class="dropdown-text">W10 Content: Common pitfalls</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a"> 
+<span class="menu-text">Ask for help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../staff/index.html"> 
+<span class="menu-text">Staff</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#step-1-install-r" id="toc-step-1-install-r" class="nav-link active" data-scroll-target="#step-1-install-r">Step 1: Install R</a></li>
+  <li><a href="#step-2-install-positron" id="toc-step-2-install-positron" class="nav-link" data-scroll-target="#step-2-install-positron">Step 2: Install Positron</a></li>
+  <li><a href="#step-3-open-your-repo-folder" id="toc-step-3-open-your-repo-folder" class="nav-link" data-scroll-target="#step-3-open-your-repo-folder">Step 3: Open your repo folder</a></li>
+  <li><a href="#step-4-start-r-and-install-two-packages" id="toc-step-4-start-r-and-install-two-packages" class="nav-link" data-scroll-target="#step-4-start-r-and-install-two-packages">Step 4: Start R and install two packages</a></li>
+  <li><a href="#step-5-download-the-spreadsheet" id="toc-step-5-download-the-spreadsheet" class="nav-link" data-scroll-target="#step-5-download-the-spreadsheet">Step 5: Download the spreadsheet</a></li>
+  <li><a href="#step-6-write-a-script" id="toc-step-6-write-a-script" class="nav-link" data-scroll-target="#step-6-write-a-script">Step 6: Write a script</a></li>
+  <li><a href="#step-7-your-number" id="toc-step-7-your-number" class="nav-link" data-scroll-target="#step-7-your-number">Step 7: Your number</a></li>
+  <li><a href="#step-8-your-test" id="toc-step-8-your-test" class="nav-link" data-scroll-target="#step-8-your-test">Step 8: Your test</a>
+  <ul class="collapse">
+  <li><a href="#extension-is-the-t-test-valid-for-this-comparison" id="toc-extension-is-the-t-test-valid-for-this-comparison" class="nav-link" data-scroll-target="#extension-is-the-t-test-valid-for-this-comparison">Extension: Is the <em>t</em>-test valid for this comparison?</a></li>
+  </ul></li>
+  <li><a href="#your-own-data" id="toc-your-own-data" class="nav-link" data-scroll-target="#your-own-data">Your own data</a>
+  <ul class="collapse">
+  <li><a href="#one-table-several-files-or-sheets" id="toc-one-table-several-files-or-sheets" class="nav-link" data-scroll-target="#one-table-several-files-or-sheets">One table, several files or sheets</a></li>
+  <li><a href="#if-it-isnt-csv-or-excel" id="toc-if-it-isnt-csv-or-excel" class="nav-link" data-scroll-target="#if-it-isnt-csv-or-excel">If it isn’t CSV or Excel</a></li>
+  <li><a href="#maps-and-gis-files" id="toc-maps-and-gis-files" class="nav-link" data-scroll-target="#maps-and-gis-files">Maps and GIS files</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R on your own computer</h1>
+<p class="subtitle lead">Download and read a spreadsheet in R</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>So far you have run R in the browser, where the course data are already waiting for you. Your project uses data you’ll download yourself to your own computer. We’ll use <strong>Positron</strong> to manage our R code and projects.</p>
+<p><strong>Before the Week 6 application session</strong>, you’ll need to get Positron up and running; your goal is to load and analyse data from a real spreadsheet. Allow yourself an hour. Ask on the <a href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a">class board</a> if you get stuck.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>On a University computer?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R and Positron aren’t on AppsAnywhere, but you can install both into your own account, without administrator rights. The installs (hopefully) persist on that computer; if you switch machines, you may have to install again.</p>
+</div>
+</div>
+<section id="step-1-install-r" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-install-r">Step 1: Install R</h2>
+<ul>
+<li><strong>Windows:</strong> <a href="https://cran.r-project.org/bin/windows/base/">R for Windows</a> → <em>Download R for Windows</em>. Run the installer and accept every default. Without administrator rights, it installs for you alone: that’s fine.</li>
+<li><strong>Mac:</strong> <a href="https://cran.r-project.org/bin/macosx/">R for macOS</a>. Pick the installer for your processor: <em>Apple silicon (M1 or later)</em> or <em>Intel</em>. Not sure? Apple menu → <em>About This Mac</em>.</li>
+</ul>
+</section>
+<section id="step-2-install-positron" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-install-positron">Step 2: Install Positron</h2>
+<p>Positron is an editor, designed to run and manage R scripts (and python too!).</p>
+<p>Once R has <strong>finished</strong> installing, <a href="https://positron.posit.co/download.html">download Positron</a> and install it. On Windows, use the <strong>User</strong> (not System) installer.</p>
+</section>
+<section id="step-3-open-your-repo-folder" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-open-your-repo-folder">Step 3: Open your repo folder</h2>
+<p>Positron works on a <strong>folder</strong>, not a single file. Open the whole repo, so that paths like <code>data/durham_weather.xlsx</code> mean “the <code>data</code> folder in this repo”, just as they did in the browser.</p>
+<p>For this homework, use your individual <code>biomass</code> repo (<code>geol-skills-biomass-&lt;your username&gt;</code>), which GitHub Desktop already has on your computer.</p>
+<ol type="1">
+<li>In GitHub Desktop, choose your <code>biomass</code> repo, then <strong>Repository → Show in Explorer</strong> (Mac: <em>Show in Finder</em>). Note where the folder is.</li>
+<li>In Positron, <strong>File → Open Folder…</strong> and choose that folder.</li>
+</ol>
+<p>The <em>Explorer</em> panel on the left lists the repo’s files: <code>data</code>, <code>README.md</code>, <code>week1.R</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/local-r/positron-open-folder.png" class="img-fluid figure-img" alt="Positron's window. The Explorer panel on the left lists .github, data, .gitignore, README.md and week1.R. A blue bar across the top says Restricted Mode is intended for safe code browsing. The Console in the middle says Cannot start consoles in Restricted Mode, with a link: Trust this folder."></p>
+<figcaption>Positron with the <code>biomass</code> repo open, in Restricted Mode: R won’t start until you trust the folder.</figcaption>
+</figure>
+</div>
+<p>If a blue bar across the top says <em>Restricted Mode</em>, click <strong>Trust this folder</strong> (or <em>Manage</em>), then <strong>Trust</strong>. It’s your repo: you are the author.</p>
+</section>
+<section id="step-4-start-r-and-install-two-packages" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-start-r-and-install-two-packages">Step 4: Start R and install two packages</h2>
+<p>Once you trust the folder, Positron starts R by itself. Click <code>week1.R</code> in the Explorer to open it: your script is at the top, and the <em>Console</em> below it, with a <code>&gt;</code> prompt. The R version shows at the top right. If it says <em>Start Session</em> instead, click it and choose R.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/local-r/positron-console.png" class="img-fluid figure-img" alt="Positron's window with week1.R open in the editor at the top. Below it, the Console shows R's start-up message and ends with a > prompt. At the top right, a green circle and R 4.7.0 show that R is running."></p>
+<figcaption>Positron running R: a script above, the Console below, waiting at the <code>&gt;</code> prompt.</figcaption>
+</figure>
+</div>
+<p>In the browser, packages were already installed for you. On your own computer you install each package once. Type this in the Console and press Enter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"readxl"</span>, <span class="st">"ggplot2"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>readxl</code> reads Excel files; <code>ggplot2</code> you know. If R asks whether to use a personal library, answer <strong>yes</strong>. Wait for the <code>&gt;</code> prompt to come back.</p>
+<p>You install a package once per computer, but load it with <code>library()</code> every time you start R.</p>
+</section>
+<section id="step-5-download-the-spreadsheet" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-download-the-spreadsheet">Step 5: Download the spreadsheet</h2>
+<p>Download <a href="../data/durham_weather.xlsx"><code>durham_weather.xlsx</code></a> and move it from your downloads folder into the <code>data</code> folder of your <code>biomass</code> repo. The spreadsheet contains 146 years of monthly weather observations from the Durham University Observatory, via the Met Office.</p>
+<p><strong>Open it in Excel</strong> before you start coding. Which sheet are the data on? What are the columns called? What are the units?</p>
+</section>
+<section id="step-6-write-a-script" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-write-a-script">Step 6: Write a script</h2>
+<p>In Positron, <strong>File → New File → R File</strong>, and save it (<kbd title="Ctrl-S, mac: Cmd-S" aria-hidden="true" data-mac="Cmd-S">Ctrl-S</kbd><span class="visually-hidden">Ctrl-S</span>) as <code>week6.R</code> in the top folder of the repo, next to <code>week1.R</code>.</p>
+<p>Type this into the script file. (Typing directly into the Console means there’s no record of your work, so your results will never be reproducible, and correcting errors means starting from scratch.)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">"data/durham_weather.xlsx"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>durham <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/durham_weather.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"data"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durham)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(durham) <span class="co"># Note Positron's "Summary" pane</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run a line by putting the cursor on it and pressing <kbd title="Ctrl-Enter, mac: Cmd-Enter" aria-hidden="true" data-mac="Cmd-Enter">Ctrl-Enter</kbd><span class="visually-hidden">Ctrl-Enter</span>. The result appears in the Console. Run the lines one at a time and read each result before going on.</p>
+<ul>
+<li><code>excel_sheets()</code> lists the sheets. The first, <code>notes</code>, is the description; the data are on the sheet called <code>data</code>. Most government spreadsheets work like this.</li>
+<li>Without <code>sheet = "data"</code>, <code>read_excel()</code> would read the first sheet, the notes. Try it and see.</li>
+<li>Blank cells come in as <code>NA</code>, as in the Week 6 exercise page’s “Mind the gaps”.</li>
+</ul>
+</section>
+<section id="step-7-your-number" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-your-number">Step 7: Your number</h2>
+<p><strong>What was the average July maximum temperature at Durham over 1991–2020</strong>, to two decimal places?</p>
+<p>That is the mean of <code>tmax_c</code> for the rows where <code>month</code> is 7 and <code>year</code> is from 1991 to 2020: 30 rows. You have every tool you need from Week 1. Write it into <code>week6.R</code> and run it.</p>
+<p>Is that a big number? Compared to what? Work out the same average for 1881–1910.</p>
+</section>
+<section id="step-8-your-test" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-your-test">Step 8: Your test</h2>
+<p>Has July got warmer since 1881–1910? Keep the two sets of Julys as two vectors, and compare them with <code>t.test()</code>. What is the difference in means, its 95&nbsp;% confidence interval, and the <em>p</em>-value? Write one sentence that says what they mean.</p>
+<p>Then commit <code>week6.R</code> and the spreadsheet in GitHub Desktop, and push.</p>
+<section id="extension-is-the-t-test-valid-for-this-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="extension-is-the-t-test-valid-for-this-comparison">Extension: Is the <em>t</em>-test valid for this comparison?</h3>
+<p><em>This is optional — for students who finish early.</em></p>
+<p>A <em>t</em>-test treats each group as a random sample from one population. Are 30 consecutive Julys like that? Look at the data, and the <code>notes</code> sheet, before you answer.</p>
+</section>
+</section>
+<section id="your-own-data" class="level2">
+<h2 class="anchored" data-anchor-id="your-own-data">Your own data</h2>
+<p>Most of the data you will need comes as a CSV or an Excel file.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Read it with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.csv</code></td>
+<td><code>read.csv("data/my_file.csv")</code></td>
+</tr>
+<tr class="even">
+<td><code>.xlsx</code>, <code>.xls</code></td>
+<td><code>readxl::read_excel("data/my_file.xlsx")</code></td>
+</tr>
+</tbody>
+</table>
+<p>Real spreadsheets are messier than <code>durham_weather.xlsx</code>. The arguments of <code>read_excel()</code> handle most of the mess:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Argument</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The data are not on the first sheet</td>
+<td><code>sheet = "Table 5"</code></td>
+</tr>
+<tr class="even">
+<td>Title rows above the column names</td>
+<td><code>skip = 4</code> (the number of rows to skip)</td>
+</tr>
+<tr class="odd">
+<td>Notes below or beside the table</td>
+<td><code>range = "A5:H30"</code> (just that block of cells)</td>
+</tr>
+<tr class="even">
+<td>Missing values levt empty or recorded as strings such as <code>[x]</code></td>
+<td><code>na = c("", "[x]")</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>read.csv()</code> has <code>skip =</code> and <code>na.strings =</code> for the same jobs.</p>
+<p>Then check what came in:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A column that should be numbers but shows <code>chr</code> (text) still contains something that isn’t a number: perhaps a footnote mark, a <code>&lt;5</code> or a comma in <code>1,234</code>. Track it down (perhaps with <code>as.numeric(bad_column)</code> and <code>is.na()</code>) and coerce it into something that R will recognize as a number, or set it to <code>NA</code>.</p>
+<p>Use a script to do the cleaning: <strong>never modify your raw data.</strong> That way, anyone (including future you!) can repeat your analysis from the original file, or an updated version thereof; if you tidy a file by hand in Excel, no one can check (and you won’t remember) what you did.</p>
+<p>Helpful functions:</p>
+<ul>
+<li>Extract substrings: <code>substr()</code>; replace text: <code>sub()</code>/<code>gsub()</code></li>
+<li>Replace miscreants: <code>ifelse(substr(bad_column, 1, 1) == "&lt;", NA, bad_column)</code></li>
+<li>Intuitive string manipulation: <code>library("stringr")</code> contains <code>str_remove()</code>, <code>str_replace()</code>, <code>str_trim()</code></li>
+<li>Forced number extraction: <code>library("readr")</code>’s <code>parse_number()</code> is simple but aggressive: try <code>parse_number("123.40 mm")</code>; <code>parse_number("&lt;5")</code>; <code>parse_number("5-10")</code></li>
+</ul>
+<section id="one-table-several-files-or-sheets" class="level3">
+<h3 class="anchored" data-anchor-id="one-table-several-files-or-sheets">One table, several files or sheets</h3>
+<p>Many sources give one sheet or file per year. Read each in turn, then stack them with <code>rbind()</code> (<strong>r</strong>ow-<strong>bind</strong>). (Column names must match.) Years across the top (<code>2015</code>, <code>2016</code>, …) suggest <code>tidyr::pivot_longer()</code>, as in Week 2.</p>
+</section>
+<section id="if-it-isnt-csv-or-excel" class="level3">
+<h3 class="anchored" data-anchor-id="if-it-isnt-csv-or-excel">If it isn’t CSV or Excel</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>You downloaded</th>
+<th>Do this</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A <code>.zip</code></td>
+<td>Unzip it (right-click → <em>Extract All</em>; Mac: double-click), and copy the CSV or xlsx inside.</td>
+</tr>
+<tr class="even">
+<td>An <code>.ods</code></td>
+<td>Open it in Excel and <em>Save As</em> <code>.xlsx</code>, keeping the original; or install <code>readODS</code> and use <code>read_ods</code>.</td>
+</tr>
+<tr class="odd">
+<td>An “Excel” file <code>read_excel()</code> won’t open</td>
+<td>Open in Excel and <em>Save As</em> <code>.xlsx</code>.</td>
+</tr>
+<tr class="even">
+<td>Tab-separated text (<code>.tsv</code>, <code>.txt</code>)</td>
+<td><code>read.csv("data/my_file.txt", sep = "\t")</code></td>
+</tr>
+<tr class="odd">
+<td>Text with columns lined up by spaces</td>
+<td><code>read.table("data/my_file.txt", skip = 7, fill = TRUE)</code></td>
+</tr>
+<tr class="even">
+<td>Accented names garbled, or an “invalid multibyte string” error</td>
+<td><code>read.csv("data/my_file.csv", fileEncoding = "latin1")</code></td>
+</tr>
+<tr class="odd">
+<td>A map layer (<code>.shp</code>, <code>.gpkg</code>, <code>.tif</code>)</td>
+<td>See <a href="#maps-and-gis-files">Maps and GIS files</a>.</td>
+</tr>
+<tr class="even">
+<td>JSON</td>
+<td>Ask on the class board.</td>
+</tr>
+</tbody>
+</table>
+<p>Changing a file’s format doesn’t count as cleaning it: the data are the same. Add a comment to your script stating which file you converted, and how.</p>
+</section>
+<section id="maps-and-gis-files" class="level3">
+<h3 class="anchored" data-anchor-id="maps-and-gis-files">Maps and GIS files</h3>
+<p>Some data come as a map layer, not a table: shapefiles (<code>.shp</code>), GeoPackages (<code>.gpkg</code>), rasters (<code>.tif</code>). You used these in ArcGIS in GEOL1151. You don’t need to do GIS in R. Turn the map into a table, with one row for each thing you are studying, and read that.</p>
+<p><strong>Geology: the <code>BGS</code> package.</strong> For the bedrock or superficial deposits at your sites, skip the GIS: the course’s <code>BGS</code> package contains the British Geological Survey’s maps. Install it once:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BGS"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">"https://geol-skills.github.io/packages"</span>, <span class="fu">getOption</span>(<span class="st">"repos"</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then give it latitude and longitude, eastings and northings, or grid references:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"BGS"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sites <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/sites.csv"</span>)  <span class="co"># columns: site, lat, long</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>geology <span class="ot">&lt;-</span> <span class="fu">Bedrock</span>(sites<span class="sc">$</span>lat, sites<span class="sc">$</span>long)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(sites, geology[, <span class="fu">c</span>(<span class="st">"unit"</span>, <span class="st">"rock"</span>, <span class="st">"maxPeriod"</span>)])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Superficial</span>(<span class="at">easting =</span> <span class="dv">427400</span>, <span class="at">northing =</span> <span class="dv">542200</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Bedrock</span>(<span class="at">gridRef =</span> <span class="st">"NZ 274 422"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The maps are at 1:625 000 on land and 1:250 000 at sea, where <code>Superficial()</code> gives the seabed sediment. At these scales a boundary can be hundreds of metres out, so a site near one could lie on either side. <code>BGSSources()</code> lists the maps to cite.</p>
+<p><strong>In ArcGIS.</strong> Add your sites as points, from a CSV with their coordinates. Then:</p>
+<ul>
+<li>for zones (polygons): <em>Spatial Join</em>, to find which zone each site is in;</li>
+<li>for a grid (raster): <em>Extract Values to Points</em>, to find the value under each site.</li>
+</ul>
+<p>Export the attribute table as a CSV and read it with <code>read.csv()</code>. Write the steps you took as comments in your script, so someone else can repeat them.</p>
+<p><strong>The crude way, in R.</strong> If the layer is a grid of points with coordinates, or you exported one from ArcGIS, take the value of the grid point nearest your site:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/grid.csv"</span>)  <span class="co"># columns: easting, northing, value</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>site_e <span class="ot">&lt;-</span> <span class="dv">427000</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>site_n <span class="ot">&lt;-</span> <span class="dv">541000</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>dist2 <span class="ot">&lt;-</span> (grid<span class="sc">$</span>easting <span class="sc">-</span> site_e)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (grid<span class="sc">$</span>northing <span class="sc">-</span> site_n)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>grid<span class="sc">$</span>value[<span class="fu">which.min</span>(dist2)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>As the eastings and northings from British grid references are in metres, <code>dist2</code> gives the straight-line distance. With latitude and longitude, a degree of longitude is shorter than a degree of latitude away from the equator: multiply the longitude difference by <code>cos(site_lat * pi / 180)</code> first.</p>
+</section>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<p><strong><code>there is no package called 'readxl'</code>.</strong> Step 4 didn’t finish, or you are on a different computer. Run <code>install.packages("readxl")</code>.</p>
+<p><strong><code>could not find function "read_excel"</code>.</strong> The package is installed but not loaded. Run <code>library("readxl")</code> first: put it at the top of every script that needs it.</p>
+<p><strong><code>package 'BGS' is not available</code>.</strong> <code>BGS</code> isn’t on CRAN: install it with the <code>repos =</code> line in <a href="#maps-and-gis-files">Maps and GIS files</a>.</p>
+<p><strong><code>`path` does not exist</code>.</strong> R is looking in the wrong folder, or the file isn’t where you think. Run <code>getwd()</code>: it should print your repo folder. If it doesn’t, you opened a file rather than the folder: <strong>File → Open Folder…</strong> (Step 3). Check the file is in <code>data/</code>, and that the name matches exactly. Windows sometimes hides the extension.</p>
+<p><strong><code>Sheet 'data' not found</code>.</strong> Check the spelling with <code>excel_sheets()</code>.</p>
+<p><strong>A column of numbers reads as text (<code>chr</code>).</strong> See <a href="#your-own-data">Your own data</a>.</p>
+<p><strong>Positron can’t find R.</strong> Install R (Step 1) and restart Positron.</p>
+<p><strong>Something else.</strong> Post the exact error message on the <a href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a">class board</a>, with the code that caused it.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="../accessibility.html">Accessibility statement</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
