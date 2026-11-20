@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 7: Fitting (and Breaking?) Models – Research Skills</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-92404dd89b1444827012a9e3a58cda88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Research Skills</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-getting-started" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Getting Started</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-getting-started">    
+        <li>
+    <a class="dropdown-item" href="../materials/preparation.html">
+ <span class="dropdown-text">Pre-term preparation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/python-to-r.html">
+ <span class="dropdown-text">Python to R reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/SrihariPramod/R_vs_Python_Cheatsheet/blob/master/R_vs_Python.pdf">
+ <span class="dropdown-text">R vs Python cheatsheet (PDF)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://warin.ca/ressentials/">
+ <span class="dropdown-text">R Essentials (Warin)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://swirlstats.com/">
+ <span class="dropdown-text">swirl: learn R in R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/git-troubleshooting.html">
+ <span class="dropdown-text">Git troubleshooting</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Classroom 50</li>
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/biomass/accept">
+ <span class="dropdown-text">Individual repo (Weeks 1–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/drax/accept">
+ <span class="dropdown-text">Drax briefing repo (Weeks 3–4)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/group/accept">
+ <span class="dropdown-text">Group repo (Weeks 5–10)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://classroom50.org/geol-skills/geol-skills/assignments/report/accept">
+ <span class="dropdown-text">Report repo (Weeks 7–10)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Reference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
+        <li>
+    <a class="dropdown-item" href="../materials/scientific-method-reference.html">
+ <span class="dropdown-text">The scientific method</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/ai-reproducibility-reference.html">
+ <span class="dropdown-text">AI, reproducibility &amp; integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/chart-audit.html">
+ <span class="dropdown-text">Chart audit (Week 2 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/bias-bingo.html">
+ <span class="dropdown-text">Bias bingo (Week 7 homework)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Live code (Repeats)</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-live.html">
+ <span class="dropdown-text">Week 5: Wind farms and birds</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-live.html">
+ <span class="dropdown-text">Week 6: The null world and the <em>t</em>-test</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-live.html">
+ <span class="dropdown-text">Week 7: A model of gas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-live.html">
+ <span class="dropdown-text">Week 8: Many tests, many groups</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Guides</li>
+        <li>
+    <a class="dropdown-item" href="../materials/briefing-structure-guide.html">
+ <span class="dropdown-text">Briefing structure guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/markdown-guide.html">
+ <span class="dropdown-text">Writing in Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/local-r.html">
+ <span class="dropdown-text">R on your PC (Week 6 homework)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/peer-review-template.html">
+ <span class="dropdown-text">Peer review template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/project-topics.html">
+ <span class="dropdown-text">Project topics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/assessment-brief.html">
+ <span class="dropdown-text">Assessment brief</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/access-articles.html">
+ <span class="dropdown-text">Accessing scientific articles</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">External links</li>
+        <li>
+    <a class="dropdown-item" href="https://webr.r-wasm.org/latest/">
+ <span class="dropdown-text">webR</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.bbc.co.uk/programmes/b006qshd">
+ <span class="dropdown-text">More or Less</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.economist.com">
+ <span class="dropdown-text">The Economist</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ms609.github.io/Concentration/">
+ <span class="dropdown-text">Concentration</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week01-content.html">
+ <span class="dropdown-text">W1 Content: What makes a good question?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week01-app.html">
+ <span class="dropdown-text">W1 App: Meet the data (and Git)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-content.html">
+ <span class="dropdown-text">W2 Content: What do the numbers say?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week02-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-content.html">
+ <span class="dropdown-text">W3 Content: How confident should we be?</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week03-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-content.html">
+ <span class="dropdown-text">W4 Content: Making the case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week04-app.html">
+ <span class="dropdown-text">W4 App: Review and reveal</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../slides/week05-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week05-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-content.html">
+ <span class="dropdown-text">W6 Content: Testing hypotheses</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week06-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week07-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week08-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-content.html">
+ <span class="dropdown-text">W9 Content: AI, reproducibility, and integrity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week09-app.html">
+ <span class="dropdown-text">W9 App: AI as critic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-content.html">
+ <span class="dropdown-text">W10 Content: Bringing it together</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/week10-app.html">
+ <span class="dropdown-text">W10 App: Review, revise, submit</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Exercises</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/scratchpad.html">
+ <span class="dropdown-text">Scratchpad: run your own code</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 1: Biomass Mini-Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week1-app.html">
+ <span class="dropdown-text">W1 App: Meet the data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-dodgy-plots.html">
+ <span class="dropdown-text">W2 Content: Dodgy plots</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-content.html">
+ <span class="dropdown-text">W2 Content: Your first ggplot</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week2-app.html">
+ <span class="dropdown-text">W2 App: Making the biomass case</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/carbon-accounting-summary.html">
+ <span class="dropdown-text">W3 Content: Assumption audit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week3-app.html">
+ <span class="dropdown-text">W3 App: Changing the assumptions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Phase 2: Your Project</li>
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-content.html">
+ <span class="dropdown-text">W5 Content: Designing your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week5-app.html">
+ <span class="dropdown-text">W5 App: Planning your investigation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-content.html">
+ <span class="dropdown-text">W6 Content: Check your assumptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week6-app.html">
+ <span class="dropdown-text">W6 App: First tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-content.html">
+ <span class="dropdown-text">W7 Content: Models and their limits</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week7-app.html">
+ <span class="dropdown-text">W7 App: Fitting and breaking models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-content.html">
+ <span class="dropdown-text">W8 Content: Comparing groups</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week8-app.html">
+ <span class="dropdown-text">W8 App: Deepening your analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/week9-app.html">
+ <span class="dropdown-text">W9 App: Checking your work</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/geol-skills/AY26-27/discussions/categories/code-q-a"> 
+<span class="menu-text">Ask for help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../staff/index.html"> 
+<span class="menu-text">Staff</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#look-at-your-data" id="toc-look-at-your-data" class="nav-link" data-scroll-target="#look-at-your-data">1. Look at your data</a></li>
+  <li><a href="#decide-what-you-expect" id="toc-decide-what-you-expect" class="nav-link" data-scroll-target="#decide-what-you-expect">2. Decide what you expect</a></li>
+  <li><a href="#plot-the-predictor-against-the-response" id="toc-plot-the-predictor-against-the-response" class="nav-link" data-scroll-target="#plot-the-predictor-against-the-response">3. Plot the predictor against the response</a></li>
+  <li><a href="#fit-a-linear-model" id="toc-fit-a-linear-model" class="nav-link" data-scroll-target="#fit-a-linear-model">4. Fit a linear model</a></li>
+  <li><a href="#lets-see-the-model" id="toc-lets-see-the-model" class="nav-link" data-scroll-target="#lets-see-the-model">5. Let’s see the model</a></li>
+  <li><a href="#read-the-model" id="toc-read-the-model" class="nav-link" data-scroll-target="#read-the-model">6. Read the model</a></li>
+  <li><a href="#examine-the-residuals" id="toc-examine-the-residuals" class="nav-link" data-scroll-target="#examine-the-residuals">7. Examine the residuals</a></li>
+  <li><a href="#try-another-model" id="toc-try-another-model" class="nav-link" data-scroll-target="#try-another-model">8. Try another model</a></li>
+  <li><a href="#make-a-prediction" id="toc-make-a-prediction" class="nav-link" data-scroll-target="#make-a-prediction">9. Make a prediction</a></li>
+  <li><a href="#write-it-up" id="toc-write-it-up" class="nav-link" data-scroll-target="#write-it-up">10. Write it up</a></li>
+  <li><a href="#what-is-your-model-not-capturing" id="toc-what-is-your-model-not-capturing" class="nav-link" data-scroll-target="#what-is-your-model-not-capturing">11. What is your model not capturing?</a>
+  <ul class="collapse">
+  <li><a href="#extension-test-an-extrapolation" id="toc-extension-test-an-extrapolation" class="nav-link" data-scroll-target="#extension-test-an-extrapolation">Extension: test an extrapolation</a></li>
+  <li><a href="#extension-what-to-include" id="toc-extension-what-to-include" class="nav-link" data-scroll-target="#extension-what-to-include">Extension: what to include?</a></li>
+  </ul></li>
+  <li><a href="#save-your-work" id="toc-save-your-work" class="nav-link" data-scroll-target="#save-your-work">Save your work</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 7: Fitting (and Breaking?) Models</h1>
+<p class="subtitle lead">Linear models, step by step, on your own data</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>On Tuesday you met <code>lm()</code> and a few things that might go wrong with it. (You might want to re-visit its <a href="../exercises/week7-content.html">exercise page</a> after today, and see what makes sense once you have some experience of running your own models.)</p>
+<p>Today is your chance to get familiar with linear models by analysing your own project’s data. (As with last week, this might not be the best tool for the question you end up asking: but hopefully you can coerce some form of model onto your data. If you’re stuck, talk to us.)</p>
+<p>In this exercise, I’ll walk you through an example using data on UK wind and solar generation.</p>
+<p>The goal is for you to follow along by building equivalent code that works on your own data.</p>
+<p>By the end of the session you should have a handle on the workflow involved in fitting and interrogating a linear model.</p>
+<p>Because you’ll work with your own data (which aren’t in the browser), you’ll need to run today’s code on your own computer. Open your group repo in GitHub desktop and start a new branch, perhaps <code>martin-linear-models</code>. Launch Positron and create a new script (I’ll call mine <code>model-renewables.R</code>). Add each step to it as you go. Answers questions by writing comments in the script.</p>
+<p><strong>Goals:</strong></p>
+<ul>
+<li>Know what each step of fitting a linear model is for</li>
+<li>Read a model’s summary against its plot</li>
+<li>Use residuals to judge whether a model fits</li>
+<li>Make a prediction, and determine how far to trust it</li>
+</ul>
+</section>
+<section id="look-at-your-data" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="look-at-your-data">1. Look at your data</h2>
+<p>Before modelling anything: What does your data look like?</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>elec <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/uk_electricity.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elec)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   26 obs. of  8 variables:
+ $ year         : int  2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 ...
+ $ coal_twh     : num  120 132 124 138 132 ...
+ $ gas_twh      : num  148 142 152 149 157 ...
+ $ nuclear_twh  : num  85.1 90.1 87.8 88.7 80 81.6 75.5 63 52.5 69.1 ...
+ $ wind_twh     : num  0.9 1 1.3 1.3 1.9 2.9 4.2 5.3 7.1 9.3 ...
+ $ solar_twh    : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ bioenergy_twh: num  4.3 5.1 5.6 6.7 7.9 9.7 9.9 9.3 9.5 10.7 ...
+ $ total_twh    : num  377 385 387 398 394 ...</code></pre>
+</div>
+</div>
+<p>My data contains one row per year, 2000–2025, listing generation by fuel in TWh. I’m going to analyse wind and solar together (= ‘renewables’); and I’m going to start in 2010, when they started to matter:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>elec<span class="sc">$</span>renewable_twh <span class="ot">&lt;-</span> elec<span class="sc">$</span>wind_twh <span class="sc">+</span> elec<span class="sc">$</span>solar_twh</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>recent <span class="ot">&lt;-</span> elec[elec<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">2010</span>, ]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(recent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<section id="your-data" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data">Your data</h4>
+<p>Read your file into R and run <code>str()</code> on it. In a comment, list the columns you’ll use, with their units, and how many rows you have.</p>
+</section>
+</section>
+<section id="decide-what-you-expect" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="decide-what-you-expect">2. Decide what you expect</h2>
+<p>A model has a <strong>response</strong> (the thing you want to explain or predict, on the <em>y</em> axis) and a <strong>predictor</strong> (what you think drives it, on the <em>x</em> axis). Decide which is which, and what you expect to see, <em>before</em> you look.</p>
+<p>I’m going to look at how renewable generation has changed over time. My response is “renewable generation” and my predictor is “year”.</p>
+<p>I expect generation to rise: the UK has been adding new wind and solar installations faster than old ones have been decommissioned.</p>
+<section id="your-data-1" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-1">Your data</h4>
+<p>Write one comment: “I expect <em>response</em> to go up / down as <em>predictor</em> goes up, because …”.</p>
+</section>
+</section>
+<section id="plot-the-predictor-against-the-response" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="plot-the-predictor-against-the-response">3. Plot the predictor against the response</h2>
+<p>Let’s run a quick sanity check: does my prediction survive first contact with the data?</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> renewable_twh)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Wind and solar generation (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/scatter-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Scatter plot of UK wind and solar generation against year, 2010 to 2025, rising from about 10 to about 107&nbsp;TWh, roughly in a straight line." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looks good to me: renewables generation rises with time, and the relationship looks close to a straight line.</p>
+<p>How about you: does your data do what you expected? If not, that’s useful to know: maybe it’s time to rethink your hypothesis?</p>
+<section id="your-data-2" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-2">Your data</h4>
+<p>Plot your predictor (<em>x</em>) against your response (<em>y</em>). Does it match your prediction? Does the relationship look anything like a straight line?</p>
+</section>
+</section>
+<section id="fit-a-linear-model" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="fit-a-linear-model">4. Fit a linear model</h2>
+<p>A linear model may be expressed mathematically as</p>
+<p><em>y</em> = <em>β</em>₀ + <em>β</em>₁<em>x</em> + <span class="eps"><em>ε</em></span>:</p>
+<p><em>β</em>₀ is the height of the line where it crosses <span class="math inline">\(x = 0\)</span>; <em>β</em>₁ denotes the slope (how much <em>y</em> changes when <em>x</em> increases by one); and <span class="eps"><em>ε</em></span> denotes “what’s left”: how far each observation sits from the line. <code>lm()</code> estimates <em>β</em>₀ and <em>β</em>₁.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lin_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(renewable_twh <span class="sc">~</span> year, <span class="at">data =</span> recent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Read the formula as “<em>thing on the left</em> is predicted by (<code>~</code>) <em>thing(s) on the right</em>”.</p>
+<section id="your-data-3" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-3">Your data</h4>
+<p>Create your own</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(response <span class="sc">~</span> predictor, <span class="at">data =</span> your_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>using the appropriate columns from your own dataset.</p>
+</section>
+</section>
+<section id="lets-see-the-model" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="lets-see-the-model">5. Let’s see the model</h2>
+<p>Great, now I have a model. What does it predict? <code>geom_smooth(method = "lm")</code> fits the same model as <code>lm()</code>, and adds it to a plot.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> renewable_twh)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Wind and solar generation (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/line-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The same scatter plot with a straight fitted line running through the points." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>How to read this? Pick a year (<em>x</em> coordinate), and trace it up until you hit the blue line. The blue line is the predicted renewable generation (<em>y</em> coordinate – the value of the response variable) at that value of <em>x</em>.</p>
+<p>How well does the model predict (fit) the data? Well, for my 2015 year, the observed value’s pretty close to the prediction – 2023 is pretty much bang on! Sometimes the prediction’s not so great (2020; 2021): the distance that an observation falls above or below the line is its <em>residual</em>, a gap between the model’s prediction and reality.</p>
+<section id="your-data-4" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-4">Your data</h4>
+<p>Plot your own linear model alongside your data. Does the line fall where you’d have drawn it by eye? How close do your data sit to the model’s prediction?</p>
+</section>
+</section>
+<section id="read-the-model" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="read-the-model">6. Read the model</h2>
+<p>OK, my model doesn’t look bad. But how good is it really? Let’s put some numbers on this. <code>summary(model)</code> gives a bunch of useful information:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = renewable_twh ~ year, data = recent)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.386 -3.504 -1.001  3.233 10.349 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.333e+04  5.317e+02  -25.06 4.96e-13 ***
+year         6.635e+00  2.636e-01   25.18 4.66e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.86 on 14 degrees of freedom
+Multiple R-squared:  0.9784,    Adjusted R-squared:  0.9768 
+F-statistic: 633.8 on 1 and 14 DF,  p-value: 4.657e-13</code></pre>
+</div>
+</div>
+<p>Let’s figure out what each of these numbers is telling us about the plot.</p>
+<ul>
+<li><strong>Slope</strong> (<code>year</code>, 6.635): move one year to the right and the line climbs 6.635&nbsp;TWh. Put another way: each year since 2010, the UK has added about 6.635&nbsp;TWh of wind and solar generation.</li>
+<li><strong>Intercept</strong> (<code>-1.333e+04</code>: about −13 300): If I followed the line all the way back to <span class="math inline">\(x\)</span> (year) <span class="math inline">\(= 0\)</span>, where would the line cross the axis? In this context, this isn’t an interesting question, so I’m going to ignore this value.</li>
+<li><strong>R²</strong> (<code>Multiple R-squared</code>, 0.9784): the share of the variation in the response that the line accounts for. The model can predict the amount of generation almost perfectly just by knowing the year: the 2&nbsp;% left over is the scatter of points about the line. <em>R</em>² near 1: points close to the line. Near 0: points scattered widely around it.</li>
+<li><strong>Residual standard error</strong> (4.86 TWh): how far a point typically sits from the line.</li>
+<li><strong><em>p</em>-value</strong> (<code>Pr(&gt;|t|)</code> on the <code>year</code> row, 4.66e-13): If there wasn’t actually <em>any</em> relationship between year and output, what’s the probability I’d see a line at least this steep (up or down) just by chance? <code>e-13</code> means “times ten to the minus thirteen”: astronomically small.</li>
+</ul>
+<section id="your-data-5" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-5">Your data</h4>
+<p>Run <code>summary()</code> on your own model, then add a few lines of comments to your file describing:</p>
+<ul>
+<li>what your slope means, in your units (“each extra … adds …”);</li>
+<li>whether that is a big number, compared with something you know;</li>
+<li>what your <em>R</em>² means, in your own words.</li>
+</ul>
+</section>
+</section>
+<section id="examine-the-residuals" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="examine-the-residuals">7. Examine the residuals</h2>
+<p>The <strong>residuals</strong> are the vertical distances from the line to each point: observed minus predicted. They are the <span class="eps"><em>ε</em></span> in the model, the part the line doesn’t explain.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>fitted <span class="ot">&lt;-</span> <span class="fu">fitted</span>(lin_model)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>recent<span class="sc">$</span>residual <span class="ot">&lt;-</span> <span class="fu">resid</span>(lin_model)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> renewable_twh)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> year, <span class="at">yend =</span> fitted), <span class="at">colour =</span> <span class="st">"firebrick"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> fitted)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Wind and solar generation (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/segments-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The scatter plot with its fitted line; a short red vertical segment joins each point to the line. Segments are short throughout; the longest is in 2020, above the line, and 2021, below it." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now let’s “rotate the line until it’s flat”, and look just at the red segments: how do those residuals vary with the predictor?</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> residual)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> year, <span class="at">yend =</span> <span class="dv">0</span>), <span class="at">colour =</span> <span class="st">"firebrick"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Residual (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/residuals-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Residuals against year, drawn as red segments from a zero line. Mostly within 5&nbsp;TWh of zero, slightly below zero at the start and end and above it in the middle years; 2020 is the largest, at plus 10, and 2021 the most negative, at minus 7." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>(In practice, I use the simpler <code>plot(model, which = 1)</code>, which plots residuals against fitted values. Do you find the output of the ggplot code more intuitive?)</p>
+<p>If the model has captured the pattern, what’s left over should be noise: a patternless scatter around zero. Look out for shapes like these:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/patterns-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Three example residual plots. Good: a random scatter around zero. Curve: residuals that arch, below zero at both ends and above in the middle. Fan: residuals that spread wider from left to right." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>My residuals aren’t enormous, and no pattern jumps out: but if I look closely I can detect a faint arch: early and late years have less output than the model predicts, and middle years more. Could a surge of growth now be tailing off?</p>
+<p>A couple of individual years also jump out. 2021 is a long way below the line, which raises the question: what weird thing happened in 2021? It turns out this mainly reflects an unusually calm year, where the wind barely blew.</p>
+<p>Is there a pattern to your own residuals? Are there any outliers, and what story might they tell?</p>
+<section id="your-data-6" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-6">Your data</h4>
+<p>Make both plots for your model: the line with its residuals, then the residuals alone. Which of the three shapes do yours look like? Do any single points stand out, and do you know why?</p>
+</section>
+</section>
+<section id="try-another-model" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="try-another-model">8. Try another model</h2>
+<p>I wasn’t convinced that my residuals were scattered randomly about the line. That makes me suspect that my linear model gets the structure of the relationship wrong.</p>
+<p>Nowadays it’s fashionable to talk about new technologies growing “exponentially”: so perhaps we should model exponential, rather than linear, growth? Something grows exponentially when it increases by the same <em>percentage</em> each year, like compound interest.</p>
+<p>This doesn’t sound like a linear model: but if we take the <em>log</em> of the response variable, then exponential growth looks like a straight line!</p>
+<blockquote class="blockquote">
+<p>Does this make sense? If you’re a bit rusty on logarithms, imagine that generation increases by a factor of ten every year: so year 1, 1&nbsp;TWh, year 2, 10&nbsp;TWh, year 3, 100&nbsp;TWh, … Plot this trend out on linear axes, then with a logarithmic <em>y</em> axis. Do you understand why a straight line appears?</p>
+</blockquote>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>exp_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(renewable_twh) <span class="sc">~</span> year, <span class="at">data =</span> recent)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(exp_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> (Intercept)         year 
+-279.1367085    0.1403032 </code></pre>
+</div>
+</div>
+<p>The slope, 0.14, now gives growth <strong>rate</strong>: about 15&nbsp;% a year.</p>
+<p>Which model fits better? Let’s take a peek at the residuals. My exponential model predicts log(TWh), but I’m interested in TWh. How do we get from log(TWh) back to TWh? <code>exp()</code> is the tool we need here:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>resids <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">year =</span> recent<span class="sc">$</span>year, <span class="at">model =</span> <span class="st">"Straight line"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">residual =</span> <span class="fu">resid</span>(lin_model)),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">year =</span> recent<span class="sc">$</span>year, <span class="at">model =</span> <span class="st">"Exponential"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">residual =</span> recent<span class="sc">$</span>renewable_twh <span class="sc">-</span> <span class="fu">exp</span>(<span class="fu">fitted</span>(exp_model)))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resids, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> residual)) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> year, <span class="at">yend =</span> <span class="dv">0</span>), <span class="at">colour =</span> <span class="st">"firebrick"</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model) <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Residual (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/compare-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Residuals in TWh for the two models, side by side. Straight line: within about 10&nbsp;TWh of zero, with a faint arch. Exponential: a strong arch, about plus 15&nbsp;TWh in the middle years and minus 39&nbsp;TWh by 2025." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Oh dear. That didn’t help at all! Under the exponential model, my residuals display a much more prominent arch!</p>
+<p>What did I do wrong? Well, an exponential curve bends <em>up</em>, but our data was bending <em>down</em>: it was levelling off, not levelling up! Of the two models, I think I’ll stick with the straight line.</p>
+<p>But perhaps an exponential helps with your data? Or perhaps the pattern of your residuals suggests that some other structure might underpin your observations?</p>
+<blockquote class="blockquote">
+<p>Whilst we’re here, a small warning: <code>summary(exp_model)</code> gives <em>R</em>² = 0.88. Don’t compare that to the straight line’s 0.98: it measures how well the model predicts <em>log(TWh)</em>, not TWh. AIC can’t compare models that predict different things, either.</p>
+</blockquote>
+<section id="your-data-7" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-7">Your data</h4>
+<p>What do your residuals look like?</p>
+<ul>
+<li><strong>No pattern?</strong> Your straight line is doing its job. Say so in a comment, and move on.</li>
+<li><strong>A curve or a fan?</strong> Try <code>lm(log(response) ~ predictor, ...)</code> (only if every response is above zero). Compare both models’ residuals, in your original units. Which fits better?</li>
+</ul>
+</section>
+</section>
+<section id="make-a-prediction" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="make-a-prediction">9. Make a prediction</h2>
+<p>Always a bit risky, this: but I’d like to use my model to predict renewable generation in 2040 (fifteen years after the data end).</p>
+<p>That’s easy to do:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>),</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">interval =</span> <span class="st">"prediction"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 210.4566 193.8071 227.1062</code></pre>
+</div>
+</div>
+<p>And let’s see what the exponential model predicts, too: remembering the <code>exp</code> to bring us back from log(TWh) into TWh.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+7.081772 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2040</span>),</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">interval =</span> <span class="st">"prediction"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 1190.075 503.6169 2812.215</code></pre>
+</div>
+</div>
+<p>Rather different numbers! I’m going to plot things out so I can understand where the difference comes from.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>future <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2040</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>future<span class="sc">$</span>linear <span class="ot">&lt;-</span> <span class="fu">predict</span>(lin_model, <span class="at">newdata =</span> future)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>future<span class="sc">$</span>exponential <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">predict</span>(exp_model, <span class="at">newdata =</span> future))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recent, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> renewable_twh)) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> total_2025, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2011</span>, <span class="at">y =</span> total_2025, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"All UK generation, 2025"</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> future, <span class="fu">aes</span>(<span class="at">y =</span> linear), <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> future, <span class="fu">aes</span>(<span class="at">y =</span> exponential), <span class="at">colour =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2040</span>, <span class="dv">2038</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">210</span>, <span class="dv">1100</span>), <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">vjust =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.6</span>, <span class="dv">0</span>), <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Straight line"</span>, <span class="st">"Exponential"</span>),</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Wind and solar generation (TWh)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="week7-app_files/figure-html/extrapolate-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The 2010–2025 data with both models extended to 2040. The straight line reaches about 210&nbsp;TWh; the exponential curve reaches about 1190&nbsp;TWh. A dashed line marks the UK's total 2025 generation, 294&nbsp;TWh, which the exponential passes around 2030." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There we go: neither model looked too bad over the period 2010–2025, but the different structures start to manifest beyond this range, and they disagree by a factor of almost six in 2040. One of those models looks more reasonable than the other – but neither model acknowledges that there might be limits to the perpetual growth of renewables.</p>
+<p>I could get excited about the narrowish interval of the prediction from the straight line (about 194–227&nbsp;TWh), but before I do, I want to ask what the model might be missing: this question becomes especially pertinent when extrapolating beyond the range of the data I collected!</p>
+<p>Within the range of the data, the data themselves provide some check on whether the model’s wildly off. Outside the range of the data, I’m riding on the conviction that my assumptions hold, and continue to hold: dangerous territory, perhaps?</p>
+<section id="your-data-8" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-8">Your data</h4>
+<p>Use <code>predict()</code> for two values of your predictor: one inside the range of your data, one well outside it. How far outside would you be prepared to go, and why?</p>
+</section>
+</section>
+<section id="write-it-up" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="write-it-up">10. Write it up</h2>
+<p>Science isn’t finished until it’s communicated. Here’s my attempt to summarize my findings:</p>
+<blockquote class="blockquote">
+<p>From 2010 to 2025, UK wind and solar generation rose by about 6.635&nbsp;TWh a year (linear model, <em>R</em>² = 0.98). The residuals show no strong pattern, so a straight line describes this period reasonably well; an exponential model fitted worse. Extended to 2040, the line predicts about 210&nbsp;TWh, assuming deployment continues at the same rate.</p>
+</blockquote>
+<p>Is anything missing from this shortish summary? I’ve made sure I mention what was modelled, the size of the effect in real units, how well the model fits, and the assumption behind the prediction. Can you do better?</p>
+<section id="your-data-9" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-9">Your data</h4>
+<p>Write two or three sentences like these for your model, as a comment in your script. This paragraph might be a good first paragraph for a pull request, when you ask to merge your analysis onto the <code>main</code> branch for your other group members to learn from.</p>
+</section>
+</section>
+<section id="what-is-your-model-not-capturing" class="level2 exercise-heading">
+<h2 class="exercise-heading anchored" data-anchor-id="what-is-your-model-not-capturing">11. What is your model not capturing?</h2>
+<p>There’s plenty missing from my model. I only counted solar and wind as renewables! I made no attempt to account for grid capacity, planning permission, or running out of windy places to put windmills. Should I have factored in the potential impact of climate change? A model whose only input is the calendar year is bound to be limited. All models are wrong: but is mine useful?</p>
+<p>Your turn to think about the value of your model: do its limitations have teeth?</p>
+<section id="your-data-10" class="level4 your-data">
+<h4 class="anchored" data-anchor-id="your-data-10">Your data</h4>
+<p>In a comment:</p>
+<ol type="1">
+<li>The biggest thing my model cannot represent is …</li>
+<li>If I’m wrong about it, my conclusion changes like this: …</li>
+<li>A check I could run on it with the data I have is …</li>
+</ol>
+<p>You might end up including a paragraph like this in the limitations section of your report…</p>
+</section>
+<section id="extension-test-an-extrapolation" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-test-an-extrapolation">Extension: test an extrapolation</h3>
+<p><em>Optional.</em></p>
+<p>It’s going to take me a while to check my prediction for 2040. But I could test my model’s predictive power by hiding data I already have:</p>
+<ol type="1">
+<li>Using <code>elec</code>, fit a straight line to 2010–2017 only, and predict 2025. How good’s the prediction? Is 2025’s real value inside the prediction interval?</li>
+<li>Do the same with 2010–2020. Does a longer run help?</li>
+<li>Do the same with the exponential model.</li>
+</ol>
+</section>
+<section id="extension-what-to-include" class="level3 extension">
+<h3 class="anchored" data-anchor-id="extension-what-to-include">Extension: what to include?</h3>
+<p><em>Optional.</em></p>
+<p>I chose to start my analysis from 2010. Were you convinced by my rigorous reason for doing so?</p>
+<p>Try fitting a straight line to the whole record, from 2000. How much does the slope change, and the 2040 prediction?</p>
+<p>Choosing what data to include can weigh heavily on the conclusions. Is there a choice like this in your own analysis?</p>
+</section>
+</section>
+<section id="save-your-work" class="level2 save-reminder">
+<h2 class="anchored" data-anchor-id="save-your-work">Save your work</h2>
+<p>Commit your script in GitHub Desktop, with a message that says what you did, and push. Open a pull request so your group can see it, as last week.</p>
+</section>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
+
+</main> <!-- /main -->
+<script>
+// Fold every extension (`::: {.extension}`, or a heading with
+// {.extension}) shut until the student opens it, so the core exercise
+// comes first. Included on every page by _quarto.yml (include-after-body).
+//
+// Pandoc merges an extension div into its heading's <section>, so the
+// heading stays visible (and in the TOC) and its siblings are hidden by
+// `.extension.collapsed` in styles.css. The class is added here, so with
+// no JavaScript nothing is hidden.
+//
+// An extension opens itself when the URL points into it, and when
+// code-transfer.js restores or imports code into one of its boxes.
+(function () {
+  "use strict";
+
+  var SELECTOR = "section.extension, div.extension";
+  var n = 0;
+
+  function Toggle(ext, open) {
+    ext.classList.toggle("collapsed", !open);
+    if (ext.extensionToggle) {
+      ext.extensionToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  }
+
+  function Reveal(el) {
+    var ext = el && el.closest && el.closest(SELECTOR);
+    if (ext && ext.classList.contains("collapsed")) Toggle(ext, true);
+    return ext;
+  }
+
+  function Setup(ext) {
+    if (ext.extensionToggle) return;
+    n += 1;
+    var heading = ext.firstElementChild;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "extension-toggle";
+    if (heading && /^H[234]$/.test(heading.tagName)) {
+      // Quarto's anchor link stays outside the button.
+      Array.prototype.slice.call(heading.childNodes).forEach(function (node) {
+        if (!(node.classList && node.classList.contains("anchorjs-link"))) {
+          button.appendChild(node);
+        }
+      });
+      heading.insertBefore(button, heading.firstChild);
+    } else {
+      heading = null;
+      button.textContent = "Extension";
+      ext.insertBefore(button, ext.firstChild);
+    }
+    var ids = [];
+    Array.prototype.forEach.call(ext.children, function (child, i) {
+      if (child === heading || child === button) return;
+      if (!child.id) child.id = "extension-" + n + "-" + i;
+      ids.push(child.id);
+    });
+    button.setAttribute("aria-controls", ids.join(" "));
+    button.addEventListener("click", function () {
+      Toggle(ext, ext.classList.contains("collapsed"));
+    });
+    ext.extensionToggle = button;
+    Toggle(ext, false);
+  }
+
+  function FollowHash() {
+    if (!window.location.hash) return;
+    var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+    if (target && Reveal(target)) target.scrollIntoView();
+  }
+
+  function Start() {
+    Array.prototype.forEach.call(document.querySelectorAll(SELECTOR), Setup);
+    FollowHash();
+  }
+
+  window.ExtensionCollapse = { reveal: Reveal };
+  window.addEventListener("hashchange", FollowHash);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", Start);
+  } else {
+    Start();
+  }
+})();
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../exercises";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="../accessibility.html">Accessibility statement</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
