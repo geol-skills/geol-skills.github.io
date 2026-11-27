@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>Research Skills – Models and their limits</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2b7115b704feb8190e9f0c95b5c4a188.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Models and their limits</h1>
+  <p class="subtitle">Research Skills — Week 7</p>
+  <div class="exercise-url">
+    <p class="exercise-url-label">Today's exercises</p>
+    <p><a href="https://geol-skills.github.io/exercises/week7-content">geol-skills.github.io</a></p>
+  </div>
+</section>
+<section>
+<section id="recap" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Recap</h1>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-current" aria-hidden="true">
+Recap
+</div>
+<div class="recap-after">
+<ul>
+<li>Modelling gas generation</li>
+<li>Fit and interpret</li>
+<li>Choosing a model</li>
+<li>Traps</li>
+<li>Quick reflection</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="where-we-are" class="slide level2">
+<h2>Where we are</h2>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div class="columns-even" style="grid-template-columns: 1.3fr 1fr;">
+<div class="col">
+<p>You can now test whether two groups differ, and say how big the difference is.</p>
+<div class="fragment">
+<p>This week: <strong>models</strong>.</p>
+<blockquote>
+<p>All models are wrong, but some are useful</p>
+</blockquote>
+<p>A model is a simplified story about how the world works. Ask: how much does it capture, and what does it leave out?</p>
+</div>
+</div>
+<div class="col">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="week07-content_files/figure-revealjs/w07-ppdac-1.png" class="quarto-figure quarto-figure-center" alt="The PPDAC cycle drawn as a ring: Problem, Plan, Data, Analysis, Conclusion, with arrows running clockwise back to Problem. Analysis is highlighted; the centre reads Phase 2." width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fig-source">
+<p><a href="figures/w01-ppdac-ring.R">w01-ppdac-ring.R</a></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[11:05–11:08]</strong> Frame the session: models as simplifications. Every equation in science is a model. Every test contains an implicit model.</li>
+<li>Point at the ring: where this week sits in PPDAC (Week 1, “The cycle”).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="questions" class="slide level2" data-visibility="uncounted">
+<h2>Questions?</h2>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Open the Poll Everywhere Q&amp;A activity before the session and leave it active throughout.</li>
+<li>Questions appear in your Poll Everywhere presenter view; upvoted questions rise to the top.</li>
+<li>Address during transitions or at the end of concept blocks, not mid-explanation.</li>
+<li>Reset (archive) the activity between sessions so questions don’t carry over from the previous week.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="modelling-gas-generation" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Modelling gas generation</h1>
+<div class="slide-time" aria-hidden="true">
+11:08
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Modelling gas generation
+</div>
+<p><span class="activity-badge badge-livecode">🎓💻 Live code</span></p>
+<div class="photo corner-photo" style="width: 260px;">
+<p><img data-src="images/pexels-jozef-g-3408833-40508509.jpg" style="width:100.0%" alt=""></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>Flaring gas: Jozef G., <a href="https://www.pexels.com/photo/aerial-view-of-oil-refinery-in-bratislava-40508509/">Pexels</a></p>
+</div>
+<div class="recap-after">
+<ul>
+<li>Fit and interpret</li>
+<li>Choosing a model</li>
+<li>Traps</li>
+<li>Quick reflection</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="what-is-a-model" class="slide level2">
+<h2>What is a model?</h2>
+<div class="slide-time" aria-hidden="true">
+11:08
+</div>
+<p>A deliberate <strong>simplification</strong> that captures some features of reality and ignores others.</p>
+<div class="fragment">
+<p>All statistical tests include models: the <em>t</em>-test models the data as two normal distributions, one per group.</p>
+</div>
+<div class="fragment">
+<p>Today we build <strong>explicit</strong> models, starting with linear regression:</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1 x + \varepsilon\]</span></p>
+<p>“<em>y</em> changes by <em>β</em>₁ for every one-unit change in <em>x</em>, plus noise.”</p>
+<p>(aka <span class="math inline">\(y = mx + c\)</span>)</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:08–11:35]</strong> Annual gas, live: a straight line, its null world, its summary, its diagnostics, its uncertainty, then a curve. Students watch; they practise on the exercise page afterwards.</li>
+<li>The question for the whole session: how much UK electricity comes from gas, and what drives it?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="how-much-of-our-electricity-comes-from-gas" class="slide level2 live-side">
+<h2>How much of our electricity comes from gas?</h2>
+<div class="slide-time" aria-hidden="true">
+11:11
+</div>
+<div class="cell" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-1" class="exercise-cell">
+
+</div>
+<script type="webr-1-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImZpZy1oZWlnaHQiOjQuNiwiZmlnLXdpZHRoIjo1LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiJlbGVjIDwtIHJlYWQuY3N2KFwiZGF0YS91a19lbGVjdHJpY2l0eS5jc3ZcIilcbiMgMS4gTG9vayBmaXJzdDogZ2FzIGFnYWluc3QgeWVhclxuXG4jIDIuIEEgc3RyYWlnaHQgbGluZSB0aHJvdWdoIGl0OiBsbShvdXRjb21lIH4gcHJlZGljdG9yKVxuXG4jIDMuIFdoYXQgaXMgdGhlIHNsb3BlPyBjb2VmKCkifQ==
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">ggplot</span>(elec, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gas_twh)) <span class="sc">+</span></span>
+<span id="cb1-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(gas_twh <span class="sc">~</span> year, <span class="at">data =</span> elec)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">coef</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Before fitting, ask: is gas going up or down?</p></li>
+<li><p>Slope −2.34&nbsp;TWh a year. Intercept 4836&nbsp;TWh: the line’s prediction for the year 0. Meaningless: it is where the line crosses <em>x</em> = 0, far outside the data.</p></li>
+<li><p><code>lm()</code> uses the same <code>outcome ~ predictor</code> formula as <code>t.test()</code>.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="could-chance-draw-this-line" class="slide level2 live-side">
+<h2>Could chance draw this line?</h2>
+<div class="slide-time" aria-hidden="true">
+11:15
+</div>
+<div class="photo corner-photo" style="width: 110px;">
+<p><img data-src="images/black-hole-accretion-disk.jpg" style="width:100.0%" alt=""></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>Black hole: BoliviaInteligente / Unsplash</p>
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_null">
+<script type="exercise-setup-w07s_gas_null-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfbnVsbCIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_null" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-3" class="exercise-cell">
+
+</div>
+<script type="webr-3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfbnVsbCIsImZpZy1oZWlnaHQiOjQuNiwiZmlnLXdpZHRoIjo1LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIEEgbnVsbCB3b3JsZCwgd2l0aCBhIHNsb3BlIGluIHBsYWNlIG9mIGRlbHRhXG4jIDEuIE1lYXN1cmU6IG91ciBzbG9wZVxuXG4jIDIuIEEgd29ybGQgd2hlcmUgeWVhciBkb2Vzbid0IG1hdHRlcjogc2h1ZmZsZSBnYXMsIHJlZml0LCBzbG9wZVxuXG4jIDMuIERvIHRoYXQgMTAwIHRpbWVzXG5cbiMgNC4gSGlzdG9ncmFtIHRoZSBudWxsIHdvcmxkLCB3aXRoIG91ciBzbG9wZSBtYXJrZWRcblxuIyA1LiBDb3VudDogaG93IG9mdGVuIGlzIHRoZSBudWxsIHdvcmxkIHRoaXMgc3RlZXA/In0=
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p><strong>[5&nbsp;min, within 11:08–11:35]</strong> Ask first: “Could a line this steep turn up by chance?” Then: “How did we answer that in Week 6?” Same five steps; only the number changes, from <em>δ</em> to the slope.</p></li>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>slope <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)[[<span class="st">"year"</span>]]</span>
+<span id="cb2-2"><a aria-label="2"></a>slope</span>
+<span id="cb2-3"><a aria-label="3"></a></span>
+<span id="cb2-4"><a aria-label="4"></a>shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(elec<span class="sc">$</span>gas_twh)</span>
+<span id="cb2-5"><a aria-label="5"></a><span class="fu">coef</span>(<span class="fu">lm</span>(shuffled <span class="sc">~</span> elec<span class="sc">$</span>year))[[<span class="dv">2</span>]]</span>
+<span id="cb2-6"><a aria-label="6"></a></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="fu">set.seed</span>(<span class="dv">2341</span>)</span>
+<span id="cb2-8"><a aria-label="8"></a>null_slopes <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100</span>, { <span class="co"># 1000 is slow</span></span>
+<span id="cb2-9"><a aria-label="9"></a>  <span class="fu">coef</span>(<span class="fu">lm</span>(<span class="fu">sample</span>(gas_twh) <span class="sc">~</span> year, <span class="at">data =</span> elec))[[<span class="st">"year"</span>]]</span>
+<span id="cb2-10"><a aria-label="10"></a>})</span>
+<span id="cb2-11"><a aria-label="11"></a></span>
+<span id="cb2-12"><a aria-label="12"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(null_slopes), <span class="fu">aes</span>(<span class="at">x =</span> null_slopes)) <span class="sc">+</span></span>
+<span id="cb2-13"><a aria-label="13"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a aria-label="14"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(slope, <span class="sc">-</span>slope), <span class="at">colour =</span> <span class="st">"red"</span>)</span>
+<span id="cb2-15"><a aria-label="15"></a></span>
+<span id="cb2-16"><a aria-label="16"></a><span class="fu">mean</span>(<span class="fu">abs</span>(null_slopes) <span class="sc">&gt;=</span> <span class="fu">abs</span>(slope))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Step 2 unseeded: run it two or three times; each shuffle gives a slope near zero.</p></li>
+<li><p>Numbers from a real run: slope −2.34&nbsp;TWh a year. Null slopes run from −2.0 to +2.6; 1 of 1000 is as steep (+2.6), so <em>p</em> ≈ 0.001. With 10 000 shuffles, 2 in 10 000: <em>p</em> = 0.0002.</p></li>
+<li><p>Shuffling treats the years as interchangeable. Two slides on, the diagnostics question that: neighbouring years are alike.</p></li>
+<li><p>Next slide: <code>summary()</code> prints the same <em>p</em>-value without shuffling. That column is the shortcut, as <code>t.test()</code> was in Week 6.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-else-does-r-know-about-the-line" class="slide level2">
+<h2>What else does R know about the line?</h2>
+<div class="slide-time" aria-hidden="true">
+11:18
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_2">
+<script type="exercise-setup-w07s_gas_2-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfMiIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_2" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="120">
+<div>
+<div id="webr-5" class="exercise-cell">
+
+</div>
+<script type="webr-5-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0IjoxMjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfMiIsInBlcnNpc3QiOmZhbHNlfSwiY29kZSI6IiMgVGhlIHNsb3BlLCBpdHMgdW5jZXJ0YWludHksIGFuZCBob3cgbXVjaCBvZiB0aGUgdmFyaWF0aW9uIGl0IGV4cGxhaW5zIn0=
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Anticipated code: <code>summary(model)</code></li>
+<li>Read it off together:
+<ul>
+<li>Slope −2.34&nbsp;TWh a year, standard error 0.53: <em>t</em> = −4.38, <em>p</em> = 0.0002: the null world’s answer, from a formula. Chance rarely draws a line this steep.</li>
+<li><em>R</em>² = 0.44: the line accounts for 44&nbsp;% of the year-to-year variation. 56&nbsp;% is something else.</li>
+<li>Residual standard error 20.4&nbsp;TWh on 24 degrees of freedom (26 years, minus two coefficients): a typical point sits 20&nbsp;TWh off the line.</li>
+</ul></li>
+<li>“Is that a big number?” Gas is about 130&nbsp;TWh in a typical year; 20&nbsp;TWh is a sixth of it.</li>
+<li>The exercise page (Exercise 2) has the same table to work through.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="does-a-straight-line-fit" class="slide level2 live-side">
+<h2>Does a straight line fit?</h2>
+<div class="slide-time" aria-hidden="true">
+11:22
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_3">
+<script type="exercise-setup-w07s_gas_3-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfMyIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_3" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-7" class="exercise-cell">
+
+</div>
+<script type="webr-7-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfMyIsImZpZy1oZWlnaHQiOjQuNiwiZmlnLXdpZHRoIjo1LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIFRoZSBtb2RlbCdzIG93biBkaWFnbm9zdGljczogcGxvdCgpIGEgbW9kZWwsIG5vdCBkYXRhXG4jIDEuIFJlc2lkdWFscyB2cyBmaXR0ZWQ6IGFueSBwYXR0ZXJuP1xuIyAgICBBIHBhdHRlcm4gbWVhbnMgdGhlIGxpbmUgaGFzIG1pc3NlZCBzb21lIHN0cnVjdHVyZVxuXG4jIDIuIE5vcm1hbCBRLVE6IHBvaW50cyBvZmYgdGhlIGxpbmU/XG4jICAgIFRoZW4gdGhlIHJlc2lkdWFscyBhcmUgbm90IG5vcm1hbCJ9
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code, one plot per Run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Read it, then change the 1 to a 2 and run again:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">plot</span>(model, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Residuals vs fitted is not a cloud. Residuals run positive in 2007–10 (+20 to +37&nbsp;TWh), then sharply negative in 2012–15 (−27 to −36), then positive again. Neighbouring years are alike: the residuals are not independent.</p></li>
+<li><p>QQ plot: S-shape means more big divergences than normal distribution (1:1 line) predicts.</p></li>
+<li><p>The four assumptions, if asked: linearity, independence, constant variance, normal residuals (only needed for <em>p</em>-values and intervals).</p></li>
+<li><p>What happened in 2012–15? Cheap coal and expensive gas: generators switched to coal until the carbon price floor made coal uneconomic in</p>
+<ol start="2016" type="1">
+<li>Time is not the cause of anything; the model has nothing else to go on.</li>
+</ol></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-line-and-its-uncertainty" class="slide level2 live-side">
+<h2>The line and its uncertainty</h2>
+<div class="slide-time" aria-hidden="true">
+11:25
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_4">
+<script type="exercise-setup-w07s_gas_4-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNCIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKVxudGhlbWVfc2V0KHRoZW1lX2dyZXkoYmFzZV9zaXplID0gMTgpKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_4" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-9" class="exercise-cell">
+
+</div>
+<script type="webr-9-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNCIsImZpZy1oZWlnaHQiOjQuNiwiZmlnLXdpZHRoIjo1LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIDEuIFBsb3QgdGhlIHBvaW50c1xuXG4jIDIuIEFkZCB0aGUgZml0dGVkIGxpbmUsIHdpdGggaXRzIDk1wqAlIGNvbmZpZGVuY2UgYmFuZCJ9
+</script>
+</div>
+</div>
+<div class="fig-source">
+<p>Polished version: <a href="figures/w07-gas-annual.R">w07-gas-annual.R</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">ggplot</span>(elec, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gas_twh)) <span class="sc">+</span></span>
+<span id="cb5-2"><a aria-label="2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>The band is where the <strong>line</strong> could be, not where next year’s point will be. Ask about 2026 both ways: <code>predict(model, data.frame(year = 2026), interval = "confidence")</code> gives 101&nbsp;TWh (84–118); <code>interval = "prediction"</code> gives 101 (56–147): it’s likely that the value will fall outside the band, as most points do!</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-curve" class="slide level2 live-side">
+<h2>A curve?</h2>
+<div class="slide-time" aria-hidden="true">
+11:28
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_5">
+<script type="exercise-setup-w07s_gas_5-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNSIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKVxudGhlbWVfc2V0KHRoZW1lX2dyZXkoYmFzZV9zaXplID0gMTgpKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_5" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-11" class="exercise-cell">
+
+</div>
+<script type="webr-11-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNSIsImZpZy1oZWlnaHQiOjQuNiwiZmlnLXdpZHRoIjo1LCJwZXJzaXN0IjpmYWxzZX0sImNvZGUiOiIjIHBvbHkoeWVhciwgNCk6IHllYXIsIHllYXLCsiwgeWVhcsKzIGFuZCB5ZWFy4oG0IGFzXG4jICAgZm91ciBwcmVkaWN0b3JzLCByZXdvcmtlZCBzbyB0aGV5IGRvbid0IG92ZXJsYXBcbiMgMS4gRml0IGdhcyBhZ2FpbnN0IGEgZGVncmVlLTQgcG9seW5vbWlhbFxuXG4jIDIuIERyYXcgaXQ6IGdlb21fc21vb3RoKCkgdGFrZXMgYSBmb3JtdWxhIHRvbyJ9
+</script>
+</div>
+</div>
+<div class="fig-source">
+<p>Polished version: <a href="figures/w07-gas-annual.R">w07-gas-annual.R</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">head</span>(<span class="fu">poly</span>(elec<span class="sc">$</span>year, <span class="dv">4</span>))   <span class="co"># four columns, one row per year</span></span>
+<span id="cb6-2"><a aria-label="2"></a></span>
+<span id="cb6-3"><a aria-label="3"></a>curve <span class="ot">&lt;-</span> <span class="fu">lm</span>(gas_twh <span class="sc">~</span> <span class="fu">poly</span>(year, <span class="dv">4</span>), <span class="at">data =</span> elec)</span>
+<span id="cb6-4"><a aria-label="4"></a><span class="fu">summary</span>(curve)</span>
+<span id="cb6-5"><a aria-label="5"></a></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="fu">ggplot</span>(elec, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gas_twh)) <span class="sc">+</span></span>
+<span id="cb6-7"><a aria-label="7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-8"><a aria-label="8"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>After first pass, increase the polynomial coeff to show the curve warping to the data. 10 gives lots of stat sig fits!</p></li>
+<li><p>Why not just add year², year³, year⁴? Over 2000–2025 they are almost the same variable (year and year² correlate at 0.999 999). Try <code>lm(gas_twh ~ year + I(year^2) + I(year^3) + I(year^4))</code>: the year³ coefficient comes back <code>NA</code>, dropped without a warning. <code>poly()</code> rebuilds the four columns so they don’t overlap.</p></li>
+<li><p>The price: the coefficients no longer mean anything on their own. The first, −89.4, is not “TWh per year”; the slope is still −2.34.</p></li>
+<li><p><em>R</em>² 0.55 (the line: 0.44). The curve rises to 2004, sags through 2012–15, and dives after 2020, chasing the last few points.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="is-the-curve-better" class="slide level2">
+<h2>Is the curve better?</h2>
+<div class="slide-time" aria-hidden="true">
+11:32
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_6">
+<script type="exercise-setup-w07s_gas_6-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNiIsInNldHVwIjp0cnVlfSwiY29kZSI6IiMgRXZlcnl0aGluZyB0aGUgZWFybGllciBzbGlkZXMgZGlkLCBzbyB0aGlzIGJveCBydW5zIG9uIGl0cyBvd25cbmVsZWMgPC0gcmVhZC5jc3YoXCJkYXRhL3VrX2VsZWN0cmljaXR5LmNzdlwiKVxubW9kZWwgPC0gbG0oZ2FzX3R3aCB+IHllYXIsIGRhdGEgPSBlbGVjKVxuY3VydmUgPC0gbG0oZ2FzX3R3aCB+IHBvbHkoeWVhciwgNCksIGRhdGEgPSBlbGVjKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_6" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="160">
+<div>
+<div id="webr-13" class="exercise-cell">
+
+</div>
+<script type="webr-13-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0IjoxNjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfNiIsInBlcnNpc3QiOmZhbHNlfSwiY29kZSI6IiMgMS4gRG9lcyBpdCBleHBsYWluIG1vcmU/XG5cbiMgMi4gQXNrIGJvdGggbW9kZWxzIGFib3V0IDIwMzAgYW5kIDIwNDA6IHByZWRpY3QoKSJ9
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>r.squared   <span class="co"># 0.444</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">summary</span>(curve)<span class="sc">$</span>r.squared   <span class="co"># 0.552</span></span>
+<span id="cb7-3"><a aria-label="3"></a></span>
+<span id="cb7-4"><a aria-label="4"></a>future <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">c</span>(<span class="dv">2030</span>, <span class="dv">2040</span>))</span>
+<span id="cb7-5"><a aria-label="5"></a><span class="fu">predict</span>(model, future)     <span class="co"># 92.1, 68.7&nbsp;TWh</span></span>
+<span id="cb7-6"><a aria-label="6"></a><span class="fu">predict</span>(curve, future)     <span class="co"># −67.9, −1356&nbsp;TWh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><em>R</em>² always rises when you add terms, even useless ones. Is 0.44 → 0.55 a big number? Hold that thought: AIC answers it after the exercises (it is a tie).</p></li>
+<li><p>Extrapolated, the curve takes gas below zero in 2028; the line still has 69&nbsp;TWh in 2040. Same data, very different futures. Neither model knows about gas prices, carbon prices or new nuclear: blind spots.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<div class="discussion-prompt">
+<p>Which do you believe? What does the model miss?</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="fit-and-interpret" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Fit and interpret</h1>
+<div class="slide-time" aria-hidden="true">
+11:35
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Modelling gas generation</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Fit and interpret
+</div>
+<p><span class="activity-badge badge-exercise">✏️💻 Exercises</span></p>
+<div class="recap-after">
+<ul>
+<li>Choosing a model</li>
+<li>Traps</li>
+<li>Quick reflection</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your turn</h2>
+<div class="slide-time" aria-hidden="true">
+11:35
+</div>
+<p><strong>Exercise 1:</strong> solar panel output against panel temperature.</p>
+<p>(Exercise 2: interpreting the slope)</p>
+<div class="fragment">
+<p><strong>Exercise 3:</strong> HolmesCo’s groundwater model. Reproduce it, then plot what it left behind.</p>
+<div class="holmesco-doc">
+<div class="holmesco-letterhead">
+<p class="holmesco-name"><span aria-hidden="true">⚒️</span> HolmesCo</p>
+<p class="holmesco-tagline"><em>Geological Consultants Since 2019</em></p>
+<p class="holmesco-motto">“Our Trends Hold Water”™</p>
+</div>
+<p>Linear model: groundwater level ~ rainfall. <em>R</em>² = 0.49.</p>
+<p>“Rainfall is the <strong>dominant</strong> control on groundwater levels.”</p>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[11:35–12:00]</strong> Exercise 1 (with Exercise 2 for fast students), then Exercise 3. Output <em>decreases</em> at high temperatures for crystalline silicon panels: a negative slope where most expect a positive one. “Did the data surprise you?”</li>
+<li>Exercise 3: students plot the residuals against month. Don’t move on until they have drawn it themselves: the next slide is the debrief. <code>plot(model)</code> will not show the cycle: its panels don’t know the order of the observations.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="whats-wrong" class="slide level2">
+<h2>What’s wrong?</h2>
+<div class="slide-time" aria-hidden="true">
+11:48
+</div>
+
+<img data-src="week07-content_files/figure-revealjs/w07-residuals-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Residuals from a groundwater model plotted against month over five years. Instead of scattering around zero they rise and fall in a clear annual cycle, drifting slightly downward across the record." width="864"><div class="fig-source">
+<p><a href="figures/w07-residuals.R">w07-residuals.R</a></p>
+</div>
+<ul>
+<li class="fragment">The residuals show a <strong>seasonal pattern</strong>: the model is missing a time-dependent structure</li>
+<li class="fragment"><em>R</em>² = 0.49 means <strong>51&nbsp;%</strong> of the variation is unexplained</li>
+<li class="fragment">Is “Dominant” the right word when a model misses more than it captures?</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Debrief. Ask what they found before revealing.</li>
+<li>Key question: what is the model not capturing? (Seasonal recharge, time lag between rainfall and groundwater response, temperature effects on evapotranspiration.)</li>
+<li>Bridge: adding terms always raises <em>R</em>². How do we know a new term is worth it?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="choosing-a-model" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Choosing a model</h1>
+<div class="slide-time" aria-hidden="true">
+12:00
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Modelling gas generation</li>
+<li>Fit and interpret</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Choosing a model
+</div>
+<p><span class="activity-badge badge-livecode">🎓💻 Live code</span></p>
+<div class="recap-after">
+<ul>
+<li>Traps</li>
+<li>Quick reflection</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="a-fair-comparison-aic" class="slide level2">
+<h2>A fair comparison: AIC</h2>
+<div class="slide-time" aria-hidden="true">
+12:00
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gw_7">
+<script type="exercise-setup-w07s_gw_7-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nd183Iiwic2V0dXAiOnRydWV9LCJjb2RlIjoiIyBIb2xtZXNDbydzIGdyb3VuZHdhdGVyIHJlY29yZCwgYXMgb24gdGhlIGV4ZXJjaXNlIHBhZ2VcbnNldC5zZWVkKDc4MzQpXG5tb250aCA8LSAxOjYwXG5yYWluZmFsbF9tbSA8LSA1NSArIDMwICogc2luKDIgKiBwaSAqIG1vbnRoIC8gMTIpICsgcm5vcm0oNjAsIDAsIDEwKVxucmFpbmZhbGxfbW0gPC0gcG1heChyb3VuZChyYWluZmFsbF9tbSwgMSksIDUpXG5nd19sZXZlbF9tIDwtIDggKyAwLjA3ICogcmFpbmZhbGxfbW0gK1xuICAxLjUgKiBzaW4oMiAqIHBpICogKG1vbnRoIC0gNCkgLyAxMikgK1xuICAtMC4wMTUgKiBtb250aCArIHJub3JtKDYwLCAwLCAwLjUpXG5ncm91bmR3YXRlciA8LSBkYXRhLmZyYW1lKG1vbnRoLCByYWluZmFsbF9tbSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgZ3dfbGV2ZWxfbSA9IHJvdW5kKGd3X2xldmVsX20sIDIpKVxucm0obW9udGgsIHJhaW5mYWxsX21tLCBnd19sZXZlbF9tKVxuaG9sbWVzIDwtIGxtKGd3X2xldmVsX20gfiByYWluZmFsbF9tbSwgZGF0YSA9IGdyb3VuZHdhdGVyKSJ9
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gw_7" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="220">
+<div>
+<div id="webr-15" class="exercise-cell">
+
+</div>
+<script type="webr-15-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0IjoyMjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nd183IiwicGVyc2lzdCI6ZmFsc2V9LCJjb2RlIjoiIyBGaXQsIHdpdGggYSBwZW5hbHR5IGZvciBldmVyeSBjb2VmZmljaWVudDogQUlDKCkuIExvd2VyIGlzIGJldHRlclxuIyAxLiBIb2xtZXNDbydzIG1vZGVsLCBhZ2FpbnN0IG9uZSB3aXRoIGEgdHJlbmQ6ICsgbW9udGhcbiMgMi4gQSBjdXJ2ZSBpbiB0aW1lPyArIHBvbHkobW9udGgsIGspOiB0cnkgYSBmZXcga1xuIyAzLiBBIHllYXJseSBjeWNsZTogY29sdW1ucyBzaW4gYW5kIGNvcywgZnJvbSAyICogcGkgKiBtb250aCAvIDEyXG4jIDQuIERvZXMgcmFpbiBtYXR0ZXIgbW9yZSBhcyB0aW1lIGdvZXMgb24/IHJhaW5mYWxsX21tICogbW9udGgifQ==
+</script>
+</div>
+</div>
+<p><span class="math display">\[\mathrm{AIC} = 2k - 2 \ln \hat{L}\]</span></p>
+<p><em>k</em>: parameters estimated; <em>L̂</em>: how likely the data are under the fitted model.</p>
+<aside class="notes">
+<ul>
+<li><p><strong>[12:00–12:45]</strong> Straight on from the residuals: they have a trend and a cycle. Adding terms always raises <em>R</em>², so is each one worth it? AIC charges 2 for every parameter (R also counts the residual spread, so HolmesCo’s line has <em>k</em> = 3).</p></li>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>trend <span class="ot">&lt;-</span> <span class="fu">lm</span>(gw_level_m <span class="sc">~</span> rainfall_mm <span class="sc">+</span> month, <span class="at">data =</span> groundwater)</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">AIC</span>(holmes, trend)</span>
+<span id="cb8-3"><a aria-label="3"></a><span class="fu">AIC</span>(<span class="fu">lm</span>(gw_level_m <span class="sc">~</span> rainfall_mm <span class="sc">+</span> <span class="fu">poly</span>(month, <span class="dv">2</span>), <span class="at">data =</span> groundwater))</span>
+<span id="cb8-4"><a aria-label="4"></a>groundwater<span class="sc">$</span>sin <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> groundwater<span class="sc">$</span>month <span class="sc">/</span> <span class="dv">12</span>)</span>
+<span id="cb8-5"><a aria-label="5"></a>groundwater<span class="sc">$</span>cos <span class="ot">&lt;-</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> groundwater<span class="sc">$</span>month <span class="sc">/</span> <span class="dv">12</span>)</span>
+<span id="cb8-6"><a aria-label="6"></a>season <span class="ot">&lt;-</span> <span class="fu">lm</span>(gw_level_m <span class="sc">~</span> rainfall_mm <span class="sc">+</span> month <span class="sc">+</span> sin <span class="sc">+</span> cos,</span>
+<span id="cb8-7"><a aria-label="7"></a>             <span class="at">data =</span> groundwater)</span>
+<span id="cb8-8"><a aria-label="8"></a><span class="fu">AIC</span>(trend, season)</span>
+<span id="cb8-9"><a aria-label="9"></a>both <span class="ot">&lt;-</span> <span class="fu">lm</span>(gw_level_m <span class="sc">~</span> rainfall_mm <span class="sc">*</span> month <span class="sc">+</span> sin <span class="sc">+</span> cos,</span>
+<span id="cb8-10"><a aria-label="10"></a>           <span class="at">data =</span> groundwater)</span>
+<span id="cb8-11"><a aria-label="11"></a><span class="fu">AIC</span>(season, both)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Coefficients</th>
+<th>AIC</th>
+<th><em>R</em>²</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>holmes</code>: rainfall</td>
+<td>2</td>
+<td>181.4</td>
+<td>0.49</td>
+</tr>
+<tr class="even">
+<td><code>trend</code>: + month</td>
+<td>3</td>
+<td>177.8</td>
+<td>0.53</td>
+</tr>
+<tr class="odd">
+<td>+ <code>poly(month, 2)</code></td>
+<td>4</td>
+<td>179.7</td>
+<td>0.53</td>
+</tr>
+<tr class="even">
+<td>+ <code>poly(month, 4)</code></td>
+<td>6</td>
+<td>182.6</td>
+<td>0.54</td>
+</tr>
+<tr class="odd">
+<td>+ <code>poly(month, 8)</code></td>
+<td>10</td>
+<td>174.4</td>
+<td>0.65</td>
+</tr>
+<tr class="even">
+<td>+ <code>poly(month, 12)</code></td>
+<td>14</td>
+<td>163.9</td>
+<td>0.74</td>
+</tr>
+<tr class="odd">
+<td><code>season</code>: + month + sin + cos</td>
+<td>5</td>
+<td>100.2</td>
+<td>0.88</td>
+</tr>
+<tr class="even">
+<td><code>both</code>: <code>rainfall_mm * month</code> + sin + cos</td>
+<td>6</td>
+<td>102.2</td>
+<td>0.88</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>AIC differences under about 2 mean nothing; above about 10 they are decisive. The trend earns its place (−3.6). Degrees 2–4 <em>raise</em> AIC: the extra terms don’t pay for themselves. Twelve degrees of wiggle buy 14 points; four terms with the right shape buy 78. What matters is choosing the right terms, not adding more.</p></li>
+<li><p>The sine–cosine pair: together they can make a yearly wave peaking in any month (Exercise 4 on the worksheet). Naming the columns <code>sin</code> and <code>cos</code> keeps formulas and <code>step()</code>’s printout short; R still finds the functions <code>sin()</code> and <code>cos()</code> when you call them.</p></li>
+<li><p><strong>Interactions.</strong> <code>a * b</code> in a formula is <code>a + b + a:b</code>: <code>a:b</code> lets the effect of <code>a</code> change as <code>b</code> changes. Here: does each mm of rain raise the water table more, or less, as the years pass? Its coefficient is 0.0000 (<em>p</em> = 0.97), and AIC rises by 2.0, the price of one useless term. The simulation had no interaction; AIC agrees.</p></li>
+<li><p>AIC compares models of the <em>same</em> data only: never groundwater against gas.</p></li>
+<li><p>Bridge: the season and the trend were causes we could name. Back to gas: what would we name there? (Line against curve for gas: AIC 234.5 against 234.9, a tie.)</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="let-r-choose-step" class="slide level2">
+<h2>Let R choose: <code>step()</code></h2>
+<div class="slide-time" aria-hidden="true">
+12:09
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gw_8">
+<script type="exercise-setup-w07s_gw_8-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nd184Iiwic2V0dXAiOnRydWV9LCJjb2RlIjoiIyBFdmVyeXRoaW5nIHRoZSBlYXJsaWVyIHNsaWRlcyBkaWQsIHNvIHRoaXMgYm94IHJ1bnMgb24gaXRzIG93blxuc2V0LnNlZWQoNzgzNClcbm1vbnRoIDwtIDE6NjBcbnJhaW5mYWxsX21tIDwtIDU1ICsgMzAgKiBzaW4oMiAqIHBpICogbW9udGggLyAxMikgKyBybm9ybSg2MCwgMCwgMTApXG5yYWluZmFsbF9tbSA8LSBwbWF4KHJvdW5kKHJhaW5mYWxsX21tLCAxKSwgNSlcbmd3X2xldmVsX20gPC0gOCArIDAuMDcgKiByYWluZmFsbF9tbSArXG4gIDEuNSAqIHNpbigyICogcGkgKiAobW9udGggLSA0KSAvIDEyKSArXG4gIC0wLjAxNSAqIG1vbnRoICsgcm5vcm0oNjAsIDAsIDAuNSlcbmdyb3VuZHdhdGVyIDwtIGRhdGEuZnJhbWUobW9udGgsIHJhaW5mYWxsX21tLFxuICAgICAgICAgICAgICAgICAgICAgICAgICBnd19sZXZlbF9tID0gcm91bmQoZ3dfbGV2ZWxfbSwgMikpXG5ybShtb250aCwgcmFpbmZhbGxfbW0sIGd3X2xldmVsX20pXG5ncm91bmR3YXRlciRzaW4gPC0gc2luKDIgKiBwaSAqIGdyb3VuZHdhdGVyJG1vbnRoIC8gMTIpXG5ncm91bmR3YXRlciRjb3MgPC0gY29zKDIgKiBwaSAqIGdyb3VuZHdhdGVyJG1vbnRoIC8gMTIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gw_8" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="200">
+<div>
+<div id="webr-17" class="exercise-cell">
+
+</div>
+<script type="webr-17-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0IjoyMDAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nd184IiwicGVyc2lzdCI6ZmFsc2V9LCJjb2RlIjoiIyAxLiBTdGFydCBmcm9tIGV2ZXJ5dGhpbmc6IGV2ZXJ5IHBhaXIgYWNyb3NzIGZvdXIgdGVybXM6IChhICsgYiArIC4uLileMlxuIyAyLiBEcm9wIHRlcm1zIHdoaWxlIEFJQyBpbXByb3Zlczogc3RlcCgpXG4jIDMuIFdoYXQgZGlkIGl0IGtlZXA/IEFuZCBpZiB3ZSBoYWQgbmV2ZXIgdGhvdWdodCBvZiB0aGUgc2Vhc29ucz8ifQ==
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>everything <span class="ot">&lt;-</span> <span class="fu">lm</span>(gw_level_m <span class="sc">~</span> (rainfall_mm <span class="sc">+</span> month <span class="sc">+</span> sin <span class="sc">+</span> cos)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb9-2"><a aria-label="2"></a>                 <span class="at">data =</span> groundwater)</span>
+<span id="cb9-3"><a aria-label="3"></a>chosen <span class="ot">&lt;-</span> <span class="fu">step</span>(everything) <span class="co"># then add `, trace = 0`</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">formula</span>(chosen)</span>
+<span id="cb9-5"><a aria-label="5"></a><span class="fu">summary</span>(chosen)</span>
+<span id="cb9-6"><a aria-label="6"></a></span>
+<span id="cb9-7"><a aria-label="7"></a><span class="fu">step</span>(<span class="fu">lm</span>(gw_level_m <span class="sc">~</span> rainfall_mm <span class="sc">*</span> month, <span class="at">data =</span> groundwater))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>(a + b + c)^2</code> is every term, plus every pair’s interaction: 4 + 6 terms, 11 coefficients.</p></li>
+<li><p>Read the printout one table at a time: each row is “drop this term”; <code>&lt;none&gt;</code> is “drop nothing”. <code>step()</code> takes the lowest row, refits, and repeats. Six steps, one interaction each: <code>month:sin</code>, <code>rainfall_mm:cos</code>, <code>rainfall_mm:month</code>, <code>sin:cos</code>, <code>rainfall_mm:sin</code>, <code>month:cos</code>. Then <code>&lt;none&gt;</code> is top: dropping any of the four would cost AIC (<code>cos</code> most, by 77).</p></li>
+<li><p>It never offers to drop <code>sin</code> while an interaction still uses it.</p></li>
+<li><p>It lands on <code>rainfall_mm + month + sin + cos</code>: how the data were made. Rain 0.057&nbsp;m per mm (simulated: 0.07); trend −0.017&nbsp;m a month (−0.015). We can only check that because the data are simulated.</p></li>
+<li><p>Without the seasonal columns, <code>step()</code> keeps <code>rainfall_mm + month</code> (AIC 177.8 against 100.2), and never finds the seasons. HolmesCo’s mistake, automated.</p></li>
+<li><p>The AIC in <code>step()</code>’s printout (−62.4 → −72.1) is <code>AIC()</code> minus a constant (here 172.3) that depends only on the number of observations. Only differences matter.</p></li>
+<li><p>Fitting dozens of models and keeping the best is a multiple- comparisons trap: try enough, and one wins by chance (Week 8 returns to this).</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<div class="key-point">
+<p><code>step()</code> can only choose from what you gave it.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="traps" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Traps</h1>
+<div class="slide-time" aria-hidden="true">
+12:18
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Modelling gas generation</li>
+<li>Fit and interpret</li>
+<li>Choosing a model</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Traps
+</div>
+<p><span class="activity-badge badge-livecode">🎓💻 Live code</span></p>
+<div class="recap-after">
+<ul>
+<li>Quick reflection</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="autocorrelation" class="slide level2 live-side">
+<h2>Autocorrelation</h2>
+<div class="slide-time" aria-hidden="true">
+12:18
+</div>
+<div class="photo corner-photo live-thumb" style="width: 112px;">
+<p><img data-src="images/Drax_1D4A3227-768x480_Drax.jpg" style="width:100.0%" alt="Aerial view of Drax power station, with four domed biomass stores."></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>Drax power station: © Drax</p>
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_bio">
+<script type="exercise-setup-w07s_bio-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19iaW8iLCJzZXR1cCI6dHJ1ZX0sImNvZGUiOiIjIEV2ZXJ5dGhpbmcgdGhlIGVhcmxpZXIgc2xpZGVzIGRpZCwgc28gdGhpcyBib3ggcnVucyBvbiBpdHMgb3duXG5lbGVjIDwtIHJlYWQuY3N2KFwiZGF0YS91a19lbGVjdHJpY2l0eS5jc3ZcIikifQ==
+</script>
+</div>
+<div class="cell" data-exercise="w07s_bio" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-19" class="exercise-cell">
+
+</div>
+<script type="webr-19-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19iaW8iLCJmaWctaGVpZ2h0Ijo0LjYsImZpZy13aWR0aCI6NSwicGVyc2lzdCI6ZmFsc2V9LCJjb2RlIjoiIyBFbGVjdHJpY2l0eSBmcm9tIGJpb21hc3M6IGEgc3RyYWlnaHQgbGluZSwgdGhlbiBpdHMgcmVzaWR1YWxzXG4jIDEuIEEgbGluZSB0aHJvdWdoIGJpb2VuZXJneV90d2ggYWdhaW5zdCB5ZWFyXG4jIDIuIFBsb3QgdGhlIHJlc2lkdWFscyBhZ2FpbnN0IHllYXI6IGFueSBydW5zP1xuIyAzLiBJcyBlYWNoIHJlc2lkdWFsIGxpa2UgdGhlIG5leHQgeWVhcidzPyBjb3IoKVxuIyA0LiBBIHdvcmxkIHdoZXJlIHllYXJzIGFyZSBpbmRlcGVuZGVudDogc2h1ZmZsZSB0aGUgcmVzaWR1YWxzLFxuIyAgICBjb3IoKSBhZ2FpbiwgMTAwMCB0aW1lcy4gSG93IG9mdGVuIGlzIGl0IHRoaXMgaGlnaD8ifQ==
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Recall “Could chance draw this line?”: shuffling treated the years as interchangeable. Are they?</p></li>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>bio <span class="ot">&lt;-</span> <span class="fu">lm</span>(bioenergy_twh <span class="sc">~</span> year, <span class="at">data =</span> elec)</span>
+<span id="cb10-2"><a aria-label="2"></a><span class="fu">summary</span>(bio)</span>
+<span id="cb10-3"><a aria-label="3"></a></span>
+<span id="cb10-4"><a aria-label="4"></a>elec<span class="sc">$</span>resid <span class="ot">&lt;-</span> <span class="fu">residuals</span>(bio)</span>
+<span id="cb10-5"><a aria-label="5"></a><span class="fu">ggplot</span>(elec, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> resid)) <span class="sc">+</span></span>
+<span id="cb10-6"><a aria-label="6"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb10-7"><a aria-label="7"></a></span>
+<span id="cb10-8"><a aria-label="8"></a>r <span class="ot">&lt;-</span> elec<span class="sc">$</span>resid</span>
+<span id="cb10-9"><a aria-label="9"></a><span class="fu">cor</span>(<span class="fu">head</span>(r, <span class="sc">-</span><span class="dv">1</span>), <span class="fu">tail</span>(r, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb10-10"><a aria-label="10"></a></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="fu">set.seed</span>(<span class="dv">2341</span>)</span>
+<span id="cb10-12"><a aria-label="12"></a>null_cor <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, {</span>
+<span id="cb10-13"><a aria-label="13"></a>  shuffled <span class="ot">&lt;-</span> <span class="fu">sample</span>(r)</span>
+<span id="cb10-14"><a aria-label="14"></a>  <span class="fu">cor</span>(<span class="fu">head</span>(shuffled, <span class="sc">-</span><span class="dv">1</span>), <span class="fu">tail</span>(shuffled, <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb10-15"><a aria-label="15"></a>})</span>
+<span id="cb10-16"><a aria-label="16"></a><span class="fu">range</span>(null_cor)</span>
+<span id="cb10-17"><a aria-label="17"></a><span class="fu">mean</span>(<span class="fu">abs</span>(null_cor) <span class="sc">&gt;=</span> <span class="fl">0.82</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Introduce <code>head(r, -1)</code> (every year but the last).</p></li>
+<li><p><em>R</em>² 0.93, slope 1.69&nbsp;TWh a year, <em>p</em> = 4 × 10⁻¹⁵. Looks conclusive.</p></li>
+<li><p>The residuals come in four runs: above the line 2000–05, below 2006–14, above 2015–21, below 2022–25. A shuffle would give about 14.</p></li>
+<li><p>Correlation of each year’s residual with the next: 0.82. Shuffled, −0.56 to 0.61; none of 1000 reach 0.82.</p></li>
+<li><p>Why? Electricity from biomass depends on power stations, and these take years to build or convert. Drax converted one unit at a time: its biomass output went 1.4 → 3.1 → 7.9 → 11.5 → 12.7&nbsp;TWh over 2012–16, most of the UK’s rise from 15 to 30&nbsp;TWh.</p></li>
+<li><p>This is <strong>autocorrelation</strong>: neighbouring observations are alike. The <em>p</em>-value assumes 26 independent years; 26 years this alike carry about as much information as 3. The trend is real, but the model is too sure of itself.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-whole-correlation" class="slide level2 live-side">
+<h2>Part-whole correlation</h2>
+<div class="slide-time" aria-hidden="true">
+12:27
+</div>
+<div class="photo corner-photo live-thumb" style="width: 57px;">
+<p><img data-src="images/pexels-jozef-g-3408833-40508509.jpg" style="width:100.0%" alt=""></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>Flaring gas: Jozef G., <a href="https://www.pexels.com/photo/aerial-view-of-oil-refinery-in-bratislava-40508509/">Pexels</a></p>
+</div>
+<div class="cell" data-setup="true" data-exercise="w07s_gas_demand">
+<script type="exercise-setup-w07s_gas_demand-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfZGVtYW5kIiwic2V0dXAiOnRydWV9LCJjb2RlIjoiIyBFdmVyeXRoaW5nIHRoZSBlYXJsaWVyIHNsaWRlcyBkaWQsIHNvIHRoaXMgYm94IHJ1bnMgb24gaXRzIG93blxuZWxlYyA8LSByZWFkLmNzdihcImRhdGEvdWtfZWxlY3RyaWNpdHkuY3N2XCIpIn0=
+</script>
+</div>
+<div class="cell" data-exercise="w07s_gas_demand" data-persist="false" data-editor-font-scale="0.7" data-editor-max-height="460">
+<div>
+<div id="webr-21" class="exercise-cell">
+
+</div>
+<script type="webr-21-contents">
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImVkaXRvci1mb250LXNjYWxlIjowLjcsImVkaXRvci1tYXgtaGVpZ2h0Ijo0NjAsImV2YWwiOnRydWUsImV4ZXJjaXNlIjoidzA3c19nYXNfZGVtYW5kIiwiZmlnLWhlaWdodCI6NC42LCJmaWctd2lkdGgiOjUsInBlcnNpc3QiOmZhbHNlfSwiY29kZSI6IiMgVGltZSBkb2Vzbid0IGJ1cm4gZ2FzLiBEb2VzIGRlbWFuZD9cbiMgMS4gR2FzIGFnYWluc3QgdG90YWwgZ2VuZXJhdGlvbjogaG93IG11Y2ggZG9lcyBpdCBleHBsYWluP1xuIyAyLiBBIHdvcmxkIHdoZXJlIGdhcyBhbmQgdGhlIG90aGVyIHNvdXJjZXMgYXJlIHVucmVsYXRlZDpcbiMgICAgc2h1ZmZsZSB0aGUgcmVzdCwgYWRkIGdhcyBiYWNrIG9uLCByZWZpdC5cbiMgMy4gR2FzIGFnYWluc3QgZXZlcnl0aGluZyBleGNlcHQgZ2FzIn0=
+</script>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Anticipated code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>demand <span class="ot">&lt;-</span> <span class="fu">lm</span>(gas_twh <span class="sc">~</span> total_twh, <span class="at">data =</span> elec)</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="fu">summary</span>(demand)<span class="sc">$</span>r.squared</span>
+<span id="cb11-3"><a aria-label="3"></a></span>
+<span id="cb11-4"><a aria-label="4"></a>elec<span class="sc">$</span>not_gas <span class="ot">&lt;-</span> elec<span class="sc">$</span>total_twh <span class="sc">-</span> elec<span class="sc">$</span>gas_twh</span>
+<span id="cb11-5"><a aria-label="5"></a><span class="fu">set.seed</span>(<span class="dv">2341</span>)</span>
+<span id="cb11-6"><a aria-label="6"></a>null_r2 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100</span>, {</span>
+<span id="cb11-7"><a aria-label="7"></a>  fake_total <span class="ot">&lt;-</span> elec<span class="sc">$</span>gas_twh <span class="sc">+</span> <span class="fu">sample</span>(elec<span class="sc">$</span>not_gas)</span>
+<span id="cb11-8"><a aria-label="8"></a>  <span class="fu">summary</span>(<span class="fu">lm</span>(elec<span class="sc">$</span>gas_twh <span class="sc">~</span> fake_total))<span class="sc">$</span>r.squared</span>
+<span id="cb11-9"><a aria-label="9"></a>})</span>
+<span id="cb11-10"><a aria-label="10"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(null_r2), <span class="fu">aes</span>(<span class="at">x =</span> null_r2)) <span class="sc">+</span></span>
+<span id="cb11-11"><a aria-label="11"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb11-12"><a aria-label="12"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.57</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span>
+<span id="cb11-13"><a aria-label="13"></a><span class="fu">mean</span>(null_r2 <span class="sc">&gt;=</span> <span class="fl">0.57</span>)</span>
+<span id="cb11-14"><a aria-label="14"></a></span>
+<span id="cb11-15"><a aria-label="15"></a>rest <span class="ot">&lt;-</span> <span class="fu">lm</span>(gas_twh <span class="sc">~</span> not_gas, <span class="at">data =</span> elec)</span>
+<span id="cb11-16"><a aria-label="16"></a><span class="fu">summary</span>(rest)<span class="sc">$</span>r.squared</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Gas against total: <em>R</em>² 0.57. Is that a big number? What is wrong with this model?</p></li>
+<li><p>Gas is part of the total: the model partly predicts gas from gas. Shuffled, where gas has nothing to do with the rest, <em>R</em>² still runs from 0.35 to 0.82 (median 0.59); 54 of 100 shuffles beat 0.57. This is <strong>part–whole correlation</strong>: all of the 0.57 comes from gas being inside the total.</p></li>
+<li><p>The honest question, gas against everything else: <em>R</em>² 0.001 (<em>p</em> = 0.87). Coal’s fall was made up by wind and solar; the rest of the fleet stayed between 185 and 264&nbsp;TWh, and gas fell with demand.</p></li>
+<li><p>Watch for it in projects: a part against its whole, or two ratios that share a denominator.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-is-the-model-not-capturing" class="slide level2 refrain corner-clear">
+<h2>What is the model not capturing?</h2>
+<div class="slide-time" aria-hidden="true">
+12:36
+</div>
+<div class="photo corner-photo" style="width: 170px;">
+<p><img data-src="images/william-smith-1815-map.jpg" style="width:100.0%" alt="William Smith's 1815 geological map of England and Wales: the strata as bands of hand-painted colour."></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>The map, not the territory: William Smith, 1815 (public domain)</p>
+</div>
+<p><em>Overfitting: too much faith in your <strong>data</strong> (a degree-4 curve through 26 years).</em></p>
+<p><em>Extrapolation: too much faith in your <strong>model</strong> (no gas by 2028).</em></p>
+<p><em>Autocorrelation: too much faith in your <strong>sample size</strong> (26 years of biomass that carry the information of 3).</em></p>
+<p><em>Blind spots: too much faith in your <strong>framework</strong> (<code>step()</code> can choose only from its ingredients).</em></p>
+<aside class="notes">
+<ul>
+<li>Four forms of the same mistake: confusing the map for the territory.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="quick-reflection" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Quick reflection</h1>
+<div class="slide-time" aria-hidden="true">
+12:45
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Modelling gas generation</li>
+<li>Fit and interpret</li>
+<li>Choosing a model</li>
+<li>Traps</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Quick reflection
+</div>
+<p><span class="activity-badge badge-exercise">✏️ One sentence</span></p>
+<div class="recap-after">
+<ul>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="write-one-sentence" class="slide level2">
+<h2>Write one sentence</h2>
+<div class="slide-time" aria-hidden="true">
+12:45
+</div>
+<div class="discussion-prompt">
+<p>“In my project, the biggest thing my analysis might be missing is…”</p>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[12:45–12:50]</strong> Quick written reflection. Students keep this for their reports.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Wrap-up</h1>
+<div class="slide-time" aria-hidden="true">
+12:50
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Modelling gas generation</li>
+<li>Fit and interpret</li>
+<li>Choosing a model</li>
+<li>Traps</li>
+<li>Quick reflection</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Wrap-up
+</div>
+</div>
+</div>
+</section>
+<section id="key-points" class="slide level2">
+<h2>Key points</h2>
+<div class="slide-time" aria-hidden="true">
+12:50
+</div>
+<ol type="1">
+<li class="fragment">A model is a simplification: <code>lm(outcome ~ a + b)</code></li>
+<li class="fragment">A slope’s <em>p</em>-value: how often a null world draws a line this steep</li>
+<li class="fragment">Check the <strong>diagnostics</strong>: residuals don’t lie</li>
+<li class="fragment"><strong>Autocorrelation</strong>: non-independent data give less information than you think</li>
+<li class="fragment">Adding coefficients improves <em>R</em>²; <strong>AIC</strong> asks whether they earn their keep</li>
+<li class="fragment"><code>step()</code> can only choose from what you gave it</li>
+<li class="fragment">Always ask: <em>“What is my model not capturing?”</em></li>
+</ol>
+<aside class="notes">
+<ul>
+<li><strong>[12:50–12:55]</strong></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="any-questions-we-missed" class="slide level2" data-visibility="uncounted">
+<h2>Any questions we missed?</h2>
+<div class="slide-time" aria-hidden="true">
+12:50
+</div>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Continuation of the same Poll Everywhere Q&amp;A activity opened at the start of the session — this is not a new poll, so don’t reset/archive it yet.</li>
+<li>Surface any questions that have come in since the early Questions slide, especially ones raised during today’s content.</li>
+<li>Once you’ve finished with this slide, archive (reset) the activity at the end of the session so questions don’t carry over.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-time" class="slide level2">
+<h2>Next time</h2>
+<div class="slide-time" aria-hidden="true">
+12:53
+</div>
+<p><strong>Application session: “Fitting and breaking models”</strong></p>
+<p>You’ll fit models to your data, then try to break them!</p>
+<aside class="notes">
+<ul>
+<li><strong>Check the Q&amp;A</strong> — surface any top-voted questions before finishing.</li>
+<li>The application session includes both project work and a structured extrapolation exercise that everyone does.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="suggested-reading" class="slide level2 smaller" data-visibility="uncounted">
+<h2>Suggested reading</h2>
+<div class="slide-time" aria-hidden="true">
+12:53
+</div>
+<ul>
+<li>Altman &amp; Krzywinski, “Association, correlation and causation”, <em>Nature Methods</em> (2015). <a href="http://durham.rl.talis.com/items/2e18812f-e778-4c13-80d5-6e5288e441d6">Reading list</a></li>
+<li>Altman &amp; Krzywinski, “Simple linear regression”, <em>Nature Methods</em> (2015). <a href="http://durham.rl.talis.com/items/28d00029-8629-4ffd-948e-3def9ad0a0c2">Reading list</a></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>No session time: leave this up as students pack away, or point to it from the course page.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="attendance" class="slide level2" data-visibility="uncounted">
+<h2>Attendance</h2>
+<div class="slide-time" aria-hidden="true">
+12:53
+</div>
+<!-- Live attendance QR (staff/attendance-qr.qmd). PrestoAcademic can't be
+     framed, so the attendance tab, opened by the button below or from the
+     title slide's notes, runs the "Attendance QR" bookmarklet, which posts
+     each QR image Presto draws to this window. -->
+<div class="attendance-qr" data-state="idle">
+  <img class="attendance-qr-code" alt="QR code to register attendance">
+  <div class="attendance-qr-panel">
+    <p class="attendance-qr-status"></p>
+    <p><button type="button" class="attendance-qr-open">Open attendance</button></p>
+    <p class="attendance-qr-setup">New login? Drag
+      <a class="attendance-qr-bookmarklet" href="#" data-preview-link="false">Attendance QR</a>
+      to the favourites bar.</p>
+  </div>
+</div>
+
+<style>
+.reveal .attendance-qr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 560px;
+}
+.reveal .attendance-qr img.attendance-qr-code {
+  display: none;
+  width: 540px;
+  height: 540px;
+  margin: 0;
+  image-rendering: pixelated;
+}
+.reveal .attendance-qr[data-state="live"] img.attendance-qr-code,
+.reveal .attendance-qr[data-state="stale"] img.attendance-qr-code { display: block; }
+.reveal .attendance-qr[data-state="stale"] img.attendance-qr-code { opacity: 0.12; }
+.reveal .attendance-qr[data-state="live"] .attendance-qr-panel { display: none; }
+.reveal .attendance-qr[data-state="stale"] .attendance-qr-panel { position: absolute; }
+.reveal .attendance-qr[data-state="speaker"] .attendance-qr-open { display: none; }
+.reveal .attendance-qr-panel { text-align: center; }
+.reveal .attendance-qr-panel p { margin: 0.4em 0; }
+.reveal .attendance-qr-status { font-size: 0.75em; color: #566573; }
+.reveal .attendance-qr-open {
+  font: inherit;
+  font-size: 0.8em;
+  padding: 0.35em 1.2em;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: #0e9a80;
+  cursor: pointer;
+}
+.reveal .attendance-qr-setup { font-size: 0.45em; color: #566573; }
+.reveal .attendance-qr-bookmarklet {
+  padding: 0.1em 0.5em;
+  border: 1px solid #0e9a80;
+  border-radius: 4px;
+  cursor: grab;
+}
+/* One QR at a time: hide the corner "Questions?" code (custom.scss) */
+.reveal.attendance-qr-showing::after { display: none; }
+</style>
+
+<script>
+(function () {
+  var PRESTO = "https://attendance.durham.ac.uk";
+  var SITE = "https://geol-skills.github.io";
+  var TAB = "geol-attendance";
+  var STALE = 30000; // Presto renews its code every 15 s
+  var PNG = /^data:image\/png;base64,[A-Za-z0-9+\/]+=*$/;
+
+  // The bookmarklet. It runs in the attendance tab, never in this page.
+  function relay(TARGETS) {
+    if (location.origin !== "https://attendance.durham.ac.uk") {
+      alert("Click this in the attendance tab that the slides opened.");
+      return;
+    }
+    /* Block comments only in here: a bookmark may lose its line breaks.
+       Already running: send again. The first version used another name. */
+    if (window.geolAttendanceRelay) {
+      window.geolAttendanceRelay();
+      return;
+    }
+    /* This tab's opener, if it still has one, is the deck or the speaker
+       view. Write to both until the deck answers; the deck also calls this
+       tab by name, which links it even without an opener. */
+    var deck = null, sent;
+    var note = document.createElement("div");
+    /* Presto's QR: the largest big, square data-URL image */
+    function qr() {
+      var best = null, most = 0;
+      var imgs = document.querySelectorAll('img[src^="data:image/png"]');
+      for (var i = 0; i < imgs.length; i++) {
+        var box = imgs[i].getBoundingClientRect();
+        if (box.width >= 120 && Math.abs(box.width - box.height) < 2 &&
+            box.width * box.height > most) {
+          most = box.width * box.height;
+          best = imgs[i];
+        }
+      }
+      return best ? best.getAttribute("src") : null;
+    }
+    function post(message) {
+      if (deck && deck.closed) deck = null;
+      var w = deck || window.opener;
+      for (var i = 0; w && i < 2; i++) {
+        for (var j = 0; j < TARGETS.length; j++) {
+          try { w.postMessage(message, TARGETS[j]); } catch (e) {}
+        }
+        if (deck) break;
+        try { w = w.opener; } catch (e) { w = null; }
+      }
+    }
+    function send(always) {
+      var src = qr();
+      if (src === sent && !always) return;
+      sent = src;
+      post({ geolAttendanceQr: 1, src: src });
+    }
+    window.addEventListener("message", function (e) {
+      if (deck || TARGETS.indexOf(e.origin) < 0 || !e.data || e.data.geolAttendanceQrAck !== 1) return;
+      deck = e.source;
+      note.textContent = "Linked to the slides: switch back to them, and keep this tab open.";
+      send(true);
+    });
+    new MutationObserver(function () { send(false); }).observe(document.body, {
+      subtree: true, childList: true, attributes: true, attributeFilter: ["src"]
+    });
+    setInterval(function () { send(true); }, 5000);
+    window.geolAttendanceRelay = window.geolAttendanceQr = function () { send(true); };
+    note.textContent = "Looking for the slides…";
+    note.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:99999;padding:6px 12px;" +
+      "border-radius:4px;background:#68246d;color:#fff;font:15px sans-serif";
+    document.body.appendChild(note);
+    send(true);
+    setTimeout(function () {
+      if (!deck) {
+        note.textContent = "Not linked yet: on the slides, click Show attendance tab " +
+          "on the Attendance slide.";
+      }
+    }, 4000);
+  }
+
+  var root = document.querySelector(".attendance-qr");
+  var slide = root.closest("section");
+  var img = root.querySelector(".attendance-qr-code");
+  var status = root.querySelector(".attendance-qr-status");
+  var button = root.querySelector(".attendance-qr-open");
+  var link = root.querySelector(".attendance-qr-bookmarklet");
+  var tab = null, shown = null, changed = 0, lost = 0, heard = 0;
+
+  // The live site too, so a favourite dragged from a local copy still works
+  var targets = location.origin === SITE ? [SITE] : [location.origin, SITE];
+  link.href = "javascript:" + encodeURIComponent(
+    "(" + relay + ")(" + JSON.stringify(targets) + ")");
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    say(root.getAttribute("data-state"), "Drag the Attendance QR button to the favourites bar; clicking it here does nothing.");
+  });
+
+  function say(state, text) {
+    root.setAttribute("data-state", state);
+    status.textContent = text || "";
+    button.textContent = state === "idle" ? "Open attendance" : "Show attendance tab";
+  }
+
+  // Speaker view shows the deck in iframes; a tab opened from one would
+  // send its QR to the iframe, not to the projected slide.
+  if (window.top !== window.self) {
+    say("speaker", "Click Open attendance on the main screen; the QR appears there.");
+    return;
+  }
+  say("idle");
+
+  // Head start: the title slide's notes (speaker view) open the same tab,
+  // so the QR is ready before the Attendance slide comes up.
+  var title = document.getElementById("title-slide");
+  if (title) {
+    var notes = title.querySelector("aside.notes");
+    if (!notes) {
+      notes = document.createElement("aside");
+      notes.className = "notes";
+      title.appendChild(notes);
+    }
+    var start = document.createElement("p");
+    start.innerHTML = "<strong>Attendance QR:</strong> " +
+      "<a href=\"" + PRESTO + "/mytimetable\" target=\"" + TAB + "\">open the attendance tab</a>, " +
+      "open today's session, click the <em>Attendance QR</em> favourite, then switch back " +
+      "to the slides. New login? First drag <a>Attendance QR</a> to the favourites bar.";
+    var links = start.querySelectorAll("a");
+    // Runs in the speaker view, which gets the notes as HTML. It hands the
+    // tab to the deck, so the link outlasts the speaker view.
+    links[0].setAttribute("onclick",
+      "var w=window.open('','" + TAB + "');if(!w)return true;var blank;" +
+      "try{blank=w.location.href==='about:blank'}catch(e){blank=false}" +
+      "if(blank)w.location.href=this.href;w.focus();" +
+      "try{window.opener.geolAttendanceAdopt(w)}catch(e){}return false");
+    // For dragging only: clicked in the speaker view it would run there
+    links[1].href = link.href;
+    links[1].setAttribute("onclick", "return false");
+    notes.appendChild(start);
+  }
+
+  button.addEventListener("click", function () {
+    // "" finds the attendance tab and brings it forward without reloading
+    // it, whichever window opened it; tab.focus() works only for its opener.
+    var w = window.open("", TAB);
+    if (!w) {
+      say(root.getAttribute("data-state"), "The browser blocked the new tab: allow pop-ups for this site.");
+      return;
+    }
+    var fresh;
+    try { fresh = w.location.href === "about:blank"; } catch (e) { fresh = false; }
+    if (fresh && tab && !tab.closed) {
+      // Lost by name (the speaker view that opened it has closed)
+      w.close();
+      ping();
+      say(root.getAttribute("data-state"), "Switch to the attendance tab yourself.");
+      return;
+    }
+    if (fresh) {
+      w.location.href = PRESTO + "/mytimetable";
+      say("waiting", "In the attendance tab, open today's session and click the Attendance QR favourite.");
+    }
+    w.focus();
+    tab = w;
+    ping();
+  });
+
+  // Calling the tab links its bookmarklet to this window, whoever opened it
+  function ping() {
+    try { tab.postMessage({ geolAttendanceQrAck: 1 }, PRESTO); } catch (e) {}
+  }
+  window.geolAttendanceAdopt = function (w) {
+    tab = w;
+    ping();
+    if (!shown) say("waiting", "In the attendance tab, open today's session and click the Attendance QR favourite.");
+  };
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== PRESTO || !e.data || e.data.geolAttendanceQr !== 1) return;
+    // Tells the bookmarklet which window is the deck
+    try { e.source.postMessage({ geolAttendanceQrAck: 1 }, PRESTO); } catch (x) {}
+    var src = e.data.src;
+    // A second attendance tab with nothing to show mustn't blank this one
+    if (src === null && tab && !tab.closed && e.source !== tab) return;
+    tab = e.source;
+    heard = Date.now();
+    if (src === null) {
+      // Wait out a redraw before dropping the code; see the timer below.
+      if (!lost) lost = Date.now();
+      if (!shown) say("waiting", "Linked. Open today's session in the attendance tab.");
+      return;
+    }
+    if (typeof src !== "string" || !PNG.test(src)) return;
+    lost = 0;
+    if (src !== shown) {
+      shown = src;
+      img.src = src;
+      changed = Date.now();
+    }
+    if (Date.now() - changed < STALE) say("live");
+  });
+
+  setInterval(function () {
+    if (tab && !tab.closed && Date.now() - heard > 4000) ping();
+    if (tab && tab.closed) {
+      tab = null;
+      heard = 0;
+      shown = null;
+      img.removeAttribute("src");
+      say("idle", "The attendance tab was closed.");
+    } else if (shown && lost && Date.now() - lost > 2000) {
+      shown = null;
+      img.removeAttribute("src");
+      say("waiting", "Linked. Open today's session in the attendance tab.");
+    } else if (heard && Date.now() - heard > 90000) {
+      // The bookmarklet writes every 5 s (once a minute in a hidden tab)
+      say(shown ? "stale" : "waiting", "The attendance tab has stopped sending. If its purple note has gone, click the Attendance QR favourite there again.");
+    } else if (shown && Date.now() - changed > STALE) {
+      say("stale", "Waiting for a new code. Is the session still open in the attendance tab?");
+    }
+  }, 1000);
+
+  function corner() {
+    document.querySelector(".reveal").classList.toggle(
+      "attendance-qr-showing", Reveal.getCurrentSlide() === slide);
+  }
+  window.addEventListener("DOMContentLoaded", function () {
+    Reveal.on("slidechanged", corner);
+    if (Reveal.isReady()) corner(); else Reveal.on("ready", corner);
+  });
+})();
+</script>
+<aside class="notes">
+<p>Click <strong>Open attendance</strong>, open today’s session in the new tab, and click the <em>Attendance QR</em> favourite (staff page <em>Attendance QR on the slides</em>). Fallback: show the QR from <a href="https://attendance.durham.ac.uk/mytimetable" class="uri">https://attendance.durham.ac.uk/mytimetable</a>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+<script type="webr-data">
+eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjgvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImdncGxvdDIiXSwicmVwb3MiOltdfSwicmVuZGVyX2RmIjoiZGVmYXVsdCJ9
+</script>
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0yMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMjE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0yMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzIxID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMjEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0yMS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzIxID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8yMSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMjEgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzIxLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTk7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE5ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTktY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xOS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE5ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xOSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTkgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE5LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE3ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xNy1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE3ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xNywge30pO1xuX3dlYnJfZmVlZGJhY2tfMTcgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE3LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTU7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzE1ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTUtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xNS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzE1ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xNSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTUgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzE1LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTM7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzEzID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTMtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMy1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzEzID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMywge30pO1xuX3dlYnJfZmVlZGJhY2tfMTMgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzEzLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfMTE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xMSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzExID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItMTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici0xMS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzExID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl8xMSwge30pO1xuX3dlYnJfZmVlZGJhY2tfMTEgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzExLmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC05IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV85O1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItOSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici05LWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItOS1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzkgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzksIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzkgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzkuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTciLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzc7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici03IiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfNyA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTctY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICAvLyBEZWZhdWx0IGV4ZXJjaXNlIGNvbmZpZ3VyYXRpb25cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oXG4gICAge1xuICAgICAgaWQ6IFwid2Vici03LWNvbnRlbnRzXCIsXG4gICAgICBlbnZpcjogYGV4ZXJjaXNlLWVudi0ke2Jsb2NrLmF0dHIuZXhlcmNpc2V9YCxcbiAgICAgIGVycm9yOiBmYWxzZSxcbiAgICAgIGNhcHRpb246ICdFeGVyY2lzZScsXG4gICAgfSxcbiAgICBibG9jay5hdHRyXG4gICk7XG5cbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcbiAgcmV0dXJuIGVkaXRvci5jb250YWluZXI7XG59XG52aWV3b2YgX3dlYnJfdmFsdWVfNyA9IHdlYlJPanMucHJvY2Vzcyhfd2Vicl9lZGl0b3JfNywge30pO1xuX3dlYnJfZmVlZGJhY2tfNyA9IHtcbiAgY29uc3QgeyBXZWJSR3JhZGVyIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBlbXB0eUZlZWRiYWNrID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XG5cbiAgY29uc3QgZ3JhZGVyID0gbmV3IFdlYlJHcmFkZXIoX3dlYnJfdmFsdWVfNy5ldmFsdWF0b3IpO1xuICBjb25zdCBmZWVkYmFjayA9IGF3YWl0IGdyYWRlci5ncmFkZUV4ZXJjaXNlKCk7XG4gIGlmICghZmVlZGJhY2spIHJldHVybiBlbXB0eUZlZWRiYWNrO1xuICByZXR1cm4gZmVlZGJhY2s7XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici13aWRnZXQtNSIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6IntcbiAgLy8gV2FpdCBmb3Igb3V0cHV0IHRvIGJlIHdyaXR0ZW4gdG8gdGhlIERPTSwgdGhlbiB0cmlnZ2VyIHdpZGdldCByZW5kZXJpbmdcbiAgYXdhaXQgX3dlYnJfdmFsdWVfNTtcbiAgaWYgKHdpbmRvdy5IVE1MV2lkZ2V0cykge1xuICAgIHdpbmRvdy5IVE1MV2lkZ2V0cy5zdGF0aWNSZW5kZXIoKTtcbiAgfVxuICBpZiAod2luZG93LlBhZ2VkVGFibGVEb2MpIHtcbiAgICB3aW5kb3cuUGFnZWRUYWJsZURvYy5pbml0QWxsKCk7XG4gIH1cbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLTUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF93ZWJyX2VkaXRvcl81ID0ge1xuICBjb25zdCB7IFdlYlJFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuICBjb25zdCBzY3JpcHRDb250ZW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3Rvcihgc2NyaXB0W3R5cGU9XFxcIndlYnItNS1jb250ZW50c1xcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGJsb2NrID0gSlNPTi5wYXJzZShiNjREZWNvZGUoc2NyaXB0Q29udGVudCkpO1xuXG4gIC8vIERlZmF1bHQgZXhlcmNpc2UgY29uZmlndXJhdGlvblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbihcbiAgICB7XG4gICAgICBpZDogXCJ3ZWJyLTUtY29udGVudHNcIixcbiAgICAgIGVudmlyOiBgZXhlcmNpc2UtZW52LSR7YmxvY2suYXR0ci5leGVyY2lzZX1gLFxuICAgICAgZXJyb3I6IGZhbHNlLFxuICAgICAgY2FwdGlvbjogJ0V4ZXJjaXNlJyxcbiAgICB9LFxuICAgIGJsb2NrLmF0dHJcbiAgKTtcblxuICBjb25zdCBlZGl0b3IgPSBuZXcgV2ViUkV4ZXJjaXNlRWRpdG9yKHdlYlJPanMud2ViUlByb21pc2UsIGJsb2NrLmNvZGUsIG9wdGlvbnMpO1xuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbnZpZXdvZiBfd2Vicl92YWx1ZV81ID0gd2ViUk9qcy5wcm9jZXNzKF93ZWJyX2VkaXRvcl81LCB7fSk7XG5fd2Vicl9mZWVkYmFja181ID0ge1xuICBjb25zdCB7IFdlYlJHcmFkZXIgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IGVtcHR5RmVlZGJhY2sgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcblxuICBjb25zdCBncmFkZXIgPSBuZXcgV2ViUkdyYWRlcihfd2Vicl92YWx1ZV81LmV2YWx1YXRvcik7XG4gIGNvbnN0IGZlZWRiYWNrID0gYXdhaXQgZ3JhZGVyLmdyYWRlRXhlcmNpc2UoKTtcbiAgaWYgKCFmZWVkYmFjaykgcmV0dXJuIGVtcHR5RmVlZGJhY2s7XG4gIHJldHVybiBmZWVkYmFjaztcbn1cbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoie1xuICAvLyBXYWl0IGZvciBvdXRwdXQgdG8gYmUgd3JpdHRlbiB0byB0aGUgRE9NLCB0aGVuIHRyaWdnZXIgd2lkZ2V0IHJlbmRlcmluZ1xuICBhd2FpdCBfd2Vicl92YWx1ZV8zO1xuICBpZiAod2luZG93LkhUTUxXaWRnZXRzKSB7XG4gICAgd2luZG93LkhUTUxXaWRnZXRzLnN0YXRpY1JlbmRlcigpO1xuICB9XG4gIGlmICh3aW5kb3cuUGFnZWRUYWJsZURvYykge1xuICAgIHdpbmRvdy5QYWdlZFRhYmxlRG9jLmluaXRBbGwoKTtcbiAgfVxufVxuIn0seyJjZWxsTmFtZSI6IndlYnItMyIsImlubGluZSI6ZmFsc2UsIm1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJzb3VyY2UiOiJ2aWV3b2YgX3dlYnJfZWRpdG9yXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkV4ZXJjaXNlRWRpdG9yLCBiNjREZWNvZGUgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgLy8gRGVmYXVsdCBleGVyY2lzZSBjb25maWd1cmF0aW9uXG4gIGNvbnN0IG9wdGlvbnMgPSBPYmplY3QuYXNzaWduKFxuICAgIHtcbiAgICAgIGlkOiBcIndlYnItMy1jb250ZW50c1wiLFxuICAgICAgZW52aXI6IGBleGVyY2lzZS1lbnYtJHtibG9jay5hdHRyLmV4ZXJjaXNlfWAsXG4gICAgICBlcnJvcjogZmFsc2UsXG4gICAgICBjYXB0aW9uOiAnRXhlcmNpc2UnLFxuICAgIH0sXG4gICAgYmxvY2suYXR0clxuICApO1xuXG4gIGNvbnN0IGVkaXRvciA9IG5ldyBXZWJSRXhlcmNpc2VFZGl0b3Iod2ViUk9qcy53ZWJSUHJvbWlzZSwgYmxvY2suY29kZSwgb3B0aW9ucyk7XG4gIHJldHVybiBlZGl0b3IuY29udGFpbmVyO1xufVxudmlld29mIF93ZWJyX3ZhbHVlXzMgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzMsIHt9KTtcbl93ZWJyX2ZlZWRiYWNrXzMgPSB7XG4gIGNvbnN0IHsgV2ViUkdyYWRlciB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3QgZW1wdHlGZWVkYmFjayA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpO1xuXG4gIGNvbnN0IGdyYWRlciA9IG5ldyBXZWJSR3JhZGVyKF93ZWJyX3ZhbHVlXzMuZXZhbHVhdG9yKTtcbiAgY29uc3QgZmVlZGJhY2sgPSBhd2FpdCBncmFkZXIuZ3JhZGVFeGVyY2lzZSgpO1xuICBpZiAoIWZlZWRiYWNrKSByZXR1cm4gZW1wdHlGZWVkYmFjaztcbiAgcmV0dXJuIGZlZWRiYWNrO1xufVxuIn0seyJjZWxsTmFtZSI6IndlYnItd2lkZ2V0LTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ7XG4gIC8vIFdhaXQgZm9yIG91dHB1dCB0byBiZSB3cml0dGVuIHRvIHRoZSBET00sIHRoZW4gdHJpZ2dlciB3aWRnZXQgcmVuZGVyaW5nXG4gIGF3YWl0IF93ZWJyX3ZhbHVlXzE7XG4gIGlmICh3aW5kb3cuSFRNTFdpZGdldHMpIHtcbiAgICB3aW5kb3cuSFRNTFdpZGdldHMuc3RhdGljUmVuZGVyKCk7XG4gIH1cbiAgaWYgKHdpbmRvdy5QYWdlZFRhYmxlRG9jKSB7XG4gICAgd2luZG93LlBhZ2VkVGFibGVEb2MuaW5pdEFsbCgpO1xuICB9XG59XG4ifSx7ImNlbGxOYW1lIjoid2Vici0xIiwiaW5saW5lIjpmYWxzZSwibWV0aG9kTmFtZSI6ImludGVycHJldCIsInNvdXJjZSI6InZpZXdvZiBfd2Vicl9lZGl0b3JfMSA9IHtcbiAgY29uc3QgeyBXZWJSRXhlcmNpc2VFZGl0b3IsIGI2NERlY29kZSB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcbiAgY29uc3Qgc2NyaXB0Q29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ3ZWJyLTEtY29udGVudHNcXFwiXWApLnRleHRDb250ZW50O1xuICBjb25zdCBibG9jayA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKHNjcmlwdENvbnRlbnQpKTtcblxuICBjb25zdCBvcHRpb25zID0gT2JqZWN0LmFzc2lnbih7IGlkOiBgd2Vici0xLWNvbnRlbnRzYCB9LCBibG9jay5hdHRyKTtcbiAgY29uc3QgZWRpdG9yID0gbmV3IFdlYlJFeGVyY2lzZUVkaXRvcih3ZWJST2pzLndlYlJQcm9taXNlLCBibG9jay5jb2RlLCBvcHRpb25zKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl93ZWJyX3ZhbHVlXzEgPSB3ZWJST2pzLnByb2Nlc3MoX3dlYnJfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJ3ZWJyLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJ3ZWJST2pzID0ge1xuICBjb25zdCB7IFdlYlIsIENoYW5uZWxUeXBlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lLldlYlI7XG4gIGNvbnN0IHtcbiAgICBXZWJSRXZhbHVhdG9yLFxuICAgIFdlYlJFbnZpcm9ubWVudE1hbmFnZXIsXG4gICAgc2V0dXBSLFxuICAgIGI2NERlY29kZSxcbiAgICBjb2xsYXBzZVBhdGhcbiAgfSA9IHdpbmRvdy5fZXhlcmNpc2Vfb2pzX3J1bnRpbWU7XG5cbiAgY29uc3Qgc3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLXN0YXR1c1wiKTtcbiAgY29uc3QgaW5kaWNhdG9yQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJleGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaW5kaWNhdG9yQ29udGFpbmVyLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XG5cbiAgbGV0IHN0YXR1c1RleHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpXG4gIHN0YXR1c1RleHQuY2xhc3NMaXN0ID0gXCJleGVyY2lzZS1sb2FkaW5nLWRldGFpbHNcIjtcbiAgc3RhdHVzVGV4dCA9IHN0YXR1c0NvbnRhaW5lci5hcHBlbmRDaGlsZChzdGF0dXNUZXh0KTtcbiAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBJbml0aWFsaXNlYDtcblxuICAvLyBIb2lzdCBpbmRpY2F0b3Igb3V0IGZyb20gZmluYWwgc2xpZGUgd2hlbiBydW5uaW5nIHVuZGVyIHJldmVhbFxuICBjb25zdCByZXZlYWxTdGF0dXMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCAuZXhlcmNpc2UtbG9hZGluZy1pbmRpY2F0b3JcIik7XG4gIGlmIChyZXZlYWxTdGF0dXMpIHtcbiAgICByZXZlYWxTdGF0dXMucmVtb3ZlKCk7XG4gICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXZlYWwgPiAuc2xpZGVzXCIpLmFwcGVuZENoaWxkKHJldmVhbFN0YXR1cyk7XG4gIH1cblxuICAvLyBNYWtlIGFueSByZXZlYWwgc2xpZGVzIHdpdGggbGl2ZSBjZWxscyBzY3JvbGxhYmxlXG4gIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoXCIucmV2ZWFsIC5leGVyY2lzZS1jZWxsXCIpLmZvckVhY2goKGVsKSA9PiB7XG4gICAgZWwuY2xvc2VzdCgnc2VjdGlvbi5zbGlkZScpLmNsYXNzTGlzdC5hZGQoXCJzY3JvbGxhYmxlXCIpO1xuICB9KVxuXG4gIC8vIHdlYlIgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwid2Vici1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgLy8gSW5pdGlhbGlzZSB3ZWJSIGFuZCBzZXR1cCBmb3IgUiBjb2RlIGV2YWx1YXRpb25cbiAgbGV0IHdlYlJQcm9taXNlID0gKGFzeW5jICh3ZWJSKSA9PiB7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyB3ZWJSYDtcbiAgICBhd2FpdCB3ZWJSLmluaXQoKTtcblxuICAgIC8vIEluc3RhbGwgcHJvdmlkZWQgbGlzdCBvZiBwYWNrYWdlc1xuICAgIC8vIEVuc3VyZSB3ZWJSIGRlZmF1bHQgcmVwbyBpcyBpbmNsdWRlZFxuICAgIGRhdGEucGFja2FnZXMucmVwb3MucHVzaChcImh0dHBzOi8vcmVwby5yLXdhc20ub3JnXCIpXG4gICAgYXdhaXQgZGF0YS5wYWNrYWdlcy5wa2dzLm1hcCgocGtnKSA9PiAoKSA9PiB7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHBhY2thZ2U6ICR7cGtnfWA7XG4gICAgICByZXR1cm4gd2ViUi5ldmFsUlZvaWQoYFxuICAgICAgICB3ZWJyOjppbnN0YWxsKHBrZywgcmVwb3MgPSByZXBvcylcbiAgICAgICAgbGlicmFyeShwa2csIGNoYXJhY3Rlci5vbmx5ID0gVFJVRSlcbiAgICAgIGAsIHsgZW52OiB7XG4gICAgICAgIHBrZzogcGtnLFxuICAgICAgICByZXBvczogZGF0YS5wYWNrYWdlcy5yZXBvcyxcbiAgICAgIH19KTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIC8vIERvd25sb2FkIGFuZCBpbnN0YWxsIHJlc291cmNlc1xuICAgIGF3YWl0IGZpbGVzLm1hcCgoZmlsZSkgPT4gYXN5bmMgKCkgPT4ge1xuICAgICAgY29uc3QgbmFtZSA9IGZpbGUuc3Vic3RyaW5nKGZpbGUubGFzdEluZGV4T2YoJy8nKSArIDEpO1xuICAgICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBEb3dubG9hZGluZyByZXNvdXJjZTogJHtuYW1lfWA7XG4gICAgICBjb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKGZpbGUpO1xuICAgICAgaWYgKCFyZXNwb25zZS5vaykge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYENhbid0IGRvd25sb2FkIFxcYCR7ZmlsZX1cXGAuIEVycm9yICR7cmVzcG9uc2Uuc3RhdHVzfTogXCIke3Jlc3BvbnNlLnN0YXR1c1RleHR9XCIuYCk7XG4gICAgICB9XG4gICAgICBjb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuYXJyYXlCdWZmZXIoKTtcblxuICAgICAgLy8gU3RvcmUgVVJMcyBpbiB0aGUgY3dkIHdpdGhvdXQgYW55IHN1YmRpcmVjdG9yeSBzdHJ1Y3R1cmVcbiAgICAgIGlmIChmaWxlLmluY2x1ZGVzKFwiOi8vXCIpKSB7XG4gICAgICAgIGZpbGUgPSBuYW1lO1xuICAgICAgfVxuXG4gICAgICAvLyBDb2xsYXBzZSBoaWdoZXIgZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgZmlsZSA9IGNvbGxhcHNlUGF0aChmaWxlKTtcblxuICAgICAgLy8gQ3JlYXRlIGRpcmVjdG9yeSB0cmVlLCBpZ25vcmluZyBcImRpcmVjdG9yeSBleGlzdHNcIiBWRlMgZXJyb3JzXG4gICAgICBjb25zdCBwYXJ0cyA9IGZpbGUuc3BsaXQoJy8nKS5zbGljZSgwLCAtMSk7XG4gICAgICBsZXQgcGF0aCA9ICcnO1xuICAgICAgd2hpbGUgKHBhcnRzLmxlbmd0aCA+IDApIHtcbiAgICAgICAgcGF0aCArPSBwYXJ0cy5zaGlmdCgpICsgJy8nO1xuICAgICAgICBjb25zdCBhbmFseXNpcyA9IGF3YWl0IHdlYlIuRlMuYW5hbHl6ZVBhdGgocGF0aCk7XG4gICAgICAgIGlmICghYW5hbHlzaXMuZXhpc3RzKSB7XG4gICAgICAgICAgdHJ5IHtcbiAgICAgICAgICAgIGF3YWl0IHdlYlIuRlMubWtkaXIocGF0aCk7XG4gICAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgICAgdGhyb3cgbmV3IEVycm9yKGBGaWxlc3lzdGVtIEVycm9yOiBcIiR7ZS5tZXNzYWdlfVwiLmApO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuXG4gICAgICAvLyBXcml0ZSB0aGlzIGZpbGUgdG8gdGhlIFZGU1xuICAgICAgcmV0dXJuIGF3YWl0IHdlYlIuRlMud3JpdGVGaWxlKGZpbGUsIG5ldyBVaW50OEFycmF5KGRhdGEpKTtcbiAgICB9KS5yZWR1Y2UoKGN1ciwgbmV4dCkgPT4gY3VyLnRoZW4obmV4dCksIFByb21pc2UucmVzb2x2ZSgpKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgSW5zdGFsbGluZyB3ZWJSIHNoaW1zYDtcbiAgICBhd2FpdCB3ZWJSLmV2YWxSVm9pZChgd2Vicjo6c2hpbV9pbnN0YWxsKClgKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgV2ViUiBlbnZpcm9ubWVudCBzZXR1cGA7XG4gICAgYXdhaXQgc2V0dXBSKHdlYlIsIGRhdGEpO1xuXG4gICAgc3RhdHVzVGV4dC5yZW1vdmUoKTtcbiAgICBpZiAoc3RhdHVzQ29udGFpbmVyLmNoaWxkcmVuLmxlbmd0aCA9PSAwKSB7XG4gICAgICBzdGF0dXNDb250YWluZXIucGFyZW50Tm9kZS5yZW1vdmUoKTtcbiAgICB9XG4gICAgcmV0dXJuIHdlYlI7XG4gIH0pKG5ldyBXZWJSKGRhdGEub3B0aW9ucykpO1xuXG4gIC8vIEtlZXAgdHJhY2sgb2YgaW5pdGlhbCBPSlMgYmxvY2sgcmVuZGVyXG4gIGNvbnN0IHJlbmRlcmVkT2pzID0ge307XG5cbiAgY29uc3QgcHJvY2VzcyA9IGFzeW5jIChjb250ZXh0LCBpbnB1dHMpID0+IHtcbiAgICBjb25zdCB3ZWJSID0gYXdhaXQgd2ViUlByb21pc2U7XG4gICAgY29uc3QgZXZhbHVhdG9yID0gbmV3IFdlYlJFdmFsdWF0b3Iod2ViUiwgY29udGV4dClcbiAgICBhd2FpdCBldmFsdWF0b3IucHJvY2VzcyhpbnB1dHMpO1xuICAgIHJldHVybiBldmFsdWF0b3IuY29udGFpbmVyO1xuICB9XG5cbiAgcmV0dXJuIHtcbiAgICBwcm9jZXNzLFxuICAgIHdlYlJQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICB9O1xufVxuIn1dfQ==
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+WyIuLi9kYXRhL3VrX2VsZWN0cmljaXR5LmNzdiJd
+</script>
+<script>
+(function () {
+  function show() {
+    var box = document.querySelector(".slide-time-footer");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "slide-time-footer";
+      box.setAttribute("aria-hidden", "true");
+      document.querySelector(".reveal").appendChild(box);
+    }
+    var time = Reveal.getCurrentSlide().querySelector(".slide-time");
+    box.textContent = time ? time.textContent.trim() : "";
+  }
+  // This runs inside the slides, before reveal.js has loaded
+  window.addEventListener("load", function () {
+    if (Reveal.isReady()) show(); else Reveal.on("ready", show);
+    Reveal.on("slidechanged", show);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var segment = new Map();
+
+  function index() {
+    var badge = null;
+    Reveal.getSlides().forEach(function (slide) {
+      // Anywhere in the slide: section-recap.lua moves a divider's badge
+      var own = Array.from(slide.querySelectorAll("p > .activity-badge:only-child"))
+        .filter(function (b) { return !b.closest("li"); })[0];
+      if (own) badge = own;
+      else if (slide.classList.contains("level1")) badge = null;
+      segment.set(slide, slide.classList.contains("level1") ? null : badge);
+    });
+  }
+
+  function show() {
+    var box = document.querySelector(".segment-badge-corner");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "segment-badge-corner";
+      box.setAttribute("aria-hidden", "true");
+      document.querySelector(".reveal").appendChild(box);
+    }
+    var badge = segment.get(Reveal.getCurrentSlide());
+    box.replaceChildren();
+    if (badge) box.appendChild(badge.cloneNode(true));
+  }
+
+  // This runs inside the slides, before reveal.js has loaded
+  window.addEventListener("load", function () {
+    function start() { index(); show(); }
+    if (Reveal.isReady()) start(); else Reveal.on("ready", start);
+    Reveal.on("slidechanged", show);
+  });
+})();
+</script>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    // Speaker view clock: 24-hour time (the notes plugin hard-codes en-US 12-hour).
+    (function () {
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          try {
+            var proto = w.Date.prototype, orig = proto.toLocaleTimeString;
+            proto.toLocaleTimeString = function (locale, opts) {
+              if (opts && opts.hour12) {
+                return orig.call(this, "en-GB", Object.assign({}, opts, { hour12: false }));
+              }
+              return orig.call(this, locale, opts);
+            };
+          } catch (e) {}
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script>
+    // Speaker view: typing in the current-slide preview updates the projected
+    // slide live, and vice versa. Covers `.live-notes` textareas, checkboxes and
+    // webR editors; running code in the preview also runs it on the projected slide.
+    (function () {
+      function CurrentSlide(r) {
+        return r && r.getCurrentSlide && r.getCurrentSlide();
+      }
+
+      function SameSlide(a, b) {
+        var x = a.getIndices(), y = b.getIndices();
+        return x.h === y.h && x.v === y.v;
+      }
+
+      function Boxes(r) {
+        var slide = CurrentSlide(r);
+        return slide ? slide.querySelectorAll(".live-notes textarea") : [];
+      }
+
+      function EditorView(cell) {
+        var content = cell && cell.querySelector(".cm-content");
+        return content && content.cmView && content.cmView.view;
+      }
+
+      function SetText(view, text) {
+        var old = view.state.doc.toString();
+        if (old === text) return;
+        view._mirrored = text; // so its own watcher doesn't echo this back
+        // Replace only the changed middle, so the other copy keeps its cursor.
+        var start = 0, endOld = old.length, endNew = text.length;
+        while (start < endOld && start < endNew && old[start] === text[start]) start++;
+        while (endOld > start && endNew > start && old[endOld - 1] === text[endNew - 1]) {
+          endOld--; endNew--;
+        }
+        view.dispatch({ changes: { from: start, to: endOld, insert: text.slice(start, endNew) } });
+      }
+
+      function Push(fromReveal, toReveal) {
+        if (!fromReveal || !toReveal || !SameSlide(fromReveal, toReveal)) return;
+        var from = Boxes(fromReveal), to = Boxes(toReveal);
+        for (var i = 0; i < from.length && i < to.length; i++) {
+          if (to[i].value !== from[i].value) to[i].value = from[i].value;
+        }
+        var fromTicks = CurrentSlide(fromReveal).querySelectorAll("input[type=checkbox]");
+        var toTicks = CurrentSlide(toReveal).querySelectorAll("input[type=checkbox]");
+        for (var j = 0; j < fromTicks.length && j < toTicks.length; j++) {
+          toTicks[j].checked = fromTicks[j].checked;
+        }
+        var cells = CurrentSlide(fromReveal).querySelectorAll(".exercise-cell[id]");
+        var toDoc = CurrentSlide(toReveal).ownerDocument;
+        Array.prototype.forEach.call(cells, function (cell) {
+          var src = EditorView(cell), dst = EditorView(toDoc.getElementById(cell.id));
+          if (!src || !dst) return;
+          var text = src.state.doc.toString();
+          if (text !== src._mirrored) SetText(dst, text);
+        });
+      }
+
+      // Push whenever this document's live textareas or editors change.
+      function Watch(Target) {
+        function Sync() {
+          try { var t = Target(); if (t) Push(Reveal, t); } catch (err) {}
+        }
+        document.addEventListener("input", function (e) {
+          if (e.target.closest && e.target.closest(".live-notes")) Sync();
+        });
+        document.addEventListener("change", function (e) {
+          if (e.target.type === "checkbox") Sync();
+        });
+        var queued = false;
+        new MutationObserver(function (records) {
+          if (queued) return;
+          for (var i = 0; i < records.length; i++) {
+            var node = records[i].target;
+            var el = node.nodeType === 1 ? node : node.parentElement;
+            if (el && el.closest(".cm-content")) {
+              queued = true;
+              requestAnimationFrame(function () { queued = false; Sync(); });
+              return;
+            }
+          }
+        }).observe(document.body, { childList: true, characterData: true, subtree: true });
+        return Sync;
+      }
+
+      // Inside the speaker view's current-slide preview.
+      if (/[?&]receiver\b/.test(location.search)) {
+        var frame = window.frameElement;
+        if (!frame || frame.parentNode.id !== "current-slide") return;
+        var Deck = function () { return window.parent.opener.Reveal; };
+        var sync = Watch(Deck);
+        // quarto-live signals Run (button or Ctrl+Enter) as a non-bubbling
+        // "input" event with detail.commit; catch it on the way down.
+        document.addEventListener("input", function (e) {
+          if (!e.detail || !e.detail.commit) return;
+          var cell = e.target.closest && e.target.closest(".exercise-cell[id]");
+          if (!cell) return;
+          try {
+            sync();
+            if (!SameSlide(Deck(), Reveal)) return;
+            var twin = window.parent.opener.document.getElementById(cell.id);
+            var run = twin && twin.querySelector(".exercise-editor-btn-run-code");
+            if (run) run.click();
+          } catch (err) {}
+        }, true);
+        return;
+      }
+
+      // In the presented deck.
+      var notesWindow = null;
+      function Preview() {
+        var frame = notesWindow && !notesWindow.closed &&
+          notesWindow.document.querySelector("#current-slide iframe");
+        return frame && frame.contentWindow.Reveal;
+      }
+      var syncPreview = Watch(Preview);
+
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          notesWindow = w;
+          // The preview follows the deck after a short debounce.
+          Reveal.on("slidechanged", function () {
+            setTimeout(syncPreview, 500);
+            setTimeout(syncPreview, 1500);
+          });
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script>
+    // Speaker view: the current- and upcoming-slide previews load the deck with
+    // ?receiver. Mark them, so custom.scss can hide the room-only corner overlays
+    // (QR code, segment badge) there.
+    if (/[?&]receiver\b/.test(location.search)) {
+      document.documentElement.classList.add("speaker-preview");
+    }
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W119
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../slides";
+    window._ojs.paths.runtimeToRoot = "../..";
+    window._ojs.paths.docToRoot = "..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

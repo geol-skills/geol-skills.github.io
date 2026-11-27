@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>Research Skills – AI, reproducibility, and integrity</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2b7115b704feb8190e9f0c95b5c4a188.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">AI, reproducibility, and integrity</h1>
+  <p class="subtitle">Research Skills — Week 9</p>
+</section>
+<section>
+<section id="recap" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Recap</h1>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-current" aria-hidden="true">
+Recap
+</div>
+<div class="recap-after">
+<ul>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="where-we-are" class="slide level2">
+<h2>Where we are</h2>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div class="columns-even" style="grid-template-columns: 1.3fr 1fr;">
+<div class="col">
+<p>Your projects are nearly done. You’ve designed investigations, run tests, fitted models, and identified limitations.</p>
+<div class="fragment">
+<p>This week: two forces that shape modern research —</p>
+<p><strong>AI</strong> and the <strong>pressure to produce results</strong>.</p>
+</div>
+</div>
+<div class="col">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="week09-content_files/figure-revealjs/w09-ppdac-1.png" class="quarto-figure quarto-figure-center" alt="The PPDAC cycle drawn as a ring: Problem, Plan, Data, Analysis, Conclusion, with arrows running clockwise back to Problem. Conclusion is highlighted; the centre reads Phase 2." width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fig-source">
+<p><a href="figures/w01-ppdac-ring.R">w01-ppdac-ring.R</a></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[11:05–11:10]</strong> This session is more discursive than technical — more debate and reflection, less coding.</li>
+<li>Point at the ring: where this week sits in PPDAC (Week 1, “The cycle”).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="questions" class="slide level2" data-visibility="uncounted">
+<h2>Questions?</h2>
+<div class="slide-time" aria-hidden="true">
+11:05
+</div>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Open the Poll Everywhere Q&amp;A activity before the session and leave it active throughout.</li>
+<li>Questions appear in your Poll Everywhere presenter view; upvoted questions rise to the top.</li>
+<li>Address during transitions or at the end of concept blocks, not mid-explanation.</li>
+<li>Reset (archive) the activity between sessions so questions don’t carry over from the previous week.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="inside-a-large-language-model" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Inside a large language model</h1>
+<div class="slide-time" aria-hidden="true">
+11:10
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Inside a large language model
+</div>
+<p><span class="activity-badge badge-concept">🎓 Concept block 1</span></p>
+<div class="recap-after">
+<ul>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="predictive-text" class="slide level2">
+<h2>Predictive text</h2>
+<div class="slide-time" aria-hidden="true">
+11:10
+</div>
+<ul>
+<li>What character comes next?</li>
+</ul>
+<p><code>█ █ █ █ █ █ ?</code></p>
+<div class="fragment">
+<p><img data-src="images/mackay-letter-frequencies.png" alt="A 27 × 27 grid of white squares on black, one for each pair of letters (and space) in English text, each square sized by how often that pair occurs. Large squares cluster at pairs such as th, he, in and at letter–space pairs." height="438"></p>
+<div class="photo-credit">
+<p>MacKay (2003) <em>Information Theory, Inference, and Learning Algorithms</em>, Fig. 2.1. © Cambridge University Press. Reproduced on screen only, by permission.</p>
+</div>
+<aside class="notes">
+<ul>
+<li><p><strong>[11:10–11:18]</strong> What a language model does, from letters up.</p></li>
+<li><p>The answer: Is what ever the third student guessed!</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="predictive-text-1" class="slide level2">
+<h2>Predictive text</h2>
+<div class="slide-time" aria-hidden="true">
+11:11
+</div>
+<ul>
+<li>What character comes next?</li>
+</ul>
+<p><code>█ █ █ █ █ █ u ?</code></p>
+<aside class="notes">
+<p>It was a p.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<p><code>█ █ █ █ █ █ q ?</code></p>
+<aside class="notes">
+<p>It is a U. Easier this time, eh?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+<div class="fragment">
+<p><img data-src="images/mackay-bigram-frequencies.png" alt="A 27 × 27 grid of white squares on black, one for each pair of letters (and space) in English text, each square sized by how often that pair occurs. Large squares cluster at pairs such as th, he, in and at letter–space pairs." height="343"></p>
+<div class="photo-credit">
+<p>MacKay (2003) <em>Information Theory, Inference, and Learning Algorithms</em>, Fig. 2.2. © Cambridge University Press. Reproduced on screen only, by permission.</p>
+</div>
+</div>
+</section>
+<section id="predictive-text-2" class="slide level2">
+<h2>Predictive text</h2>
+<div class="slide-time" aria-hidden="true">
+11:12
+</div>
+<ul>
+<li>What character comes next?</li>
+</ul>
+<p><code>█ █ █ █ █ █ q u ?</code></p>
+<aside class="notes">
+<ul>
+<li>harder… but it’s probably not P this time?</li>
+<li>Q tells us something about two letters time</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="predictive-text-bigrams" class="slide level2">
+<h2>Predictive text: bigrams</h2>
+<div class="slide-time" aria-hidden="true">
+11:13
+</div>
+<ul>
+<li>What bigram comes next?</li>
+</ul>
+<p><code>██ ██ ██ qu ??</code></p>
+<aside class="notes">
+<ul>
+<li>This time the table’s too big to print on the screen: 27×27 bigram pairs = 729 rows.</li>
+<li>There’s a low chance of the <em>bigrams</em> that start with <code>p</code>.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<pre><code>qu.. →es
+     →er
+     →pb</code></pre>
+</div>
+</section>
+<section id="predictive-text-n-grams" class="slide level2">
+<h2>Predictive text: <em>n</em>-grams</h2>
+<div class="slide-time" aria-hidden="true">
+11:14
+</div>
+<ul>
+<li>What 4-gram comes next?</li>
+</ul>
+<p><code>████  ████  ████  ████ [ck q] [????]</code></p>
+<div class="fragment">
+<p><code>████  ████  ████[a qui][ck q] [????]</code></p>
+</div>
+<div class="fragment">
+<p><code>[I'm ][aski][ng a][ qui][ck q] [????]</code></p>
+<aside class="notes">
+<ul>
+<li>4-grams: half a million rows × half a million columns</li>
+</ul>
+<p>&lt;[uery/uest]&gt;</p>
+<ul>
+<li>Point: Context is important.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="dasher" class="slide level2" data-menu-title="Predictive text: Dasher (1997)">
+<h2></h2>
+<div class="slide-time" aria-hidden="true">
+11:14
+</div>
+<iframe src="https://dasher-project.github.io/dasher-web/" style="width: 100%; height: 640px; border: 0; color-scheme: only light;">
+</iframe>
+<div class="fig-source">
+<p><a href="https://dasher-project.github.io/dasher-web/">Dasher</a> (1997): the size of each box is the probability of that letter coming next.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>First trained on what text was available in 1997!</li>
+<li>As used (briefly) by Stephen Hawking</li>
+<li>Size of box corresponds to probability that that letter’ll be next</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="predictive-text-large-language-models" class="slide level2">
+<h2>Predictive text: Large language models</h2>
+<div class="slide-time" aria-hidden="true">
+11:15
+</div>
+<ul>
+<li>Same principle: predict what comes next</li>
+<li><em>n</em>-gram → <strong>token</strong> (a word or part of a word)</li>
+<li>A few letters of context → the whole conversation</li>
+<li>Trained on much of the written internet</li>
+</ul>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center;">
+<div style="display: flex; gap: 2em; align-items: flex-end;">
+<p><img data-src="images/mackay-letter-frequencies.png" alt="Table and bar-like squares giving the probability of each of the 26 letters and space in English text; e and space are most probable, j, q and z least." height="260"></p>
+<p><img data-src="images/mackay-bigram-frequencies.png" alt="A 27 × 27 grid of white squares on black, one for each pair of letters (and space) in English text, each square sized by how often that pair occurs." height="260"></p>
+</div>
+<div class="photo-credit">
+<p>MacKay (2003) <em>Information Theory, Inference, and Learning Algorithms</em>, Figs 2.1 and 2.2. © Cambridge University Press. Reproduced on screen only, by permission.</p>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Nothing more sophisticated about transformers or attention: it won’t change how they use the tool. The two points that do are the next slide (trained to please) and the context window (what it sees).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="then-trained-to-please" class="slide level2">
+<h2>Then trained to please</h2>
+<div class="slide-time" aria-hidden="true">
+11:16
+</div>
+<ul>
+<li class="fragment"><strong>Pre-training:</strong> predict the next token of internet text</li>
+<li class="fragment"><strong>Post-training:</strong> Answers are rated <strong>by people</strong> (+ success, …); the model adjusts to favour output that score well.</li>
+<li class="fragment">People rate confident, agreeable answers highly</li>
+<li class="fragment">So the model is <strong>sycophantic</strong>: it tells you what you want to hear</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>In April 2025 OpenAI withdrew an update to GPT-4o because it had become <em>too</em> flattering.</li>
+<li>Hold on to this: the demo later in the session shows it.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="trained-to-please" class="slide level2">
+<h2>Trained to please?</h2>
+<div class="slide-time" aria-hidden="true">
+11:17
+</div>
+<ul>
+<li>Interpersonal lesson: make people like you by aping an LLM!</li>
+</ul>
+<aside class="notes">
+<p>What characteristics of effective communication are evident in LLMs?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<div style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center;">
+<div class="photo" style="display: flex; gap: 2em; align-items: flex-end;">
+<p><img data-src="images/gamstop-homepage.webp" alt="The GAMSTOP website homepage: the headline Block yourself from online gambling, buttons Register now and How it works, and a photograph of hands holding a phone." height="230"></p>
+<p><img data-src="images/getbrick-brick.png" alt="A Brick: a grey square plastic tag stamped with the word Brick, above a phone whose app reads You've been Bricked for 0 h 0 m 2 s." height="230"></p>
+<p><img data-src="images/ublock-origin-lite.png" alt="Chrome Web Store card for uBlock Origin Lite, rated 4.5 stars: an efficient content blocker that blocks ads, trackers and miners." height="230"></p>
+</div>
+<div class="photo-credit">
+<p>Screenshots: Chrome Web Store; getbrick.com; gamstop.co.uk</p>
+</div>
+</div>
+<ul>
+<li>An interesting question of where commercial incentives lie - what makes a customer come back?</li>
+<li>What people like in the short term isn’t always what’s best in the long term…</li>
+</ul>
+<aside class="notes">
+<p>Phones, websites, gambling: what’s “better” for a service provider is not what’s best for a customer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="models-and-harnesses" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Models and harnesses</h1>
+<div class="slide-time" aria-hidden="true">
+11:18
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Models and harnesses
+</div>
+<p><span class="activity-badge badge-concept">🎓 Concept block 2</span></p>
+<div class="recap-after">
+<ul>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="what-does-the-model-see" class="slide level2">
+<h2>What does the model see?</h2>
+<div class="slide-time" aria-hidden="true">
+11:18
+</div>
+<p>Everything the model knows about its task is in its <strong>context window</strong>:</p>
+<p><code>[I'm ][aski][ng a][ qui][ck q] [????]</code></p>
+<div class="fragment">
+<ol type="1">
+<li>A <strong>system prompt</strong>, written by the vendor, that you never see</li>
+<li>Descriptions of the <strong>tools</strong> it may use</li>
+<li>Files or search results that were pulled in</li>
+<li>The conversation so far</li>
+<li>Your latest message</li>
+</ol>
+</div>
+<div class="fragment">
+<p>Then it predicts what comes next.</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:18–11:30]</strong> Model and harness.</li>
+<li>No memory between chats, unless the program pastes old chats back in.</li>
+<li>Anthropic publishes the system prompts of its Claude apps (release notes, “System prompts”): worth showing one. Pages of instructions the user never sees.</li>
+<li>Back to the <em>n</em>-gram slides: context is important. That is still the whole story.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="system-prompt-capabilities" class="slide level2">
+<h2>1: System prompt: Capabilities</h2>
+<div class="slide-time" aria-hidden="true">
+11:19
+</div>
+<p><a href="https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5">Claude Haiku 3.5</a>, 2024-10-22</p>
+<pre class="text wrap"><code>The assistant is Claude, created by Anthropic. The current date is {{currentDateTime}}. Claude's knowledge base was last updated in July 2024 [...]
+
+Claude cannot open URLs, links, or videos. [...] [True in the setting this prompt's written for]
+
+If Claude mentions or cites particular articles, papers, or books, it always lets the human know that it doesn't have access to search or a database and may hallucinate citations, so the human should double check its citations.</code></pre>
+<aside class="notes">
+<p>They’ve got longer – Haiku 3 (July 2024) was 10 lines…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="system-prompt-anthropics-own-how-to" class="slide level2">
+<h2>1: System prompt: Anthropic’s own how-to</h2>
+<div class="slide-time" aria-hidden="true">
+11:20
+</div>
+<p><a href="https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5">Claude Haiku 3.5</a>, 2024-10-22</p>
+<pre class="text wrap"><code>When relevant, Claude can provide guidance on effective prompting techniques [...]
+This includes: being clear and detailed, using positive and negative examples, encouraging step-by-step reasoning, [...] and specifying desired length or format. [...]</code></pre>
+</section>
+<section id="system-prompt-shaping-the-output" class="slide level2">
+<h2>1: System prompt: Shaping the output</h2>
+<div class="slide-time" aria-hidden="true">
+11:21
+</div>
+<p><a href="https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5">Claude Haiku 3.5</a>, 2024-10-22</p>
+<pre class="text wrap"><code>Claude uses Markdown formatting. [...] It always uses a single space after hash symbols for headers (e.g., "# Header 1") and leaves a blank line before and after headers, lists, and code blocks. [...]
+
+If Claude provides bullet points in its response, each bullet point should be at least 1-2 sentences long unless the human requests otherwise. Claude should not use bullet points or numbered lists unless the human explicitly asks [...]
+
+Claude doesn't engage in stereotyping, including the negative stereotyping of majority groups.
+
+Claude does not add too many caveats to its responses. It does not tell the human about its cutoff date unless relevant. It does not tell human about its potential mistakes unless relevant. [...] Caveats should take up no more than one sentence of any response it gives.</code></pre>
+<aside class="notes">
+<p>Recent prompts devote much more space to compliance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tools" class="slide level2">
+<h2>Tools</h2>
+<div class="slide-time" aria-hidden="true">
+11:22
+</div>
+<ul>
+<li>Connectors: integrate with e.g.&nbsp;outlook, Excel, GitHub</li>
+<li>Workflows: recipes for complex tasks</li>
+<li>Build your own workflows: e.g.&nbsp;Copilot studio</li>
+</ul>
+<aside class="notes">
+<p>Tools: Pause to highlight: predictive text is no good for calculations. Often an LLM will resort to a calculator behind the scenes. But it’s often worth invoking a tool by asking: Make me a spreadsheet / write an R script to compute / …</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<p>System prompt + tools = Harness</p>
+</div>
+</section>
+<section id="context" class="slide level2 corner-clear">
+<h2>Context</h2>
+<div class="slide-time" aria-hidden="true">
+11:23
+</div>
+<div class="photo corner-photo" style="width: 230px;">
+<p><img data-src="images/claude-context-window.png" style="width:100.0%" alt="Claude Code's context display: 11 % of a million-token window used, split into messages, system tools, memory files, MCP tools, system prompt, skills, custom agents and MCP server instructions, with the lists of MCP tools, memory files and custom agents shortened."></p>
+</div>
+<ol start="3" type="1">
+<li>Files or search results that were pulled in</li>
+<li>The conversation so far</li>
+<li>Your latest message</li>
+</ol>
+<p><code>/compact</code></p>
+<aside class="notes">
+<p>If a conversation’s long and rambling, the trees start to crowd out the wood.</p>
+<p><code>/compact</code> (Claude) to regain focus</p>
+<p>Also point out: All that history’s going to get sent every turn - that’ll burn through your usage!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="model-harness" class="slide level2 corner-clear">
+<h2>Model ≠ harness</h2>
+<div class="slide-time" aria-hidden="true">
+11:25
+</div>
+<div class="photo corner-photo" style="width: 260px;">
+<p><img data-src="images/pexels-vladyslav-huivyk-32577426.jpg" style="width:100.0%" alt="A ginger kitten in a pale blue harness walks along a sandy path towards the camera, its lead running off to the right."></p>
+</div>
+<div class="photo-credit corner-credit">
+<p>Kitten in harness: Vladyslav Huivyk / <a href="https://www.pexels.com/photo/adorable-ginger-kitten-walking-outdoors-on-leash-32577426/">Pexels</a></p>
+</div>
+<p>Harness = System prompt + tools</p>
+<p>The same model behaves differently in a different harness.</p>
+<aside class="notes">
+<ul>
+<li>Note to students: Be careful when undertaking an image search for “harness”…</li>
+<li>The harness writes the system prompt, decides which files and search results go in, and runs any tools.</li>
+<li>GPT models sit behind both Copilot and ChatGPT; the two don’t behave the same.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="fragment">
+<div class="below-corner" style="margin-top: 100px;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Model</th>
+<th>Harness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>What</td>
+<td>A trained network: text in, next-token probabilities out</td>
+<td>Instructions and tools available to the model</td>
+</tr>
+<tr class="even">
+<td>Examples</td>
+<td>GPT-6, Claude Opus</td>
+<td>Copilot, ChatGPT, Claude Code, Codex</td>
+</tr>
+<tr class="odd">
+<td>Decides</td>
+<td>Quality of prediction</td>
+<td>What it can see and do</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="your-choices-in-copilot" class="slide level2 corner-clear">
+<h2>Your choices in Copilot</h2>
+<div class="slide-time" aria-hidden="true">
+11:26
+</div>
+<div class="photo corner-photo" style="width: 464px;">
+<p><img data-src="images/copilot-model-menu.png" style="width:100.0%" alt="Copilot's response menu. Auto: decides how long to think. Quick response: answers right away. Think deeper: think longer for better answers. A GPT submenu lists four models, from GPT-5.6 Sol Quick response to GPT-6.1 Sol."></p>
+</div>
+<div style="width: 60%;">
+<ul>
+<li><strong>GPT ›</strong> which model</li>
+<li><strong>Auto / Quick / Think deeper:</strong> how long it works before answering (configures the harness).</li>
+</ul>
+</div>
+<div class="photo-credit corner-credit">
+<p>Microsoft 365 Copilot, Durham licence, November 2026</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Model names change every term; the menu doesn’t.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-does-thinking-effort-do" class="slide level2">
+<h2>What does “thinking” (= “effort”) do?</h2>
+<div class="slide-time" aria-hidden="true">
+11:27
+</div>
+<ul>
+<li class="fragment">A model thinks by “talking” to itself.</li>
+<li class="fragment">Before answering, the model writes out working that you don’t see</li>
+<li class="fragment">Each token is predicted from everything before it, so its own working becomes context</li>
+<li class="fragment">Trained on problems with checkable answers: maths, code</li>
+<li class="fragment"><strong>Helps:</strong> several steps of reasoning, statistics, debugging</li>
+<li class="fragment"><strong>Barely helps:</strong> looking things up, rewording</li>
+<li class="fragment"><strong>Costs:</strong> time, and more tokens: more energy.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>“Show your working”, for a machine.</li>
+<li>The summary of its thinking that you can expand is not a faithful record of why it answered as it did (Anthropic, “Reasoning models don’t always say what they think”, 2025).</li>
+<li>Energy: the Week 4 exemplar briefing on AI’s environmental cost.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chat-vs.-agents" class="slide level2">
+<h2>Chat <em>vs.</em> agents</h2>
+<div class="slide-time" aria-hidden="true">
+11:28
+</div>
+<div class="columns-even">
+<div class="col">
+<p><strong>Chat</strong> (Copilot)</p>
+<p>Linear flow: prompt → answer → next prompt.</p>
+<p>Context restricted to what you feed it</p>
+</div>
+<div class="col">
+<p><strong>Agent</strong> (Claude Code, Codex)</p>
+<p>A loop: the model requests a tool (read a file, run R); the harness runs it; the result is added to context – until an objective is accomplished.</p>
+<p>Finds what it needs, solves its own errors, then tries again.</p>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Same model; different harness.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-does-an-agent-see" class="slide level2">
+<h2>What does an agent see?</h2>
+<div class="slide-time" aria-hidden="true">
+11:29
+</div>
+<ul>
+<li><strong>System prompt</strong>: from the harness’s makers</li>
+<li><strong><code>AGENTS.md</code></strong>: standing instructions, read at the start of every session</li>
+<li><strong>Tools</strong>: read files, run code, search</li>
+<li><strong><code>/commands</code></strong>: saved prompts, run by name</li>
+<li><strong>Context</strong>: includes everything it opens, and the output of everything it runs</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>An <code>AGENTS.md</code> is what a new collaborator needs to know: aims, data, decisions, conventions. The same document makes a project reproducible (later today).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="copilot-in-github" class="slide level2">
+<h2>Copilot in GitHub</h2>
+<div class="slide-time" aria-hidden="true">
+11:30
+</div>
+<p>Same Copilot, different harness: it sees your <strong>repo</strong>.</p>
+<ul>
+<li><strong>Chat:</strong> the Copilot button on any repo page; ask about the code or a file</li>
+<li><strong>Review:</strong> ask it to review a pull request</li>
+<li><strong>Agent:</strong> give it a task; it opens a pull request</li>
+</ul>
+<div class="fragment">
+<p>It reads <code>.github/copilot-instructions.md</code> and <code>AGENTS.md</code>: your standing instructions.</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:30–11:33]</strong> Copilot in GitHub.</li>
+<li>Students already work in GitHub every week; this is the agent they can reach today, no install.</li>
+<li>Check before the session, signed in as a student: which of the three work on a <code>geol-skills</code> repo, and on what plan (GitHub Education gives students Copilot Pro).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="the-agents-tab" class="slide level2">
+<h2>The Agents tab</h2>
+<div class="slide-time" aria-hidden="true">
+11:33
+</div>
+<ul>
+<li>Describe a task, or assign an issue to Copilot</li>
+<li>It works on its own branch in the cloud, then opens a <strong>draft</strong> pull request</li>
+<li>Watch its log: every file it read, every command it ran</li>
+<li>Review it like a teammate’s work; comment <code>@copilot</code> to ask for changes</li>
+</ul>
+<div class="fragment">
+<p>Try it now, in your groups: “Write an <code>AGENTS.md</code> file for our repository”</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:33–11:43]</strong> Each group asks Copilot, from the Agents tab of its group repo, to write an <code>AGENTS.md</code>. Allow ten minutes for the draft pull request to appear; meanwhile, watch the log.</li>
+<li>The chat-to-agent loop from earlier, run where everyone can see it: the pull request is the record of what the AI did.</li>
+<li>The log is the check: did it run the code, or only write it?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="ask-copilot-to-review-a-pull-request" class="slide level2">
+<h2>Ask Copilot to review a pull request</h2>
+<div class="slide-time" aria-hidden="true">
+11:43
+</div>
+<ul>
+<li><strong>Reviewers ⚙ → Copilot</strong>, as you would a teammate</li>
+<li>It sees the changes, the files around them and your instructions</li>
+<li>It leaves comments, often with a suggested change</li>
+<li>Customize this harness using <code>copilot-instructions.md</code>: e.g.&nbsp;“Flag any number reported without a comparison.”</li>
+</ul>
+<div class="fragment">
+<p>Try it now: Comment on or edit the <code>AGENTS.md</code> pull request, then request Copilot’s review.</p>
+<aside class="notes">
+<ul>
+<li><strong>[11:43–11:55]</strong> Groups edit the draft (what does a new collaborator need to know that Copilot missed?), then request Copilot’s review and a teammate’s. Copilot’s review is comments, not an approval: under <code>group-main</code> a teammate still has to approve before it merges.</li>
+<li>It reviews the code it’s shown, not whether the question was the right one.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="asking-the-right-question" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Asking the right question</h1>
+<div class="slide-time" aria-hidden="true">
+11:55
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Asking the right question
+</div>
+<p><span class="activity-badge badge-concept">🎓💬 Live demo</span></p>
+<div class="recap-after">
+<ul>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="your-choices" class="slide level2">
+<h2>Your choices</h2>
+<div class="slide-time" aria-hidden="true">
+11:55
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Choice</th>
+<th>Options</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tool (harness)</td>
+<td>Chat → agent</td>
+<td>In the menu</td>
+</tr>
+<tr class="even">
+<td>Model</td>
+<td>GPT ›</td>
+<td>In the menu</td>
+</tr>
+<tr class="odd">
+<td>Effort</td>
+<td>Quick / Think deeper</td>
+<td>In the menu</td>
+</tr>
+<tr class="even">
+<td>Context</td>
+<td>Data, files, <code>AGENTS.md</code></td>
+<td><strong>Up to you</strong></td>
+</tr>
+<tr class="odd">
+<td>What it may do</td>
+<td>Search, run code, edit files</td>
+<td><strong>Up to you</strong></td>
+</tr>
+<tr class="even">
+<td>Checking</td>
+<td>Run it; open the source</td>
+<td><strong>Up to you</strong></td>
+</tr>
+<tr class="odd">
+<td>Recording</td>
+<td><code>ai-use.md</code></td>
+<td><code>report</code> repo</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<ul>
+<li><strong>[11:55–12:02]</strong> Your choices, prompts that ask for a challenge, then the live demo.</li>
+<li>The menu offers three choices. The other four decide most of the quality of what comes back.</li>
+<li><code>ai-use.md</code> is required in the report repo (assessment brief): the application session starts it.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ask-for-a-challenge" class="slide level2">
+<h2>Ask for a challenge</h2>
+<div class="slide-time" aria-hidden="true">
+11:57
+</div>
+<ul>
+<li>“What’s wrong with this?”</li>
+<li>“Argue the opposite.”</li>
+<li>“What would a sceptical reviewer ask?”</li>
+<li>“What would you need to know to answer this properly?”</li>
+<li>Compared to what? Is that a big number?</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Each asks it to disagree, which post-training made it reluctant to do unprompted.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="live-demo" class="slide level2">
+<h2>Live demo</h2>
+<div class="slide-time" aria-hidden="true">
+12:00
+</div>
+<div style="font-size: 0.9em;">
+<p>🖥️ <strong>A:</strong> “We tested 1000 soil samples for gold. 54 tested positive. Write a press release announcing our discovery.”</p>
+<div class="fragment">
+<p>🖥️ <strong>B:</strong> “We tested 1000 soil samples for gold. 54 tested positive. Write a press release announcing our discovery. Ask me anything that you need to know in order to write a rigorous release.”</p>
+</div>
+<div class="fragment">
+<p>🖥️ <strong>C:</strong> “We tested 1000 soil samples with a 95&nbsp;%-accurate assay. 54 tested positive. Write a press release announcing our discovery.”</p>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Run all three in Copilot, same model and setting, in fresh chats.</li>
+<li>The point: AI aims to please, not to challenge. It answers the question it was asked.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="ai-audit" class="title-slide slide level1 section-divider recap-heading center">
+<h1>AI audit</h1>
+<div class="slide-time" aria-hidden="true">
+12:02
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+AI audit
+</div>
+<p><span class="activity-badge badge-exercise">💬 Exercise 1</span></p>
+<div class="recap-after">
+<ul>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="your-experience" class="slide level2">
+<h2>Your experience</h2>
+<div class="slide-time" aria-hidden="true">
+12:02
+</div>
+<div class="discussion-prompt">
+<p>Think about a time in your learning – perhaps in this module – when you have used AI. How have you found it helpful? Unhelpful?</p>
+</div>
+<div class="fragment">
+<ul>
+<li>What context did you give it?</li>
+<li>What would you ask differently now?</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><strong>[12:02–12:08]</strong> Think, discuss as a desk, then share. Collect themes on the board. The goal is reflection, not confession.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="reproducibility" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Reproducibility</h1>
+<div class="slide-time" aria-hidden="true">
+12:08
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Reproducibility
+</div>
+<p><span class="activity-badge badge-concept">🎓 Concept block 3</span></p>
+<div class="recap-after">
+<ul>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="the-replication-crisis" class="slide level2">
+<h2>The replication crisis</h2>
+<div class="slide-time" aria-hidden="true">
+12:08
+</div>
+
+<img data-src="week09-content_files/figure-revealjs/w09-replication-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Bar chart of replication success in three fields: psychology 36&nbsp;%, experimental economics 61&nbsp;% (11 of 18), cancer biology 46&nbsp;% (51 of 112). Each bar is annotated with the criterion that project used, and the three criteria differ." width="864"><div class="fig-source">
+<p><a href="figures/w09-replication-rates.R">w09-replication-rates.R</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li><strong>[12:08–12:23]</strong> Reproducibility as a practical skill.</li>
+<li>“Many” is exactly the kind of word this course spends ten weeks training them to challenge, so it should not survive on our own slide.</li>
+<li>The three definitions of success differ, and that is the second lesson here: “replicated” is not one thing. Psychology counted a significant replication; economics required the same direction too; cancer biology used three of five criteria. Comparing the bars directly is the mistake to point at.</li>
+<li>All three numbers come from the papers’ own abstracts, cited under the chart.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why" class="slide level2">
+<h2>Why?</h2>
+<div class="slide-time" aria-hidden="true">
+12:13
+</div>
+<ul>
+<li class="fragment"><strong><em>p</em>-hacking</strong> — trying many analyses, reporting the one that “works”</li>
+<li class="fragment"><strong>Underpowered studies</strong> — too few observations to detect real effects</li>
+<li class="fragment"><strong>Selective reporting</strong> — filing away null results</li>
+<li class="fragment"><strong>Data not shared</strong> — no one can check your work</li>
+</ul>
+</section>
+<section id="practical-reproducibility-habits" class="slide level2">
+<h2>Practical reproducibility habits</h2>
+<div class="slide-time" aria-hidden="true">
+12:18
+</div>
+<ol type="1">
+<li class="fragment"><strong>Script everything</strong>: no “I typed this in the console”</li>
+<li class="fragment"><strong>Document your decisions</strong>: why this test, why you excluded those data points</li>
+<li class="fragment"><strong>Record software versions</strong>: <code>sessionInfo()</code> in R</li>
+<li class="fragment"><strong>Seed anything random</strong>: <code>set.seed()</code> before <code>sample()</code> or <code>replicate()</code></li>
+<li class="fragment"><strong>Share data and code</strong> where possible</li>
+</ol>
+<aside class="notes">
+<ul>
+<li>Connection to the policy report: a policy-maker should be able to trace your conclusion back to your data.</li>
+<li>Item 4 connects straight to this afternoon’s exercise w9_1, whose fourth fault is exactly a missing seed.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="reproducibility-check" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Reproducibility check</h1>
+<div class="slide-time" aria-hidden="true">
+12:23
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Reproducibility check
+</div>
+<p><span class="activity-badge badge-exercise">💬✏️ Exercise 2</span></p>
+<div class="recap-after">
+<ul>
+<li>Scientific integrity</li>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="can-you-re-run-your-analysis" class="slide level2">
+<h2>Can you re-run your analysis?</h2>
+<div class="slide-time" aria-hidden="true">
+12:23
+</div>
+<p>Open your project repo. Start a fresh R session.</p>
+<p>Run your analysis script from scratch.</p>
+<div class="fragment">
+<div class="discussion-prompt">
+<p>Does it work? What breaks?</p>
+</div>
+<p>Common problems:</p>
+<ul>
+<li>Hardcoded file paths</li>
+<li>Missing libraries</li>
+<li>Steps done in the console but not saved</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><strong>[12:23–12:33]</strong></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="scientific-integrity" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Scientific integrity</h1>
+<div class="slide-time" aria-hidden="true">
+12:33
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Scientific integrity
+</div>
+<p><span class="activity-badge badge-concept">🎓💬 Concept block 4</span></p>
+<div class="recap-after">
+<ul>
+<li>Wrap-up</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="three-levels" class="slide level2">
+<h2>Three levels</h2>
+<div class="slide-time" aria-hidden="true">
+12:33
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>What</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Innocent errors</strong></td>
+<td>Rounding, wrong column, misread output</td>
+<td>Caught by peer review (sometimes)</td>
+</tr>
+<tr class="even">
+<td><strong>Questionable practices</strong></td>
+<td><em>p</em>-hacking, HARKing (hypothesizing after the results are known), selective reporting</td>
+<td>Often unintentional (e.g.&nbsp;multiple comparisons, last week)</td>
+</tr>
+<tr class="odd">
+<td><strong>Fabrication</strong></td>
+<td>Making up or tampering with data</td>
+<td>Rare, career-ending</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<ul>
+<li><strong>[12:33–12:45]</strong> Brief and frank. Not preachy.</li>
+<li>“Easier to detect”: Benford’s law, duplicated images, statistically impossible results.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="where-does-ai-fit" class="slide level2">
+<h2>Where does AI fit?</h2>
+<div class="slide-time" aria-hidden="true">
+12:39
+</div>
+<ul>
+<li><p>Great at catching typographic errors.</p></li>
+<li><p>Less good at spotting subtle slips – unless prompted</p></li>
+<li><p>Assumes good faith – reluctant to call out questionable practices?</p></li>
+</ul>
+<div class="fragment">
+<p>AI is like any subordinate. You are responsible for its output. - Do you trust it? Why?</p>
+</div>
+<div class="fragment">
+<p>If AI generates data or figures that don’t reflect reality → that’s <strong>fabrication</strong>, even if unintentional.</p>
+</div>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 section-divider recap-heading center">
+<h1>Wrap-up</h1>
+<div class="slide-time" aria-hidden="true">
+12:45
+</div>
+<div class="section-recap">
+<div class="recap-main">
+<div class="recap-before">
+<ul>
+<li>Recap</li>
+<li>Inside a large language model</li>
+<li>Models and harnesses</li>
+<li>Asking the right question</li>
+<li>AI audit</li>
+<li>Reproducibility</li>
+<li>Reproducibility check</li>
+<li>Scientific integrity</li>
+</ul>
+</div>
+<div class="recap-current" aria-hidden="true">
+Wrap-up
+</div>
+</div>
+</div>
+</section>
+<section id="key-points" class="slide level2">
+<h2>Key points</h2>
+<div class="slide-time" aria-hidden="true">
+12:45
+</div>
+<ol type="1">
+<li class="fragment">AI answers the question you ask: supply the context, ask for a challenge, check the answer</li>
+<li class="fragment">Reproducibility = scripted, documented, version-controlled</li>
+<li class="fragment">Integrity = results you could stand behind, on trial</li>
+</ol>
+<aside class="notes">
+<p><strong>[12:45–12:55]</strong> Wrap-up and open discussion. Questions on AI use: the answers are in the assessment brief.</p>
+<p>Integrity is more than just “don’t be dishonest”; it’s taking intellectual responsibility.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="any-questions-we-missed" class="slide level2" data-visibility="uncounted">
+<h2>Any questions we missed?</h2>
+<div class="slide-time" aria-hidden="true">
+12:45
+</div>
+<div style="display: flex; gap: 2em; align-items: stretch; height: 460px;">
+<div style="flex: 3;">
+<div style="height: 100%;">
+<iframe src="https://embed.polleverywhere.com/discourses/1Bx34tJBZMsT8zwDHl28n?controls=none&amp;short_poll=true" style="width: 100%; height: 100%; border: 0; color-scheme: only light;">
+</iframe>
+</div>
+</div>
+<div style="flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;">
+<p><img data-src="images/pollev-qr.svg" style="width:100.0%" alt=""></p>
+<div style="font-size: 0.55em; line-height: 1.6;">
+<p>Submit questions:</p>
+<p><strong>PollEv.com/geol</strong></p>
+<p>text <strong>geol</strong> to <strong>07480 781235</strong></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Continuation of the same Poll Everywhere Q&amp;A activity opened at the start of the session — this is not a new poll, so don’t reset/archive it yet.</li>
+<li>Surface any questions that have come in since the early Questions slide, especially ones raised during today’s content.</li>
+<li>Once you’ve finished with this slide, archive (reset) the activity at the end of the session so questions don’t carry over.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-time" class="slide level2">
+<h2>Next time</h2>
+<div class="slide-time" aria-hidden="true">
+12:50
+</div>
+<p><strong>Application session: “AI as critic”</strong></p>
+<p>You’ll feed your analysis to an AI and evaluate its feedback.</p>
+<p>The question: <strong>how much should you trust it?</strong></p>
+<aside class="notes">
+<ul>
+<li><strong>Check the Q&amp;A</strong> — surface any top-voted questions before finishing.</li>
+<li>Students should bring their analysis code and a draft results section to the application session.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="attendance" class="slide level2" data-visibility="uncounted">
+<h2>Attendance</h2>
+<div class="slide-time" aria-hidden="true">
+12:50
+</div>
+<!-- Live attendance QR (staff/attendance-qr.qmd). PrestoAcademic can't be
+     framed, so the attendance tab, opened by the button below or from the
+     title slide's notes, runs the "Attendance QR" bookmarklet, which posts
+     each QR image Presto draws to this window. -->
+<div class="attendance-qr" data-state="idle">
+  <img class="attendance-qr-code" alt="QR code to register attendance">
+  <div class="attendance-qr-panel">
+    <p class="attendance-qr-status"></p>
+    <p><button type="button" class="attendance-qr-open">Open attendance</button></p>
+    <p class="attendance-qr-setup">New login? Drag
+      <a class="attendance-qr-bookmarklet" href="#" data-preview-link="false">Attendance QR</a>
+      to the favourites bar.</p>
+  </div>
+</div>
+
+<style>
+.reveal .attendance-qr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 560px;
+}
+.reveal .attendance-qr img.attendance-qr-code {
+  display: none;
+  width: 540px;
+  height: 540px;
+  margin: 0;
+  image-rendering: pixelated;
+}
+.reveal .attendance-qr[data-state="live"] img.attendance-qr-code,
+.reveal .attendance-qr[data-state="stale"] img.attendance-qr-code { display: block; }
+.reveal .attendance-qr[data-state="stale"] img.attendance-qr-code { opacity: 0.12; }
+.reveal .attendance-qr[data-state="live"] .attendance-qr-panel { display: none; }
+.reveal .attendance-qr[data-state="stale"] .attendance-qr-panel { position: absolute; }
+.reveal .attendance-qr[data-state="speaker"] .attendance-qr-open { display: none; }
+.reveal .attendance-qr-panel { text-align: center; }
+.reveal .attendance-qr-panel p { margin: 0.4em 0; }
+.reveal .attendance-qr-status { font-size: 0.75em; color: #566573; }
+.reveal .attendance-qr-open {
+  font: inherit;
+  font-size: 0.8em;
+  padding: 0.35em 1.2em;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: #0e9a80;
+  cursor: pointer;
+}
+.reveal .attendance-qr-setup { font-size: 0.45em; color: #566573; }
+.reveal .attendance-qr-bookmarklet {
+  padding: 0.1em 0.5em;
+  border: 1px solid #0e9a80;
+  border-radius: 4px;
+  cursor: grab;
+}
+/* One QR at a time: hide the corner "Questions?" code (custom.scss) */
+.reveal.attendance-qr-showing::after { display: none; }
+</style>
+
+<script>
+(function () {
+  var PRESTO = "https://attendance.durham.ac.uk";
+  var SITE = "https://geol-skills.github.io";
+  var TAB = "geol-attendance";
+  var STALE = 30000; // Presto renews its code every 15 s
+  var PNG = /^data:image\/png;base64,[A-Za-z0-9+\/]+=*$/;
+
+  // The bookmarklet. It runs in the attendance tab, never in this page.
+  function relay(TARGETS) {
+    if (location.origin !== "https://attendance.durham.ac.uk") {
+      alert("Click this in the attendance tab that the slides opened.");
+      return;
+    }
+    /* Block comments only in here: a bookmark may lose its line breaks.
+       Already running: send again. The first version used another name. */
+    if (window.geolAttendanceRelay) {
+      window.geolAttendanceRelay();
+      return;
+    }
+    /* This tab's opener, if it still has one, is the deck or the speaker
+       view. Write to both until the deck answers; the deck also calls this
+       tab by name, which links it even without an opener. */
+    var deck = null, sent;
+    var note = document.createElement("div");
+    /* Presto's QR: the largest big, square data-URL image */
+    function qr() {
+      var best = null, most = 0;
+      var imgs = document.querySelectorAll('img[src^="data:image/png"]');
+      for (var i = 0; i < imgs.length; i++) {
+        var box = imgs[i].getBoundingClientRect();
+        if (box.width >= 120 && Math.abs(box.width - box.height) < 2 &&
+            box.width * box.height > most) {
+          most = box.width * box.height;
+          best = imgs[i];
+        }
+      }
+      return best ? best.getAttribute("src") : null;
+    }
+    function post(message) {
+      if (deck && deck.closed) deck = null;
+      var w = deck || window.opener;
+      for (var i = 0; w && i < 2; i++) {
+        for (var j = 0; j < TARGETS.length; j++) {
+          try { w.postMessage(message, TARGETS[j]); } catch (e) {}
+        }
+        if (deck) break;
+        try { w = w.opener; } catch (e) { w = null; }
+      }
+    }
+    function send(always) {
+      var src = qr();
+      if (src === sent && !always) return;
+      sent = src;
+      post({ geolAttendanceQr: 1, src: src });
+    }
+    window.addEventListener("message", function (e) {
+      if (deck || TARGETS.indexOf(e.origin) < 0 || !e.data || e.data.geolAttendanceQrAck !== 1) return;
+      deck = e.source;
+      note.textContent = "Linked to the slides: switch back to them, and keep this tab open.";
+      send(true);
+    });
+    new MutationObserver(function () { send(false); }).observe(document.body, {
+      subtree: true, childList: true, attributes: true, attributeFilter: ["src"]
+    });
+    setInterval(function () { send(true); }, 5000);
+    window.geolAttendanceRelay = window.geolAttendanceQr = function () { send(true); };
+    note.textContent = "Looking for the slides…";
+    note.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:99999;padding:6px 12px;" +
+      "border-radius:4px;background:#68246d;color:#fff;font:15px sans-serif";
+    document.body.appendChild(note);
+    send(true);
+    setTimeout(function () {
+      if (!deck) {
+        note.textContent = "Not linked yet: on the slides, click Show attendance tab " +
+          "on the Attendance slide.";
+      }
+    }, 4000);
+  }
+
+  var root = document.querySelector(".attendance-qr");
+  var slide = root.closest("section");
+  var img = root.querySelector(".attendance-qr-code");
+  var status = root.querySelector(".attendance-qr-status");
+  var button = root.querySelector(".attendance-qr-open");
+  var link = root.querySelector(".attendance-qr-bookmarklet");
+  var tab = null, shown = null, changed = 0, lost = 0, heard = 0;
+
+  // The live site too, so a favourite dragged from a local copy still works
+  var targets = location.origin === SITE ? [SITE] : [location.origin, SITE];
+  link.href = "javascript:" + encodeURIComponent(
+    "(" + relay + ")(" + JSON.stringify(targets) + ")");
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    say(root.getAttribute("data-state"), "Drag the Attendance QR button to the favourites bar; clicking it here does nothing.");
+  });
+
+  function say(state, text) {
+    root.setAttribute("data-state", state);
+    status.textContent = text || "";
+    button.textContent = state === "idle" ? "Open attendance" : "Show attendance tab";
+  }
+
+  // Speaker view shows the deck in iframes; a tab opened from one would
+  // send its QR to the iframe, not to the projected slide.
+  if (window.top !== window.self) {
+    say("speaker", "Click Open attendance on the main screen; the QR appears there.");
+    return;
+  }
+  say("idle");
+
+  // Head start: the title slide's notes (speaker view) open the same tab,
+  // so the QR is ready before the Attendance slide comes up.
+  var title = document.getElementById("title-slide");
+  if (title) {
+    var notes = title.querySelector("aside.notes");
+    if (!notes) {
+      notes = document.createElement("aside");
+      notes.className = "notes";
+      title.appendChild(notes);
+    }
+    var start = document.createElement("p");
+    start.innerHTML = "<strong>Attendance QR:</strong> " +
+      "<a href=\"" + PRESTO + "/mytimetable\" target=\"" + TAB + "\">open the attendance tab</a>, " +
+      "open today's session, click the <em>Attendance QR</em> favourite, then switch back " +
+      "to the slides. New login? First drag <a>Attendance QR</a> to the favourites bar.";
+    var links = start.querySelectorAll("a");
+    // Runs in the speaker view, which gets the notes as HTML. It hands the
+    // tab to the deck, so the link outlasts the speaker view.
+    links[0].setAttribute("onclick",
+      "var w=window.open('','" + TAB + "');if(!w)return true;var blank;" +
+      "try{blank=w.location.href==='about:blank'}catch(e){blank=false}" +
+      "if(blank)w.location.href=this.href;w.focus();" +
+      "try{window.opener.geolAttendanceAdopt(w)}catch(e){}return false");
+    // For dragging only: clicked in the speaker view it would run there
+    links[1].href = link.href;
+    links[1].setAttribute("onclick", "return false");
+    notes.appendChild(start);
+  }
+
+  button.addEventListener("click", function () {
+    // "" finds the attendance tab and brings it forward without reloading
+    // it, whichever window opened it; tab.focus() works only for its opener.
+    var w = window.open("", TAB);
+    if (!w) {
+      say(root.getAttribute("data-state"), "The browser blocked the new tab: allow pop-ups for this site.");
+      return;
+    }
+    var fresh;
+    try { fresh = w.location.href === "about:blank"; } catch (e) { fresh = false; }
+    if (fresh && tab && !tab.closed) {
+      // Lost by name (the speaker view that opened it has closed)
+      w.close();
+      ping();
+      say(root.getAttribute("data-state"), "Switch to the attendance tab yourself.");
+      return;
+    }
+    if (fresh) {
+      w.location.href = PRESTO + "/mytimetable";
+      say("waiting", "In the attendance tab, open today's session and click the Attendance QR favourite.");
+    }
+    w.focus();
+    tab = w;
+    ping();
+  });
+
+  // Calling the tab links its bookmarklet to this window, whoever opened it
+  function ping() {
+    try { tab.postMessage({ geolAttendanceQrAck: 1 }, PRESTO); } catch (e) {}
+  }
+  window.geolAttendanceAdopt = function (w) {
+    tab = w;
+    ping();
+    if (!shown) say("waiting", "In the attendance tab, open today's session and click the Attendance QR favourite.");
+  };
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== PRESTO || !e.data || e.data.geolAttendanceQr !== 1) return;
+    // Tells the bookmarklet which window is the deck
+    try { e.source.postMessage({ geolAttendanceQrAck: 1 }, PRESTO); } catch (x) {}
+    var src = e.data.src;
+    // A second attendance tab with nothing to show mustn't blank this one
+    if (src === null && tab && !tab.closed && e.source !== tab) return;
+    tab = e.source;
+    heard = Date.now();
+    if (src === null) {
+      // Wait out a redraw before dropping the code; see the timer below.
+      if (!lost) lost = Date.now();
+      if (!shown) say("waiting", "Linked. Open today's session in the attendance tab.");
+      return;
+    }
+    if (typeof src !== "string" || !PNG.test(src)) return;
+    lost = 0;
+    if (src !== shown) {
+      shown = src;
+      img.src = src;
+      changed = Date.now();
+    }
+    if (Date.now() - changed < STALE) say("live");
+  });
+
+  setInterval(function () {
+    if (tab && !tab.closed && Date.now() - heard > 4000) ping();
+    if (tab && tab.closed) {
+      tab = null;
+      heard = 0;
+      shown = null;
+      img.removeAttribute("src");
+      say("idle", "The attendance tab was closed.");
+    } else if (shown && lost && Date.now() - lost > 2000) {
+      shown = null;
+      img.removeAttribute("src");
+      say("waiting", "Linked. Open today's session in the attendance tab.");
+    } else if (heard && Date.now() - heard > 90000) {
+      // The bookmarklet writes every 5 s (once a minute in a hidden tab)
+      say(shown ? "stale" : "waiting", "The attendance tab has stopped sending. If its purple note has gone, click the Attendance QR favourite there again.");
+    } else if (shown && Date.now() - changed > STALE) {
+      say("stale", "Waiting for a new code. Is the session still open in the attendance tab?");
+    }
+  }, 1000);
+
+  function corner() {
+    document.querySelector(".reveal").classList.toggle(
+      "attendance-qr-showing", Reveal.getCurrentSlide() === slide);
+  }
+  window.addEventListener("DOMContentLoaded", function () {
+    Reveal.on("slidechanged", corner);
+    if (Reveal.isReady()) corner(); else Reveal.on("ready", corner);
+  });
+})();
+</script>
+<aside class="notes">
+<p>Click <strong>Open attendance</strong>, open today’s session in the new tab, and click the <em>Attendance QR</em> favourite (staff page <em>Attendance QR on the slides</em>). Fallback: show the QR from <a href="https://attendance.durham.ac.uk/mytimetable" class="uri">https://attendance.durham.ac.uk/mytimetable</a>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+<script>
+(function () {
+  function show() {
+    var box = document.querySelector(".slide-time-footer");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "slide-time-footer";
+      box.setAttribute("aria-hidden", "true");
+      document.querySelector(".reveal").appendChild(box);
+    }
+    var time = Reveal.getCurrentSlide().querySelector(".slide-time");
+    box.textContent = time ? time.textContent.trim() : "";
+  }
+  // This runs inside the slides, before reveal.js has loaded
+  window.addEventListener("load", function () {
+    if (Reveal.isReady()) show(); else Reveal.on("ready", show);
+    Reveal.on("slidechanged", show);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var segment = new Map();
+
+  function index() {
+    var badge = null;
+    Reveal.getSlides().forEach(function (slide) {
+      // Anywhere in the slide: section-recap.lua moves a divider's badge
+      var own = Array.from(slide.querySelectorAll("p > .activity-badge:only-child"))
+        .filter(function (b) { return !b.closest("li"); })[0];
+      if (own) badge = own;
+      else if (slide.classList.contains("level1")) badge = null;
+      segment.set(slide, slide.classList.contains("level1") ? null : badge);
+    });
+  }
+
+  function show() {
+    var box = document.querySelector(".segment-badge-corner");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "segment-badge-corner";
+      box.setAttribute("aria-hidden", "true");
+      document.querySelector(".reveal").appendChild(box);
+    }
+    var badge = segment.get(Reveal.getCurrentSlide());
+    box.replaceChildren();
+    if (badge) box.appendChild(badge.cloneNode(true));
+  }
+
+  // This runs inside the slides, before reveal.js has loaded
+  window.addEventListener("load", function () {
+    function start() { index(); show(); }
+    if (Reveal.isReady()) start(); else Reveal.on("ready", start);
+    Reveal.on("slidechanged", show);
+  });
+})();
+</script>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    // Speaker view clock: 24-hour time (the notes plugin hard-codes en-US 12-hour).
+    (function () {
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          try {
+            var proto = w.Date.prototype, orig = proto.toLocaleTimeString;
+            proto.toLocaleTimeString = function (locale, opts) {
+              if (opts && opts.hour12) {
+                return orig.call(this, "en-GB", Object.assign({}, opts, { hour12: false }));
+              }
+              return orig.call(this, locale, opts);
+            };
+          } catch (e) {}
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script>
+    // Speaker view: typing in the current-slide preview updates the projected
+    // slide live, and vice versa. Covers `.live-notes` textareas, checkboxes and
+    // webR editors; running code in the preview also runs it on the projected slide.
+    (function () {
+      function CurrentSlide(r) {
+        return r && r.getCurrentSlide && r.getCurrentSlide();
+      }
+
+      function SameSlide(a, b) {
+        var x = a.getIndices(), y = b.getIndices();
+        return x.h === y.h && x.v === y.v;
+      }
+
+      function Boxes(r) {
+        var slide = CurrentSlide(r);
+        return slide ? slide.querySelectorAll(".live-notes textarea") : [];
+      }
+
+      function EditorView(cell) {
+        var content = cell && cell.querySelector(".cm-content");
+        return content && content.cmView && content.cmView.view;
+      }
+
+      function SetText(view, text) {
+        var old = view.state.doc.toString();
+        if (old === text) return;
+        view._mirrored = text; // so its own watcher doesn't echo this back
+        // Replace only the changed middle, so the other copy keeps its cursor.
+        var start = 0, endOld = old.length, endNew = text.length;
+        while (start < endOld && start < endNew && old[start] === text[start]) start++;
+        while (endOld > start && endNew > start && old[endOld - 1] === text[endNew - 1]) {
+          endOld--; endNew--;
+        }
+        view.dispatch({ changes: { from: start, to: endOld, insert: text.slice(start, endNew) } });
+      }
+
+      function Push(fromReveal, toReveal) {
+        if (!fromReveal || !toReveal || !SameSlide(fromReveal, toReveal)) return;
+        var from = Boxes(fromReveal), to = Boxes(toReveal);
+        for (var i = 0; i < from.length && i < to.length; i++) {
+          if (to[i].value !== from[i].value) to[i].value = from[i].value;
+        }
+        var fromTicks = CurrentSlide(fromReveal).querySelectorAll("input[type=checkbox]");
+        var toTicks = CurrentSlide(toReveal).querySelectorAll("input[type=checkbox]");
+        for (var j = 0; j < fromTicks.length && j < toTicks.length; j++) {
+          toTicks[j].checked = fromTicks[j].checked;
+        }
+        var cells = CurrentSlide(fromReveal).querySelectorAll(".exercise-cell[id]");
+        var toDoc = CurrentSlide(toReveal).ownerDocument;
+        Array.prototype.forEach.call(cells, function (cell) {
+          var src = EditorView(cell), dst = EditorView(toDoc.getElementById(cell.id));
+          if (!src || !dst) return;
+          var text = src.state.doc.toString();
+          if (text !== src._mirrored) SetText(dst, text);
+        });
+      }
+
+      // Push whenever this document's live textareas or editors change.
+      function Watch(Target) {
+        function Sync() {
+          try { var t = Target(); if (t) Push(Reveal, t); } catch (err) {}
+        }
+        document.addEventListener("input", function (e) {
+          if (e.target.closest && e.target.closest(".live-notes")) Sync();
+        });
+        document.addEventListener("change", function (e) {
+          if (e.target.type === "checkbox") Sync();
+        });
+        var queued = false;
+        new MutationObserver(function (records) {
+          if (queued) return;
+          for (var i = 0; i < records.length; i++) {
+            var node = records[i].target;
+            var el = node.nodeType === 1 ? node : node.parentElement;
+            if (el && el.closest(".cm-content")) {
+              queued = true;
+              requestAnimationFrame(function () { queued = false; Sync(); });
+              return;
+            }
+          }
+        }).observe(document.body, { childList: true, characterData: true, subtree: true });
+        return Sync;
+      }
+
+      // Inside the speaker view's current-slide preview.
+      if (/[?&]receiver\b/.test(location.search)) {
+        var frame = window.frameElement;
+        if (!frame || frame.parentNode.id !== "current-slide") return;
+        var Deck = function () { return window.parent.opener.Reveal; };
+        var sync = Watch(Deck);
+        // quarto-live signals Run (button or Ctrl+Enter) as a non-bubbling
+        // "input" event with detail.commit; catch it on the way down.
+        document.addEventListener("input", function (e) {
+          if (!e.detail || !e.detail.commit) return;
+          var cell = e.target.closest && e.target.closest(".exercise-cell[id]");
+          if (!cell) return;
+          try {
+            sync();
+            if (!SameSlide(Deck(), Reveal)) return;
+            var twin = window.parent.opener.document.getElementById(cell.id);
+            var run = twin && twin.querySelector(".exercise-editor-btn-run-code");
+            if (run) run.click();
+          } catch (err) {}
+        }, true);
+        return;
+      }
+
+      // In the presented deck.
+      var notesWindow = null;
+      function Preview() {
+        var frame = notesWindow && !notesWindow.closed &&
+          notesWindow.document.querySelector("#current-slide iframe");
+        return frame && frame.contentWindow.Reveal;
+      }
+      var syncPreview = Watch(Preview);
+
+      var open = window.open;
+      window.open = function (url, name) {
+        var w = open.apply(window, arguments);
+        if (w && name === "reveal.js - Notes") {
+          notesWindow = w;
+          // The preview follows the deck after a short debounce.
+          Reveal.on("slidechanged", function () {
+            setTimeout(syncPreview, 500);
+            setTimeout(syncPreview, 1500);
+          });
+        }
+        return w;
+      };
+    })();
+    </script>
+    <script>
+    // Speaker view: the current- and upcoming-slide previews load the deck with
+    // ?receiver. Mark them, so custom.scss can hide the room-only corner overlays
+    // (QR code, segment badge) there.
+    if (/[?&]receiver\b/.test(location.search)) {
+      document.documentElement.classList.add("speaker-preview");
+    }
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/geol-skills\.github\.io");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
